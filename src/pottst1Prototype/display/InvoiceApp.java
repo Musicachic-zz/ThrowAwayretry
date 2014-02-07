@@ -13,6 +13,7 @@ package pottst1Prototype.display;
 import pottst1Prototype.data.Product;
 import pottst1Prototype.data.ProductList;
 
+import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -23,38 +24,37 @@ public class InvoiceApp
 	public static ArrayList<Product> invoice = new ArrayList<>();
 	private static int invoiceSize = 0;
 
-	public static void invoiceEntry()
-	{
-
-	}
-
 	public static void addDisplay()
 	{
 
-		boolean isValid = true;
+		boolean isValid = false;
+		String choice = "y";
 
 		while (!isValid)
 		{
 			Scanner sc = new Scanner(System.in);
-			System.out.println("Enter a UPC code: ");
+			System.out.print("Enter a UPC code: ");
 			String upc = sc.nextLine();
+			//Product p = new Product();
 
 			for (Product p : ProductList.getProducts())
 			{
 				if (p.getUpc().equals(upc))
 				{
-					isValid = true;
-					//invoiceEntry();
+					//isValid = true;
 					invoice.add(p);
-				}
-				else
-				{
-					System.out.println("Error! The UPC code was not found.");
+					System.out.println(invoice);
+					invoiceSize++;
+					InitialSalesDisplay.initialDisplay();
 				}
 
 			}
-
+			System.out.println("Error! The UPC code was not found.");
+			addDisplay();
 		}
+
+		System.out.println(invoice);
+
 	}
 
 	public BigDecimal getInvoiceTotal()
@@ -68,9 +68,13 @@ public class InvoiceApp
 		return invoiceTotal;
 	}
 
-	public String getFormattedTotal(){
+	public String getFormattedTotal()
+	{
 		NumberFormat currency = NumberFormat.getCurrencyInstance();
 		return currency.format(this.getInvoiceTotal());
 	}
 
 }
+
+
+
