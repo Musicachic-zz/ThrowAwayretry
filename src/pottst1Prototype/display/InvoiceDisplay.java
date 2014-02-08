@@ -27,7 +27,7 @@ public class InvoiceDisplay
 		*/
 
 		for (Product p: invoice) {
-			System.out.println(p.toString());
+			System.out.println(p);
 		}
 
 		System.out.println("+----------------------------------+");
