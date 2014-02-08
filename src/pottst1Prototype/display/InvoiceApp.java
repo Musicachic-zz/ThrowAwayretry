@@ -45,10 +45,9 @@ public class InvoiceApp
 					int quantity = sc.nextInt();
 					p.setQuantity(quantity);
 					invoice.add(p);
-
-					//p.setQuantity() = p.getQuantity() - quantityPurchased;
-					System.out.println(invoice);
-					invoiceSize++;
+					InvoiceDisplay.printInvoice(invoice);
+					//System.out.println(invoice);
+					//invoiceSize++;
 					InitialSalesDisplay.initialDisplay();
 				}
 
@@ -67,7 +66,7 @@ public class InvoiceApp
 		System.out.print("Enter the quantity for purchase: ");
 	}
 
-	public BigDecimal getInvoiceTotal()
+/*	public BigDecimal getInvoiceTotal()
 	{
 
 		BigDecimal invoiceTotal = new BigDecimal(0);
@@ -82,7 +81,7 @@ public class InvoiceApp
 	{
 		NumberFormat currency = NumberFormat.getCurrencyInstance();
 		return currency.format(this.getInvoiceTotal());
-	}
+	}*/
 
 }
 

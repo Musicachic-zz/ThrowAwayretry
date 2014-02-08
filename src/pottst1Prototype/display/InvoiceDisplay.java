@@ -14,7 +14,7 @@ import pottst1Prototype.data.Product;
 
 import java.util.ArrayList;
 
-public class InvoiceDisplay extends InvoiceApp
+public class InvoiceDisplay
 {
 	public static void printInvoice(ArrayList<Product> invoice)
 	{

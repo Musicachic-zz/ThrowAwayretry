@@ -75,7 +75,7 @@ public class Product
 	public String toString()
 	{
 		NumberFormat nf = NumberFormat.getCurrencyInstance();
-		return "|" + description + "|" + nf.format(price) + " x " + quantity + " = " +
+		return "|" + description + "    |" + nf.format(price) + " x " + quantity + " = " +
 				       nf.format(price.multiply(BigDecimal.valueOf(quantity))) + "|" ;
 	}
 }

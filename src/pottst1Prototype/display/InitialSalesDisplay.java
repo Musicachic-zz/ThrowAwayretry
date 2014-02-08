@@ -23,7 +23,7 @@ public class InitialSalesDisplay
 
 		System.out.println("Sales Display\n");
 
-		System.out.println("Would you like to do: Add, Remove, or Exit?: ");
+		System.out.print("Would you like to do: Add, Remove, or Exit?: ");
 
 		Scanner sc = new Scanner(System.in);
 		String salesDisplayChoice = sc.next();
