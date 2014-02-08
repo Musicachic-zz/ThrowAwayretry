@@ -14,7 +14,7 @@ import pottst1Prototype.data.Product;
 
 import java.util.ArrayList;
 
-public class InvoiceDisplay
+public class InvoiceDisplay extends InvoiceApp
 {
 	public static void printInvoice(ArrayList<Product> invoice)
 	{
@@ -26,7 +26,7 @@ public class InvoiceDisplay
 		}
 		*/
 
-		for (Product p: invoice) {
+		for (Product p: InvoiceApp.invoice) {
 			System.out.println(p);
 		}
 

@@ -76,6 +76,6 @@ public class Product
 	{
 		NumberFormat nf = NumberFormat.getCurrencyInstance();
 		return "|" + description + "|" + nf.format(price) + " x " + quantity + " = " +
-				       nf.format(price.multiply(BigDecimal.valueOf(quantity))) + "|";
+				       nf.format(price.multiply(BigDecimal.valueOf(quantity))) + "|" ;
 	}
 }

@@ -19,8 +19,8 @@ public class App
 	public static void main(String[] args)
 	{
 
-		Login.username();
-		Login.password();
+		//Login.username();
+		//Login.password();
 		InitialSalesDisplay.initialDisplay();
 	}
 }

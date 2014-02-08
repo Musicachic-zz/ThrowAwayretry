@@ -16,6 +16,7 @@ import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
+import pottst1Prototype.display.InvoiceDisplay;
 
 public class InvoiceApp
 {
@@ -39,6 +40,7 @@ public class InvoiceApp
 			{
 				if (p.getUpc().equals(upc))
 				{
+
 					//isValid = true;
 					invoice.add(p);
 					System.out.println(invoice);
