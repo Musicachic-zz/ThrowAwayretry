@@ -22,6 +22,7 @@ public class InvoiceApp
 {
 	public static ArrayList<Product> invoice = new ArrayList<>();
 	private static int invoiceSize = 0;
+	public int quantityPurchased = 0;
 
 	public static void addDisplay()
 	{
@@ -40,9 +41,12 @@ public class InvoiceApp
 			{
 				if (p.getUpc().equals(upc))
 				{
-
-					//isValid = true;
+					askForQuantity();
+					int quantity = sc.nextInt();
+					p.setQuantity(quantity);
 					invoice.add(p);
+
+					//p.setQuantity() = p.getQuantity() - quantityPurchased;
 					System.out.println(invoice);
 					invoiceSize++;
 					InitialSalesDisplay.initialDisplay();
@@ -55,6 +59,12 @@ public class InvoiceApp
 
 		InvoiceDisplay.printInvoice(invoice);
 
+	}
+
+	public static void askForQuantity(){
+
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the quantity for purchase: ");
 	}
 
 	public BigDecimal getInvoiceTotal()
