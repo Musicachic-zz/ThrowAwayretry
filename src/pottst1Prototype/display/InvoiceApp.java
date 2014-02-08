@@ -12,8 +12,6 @@ package pottst1Prototype.display;
 
 import pottst1Prototype.data.Product;
 import pottst1Prototype.data.ProductList;
-
-import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -53,7 +51,7 @@ public class InvoiceApp
 			addDisplay();
 		}
 
-		System.out.println(invoice);
+		InvoiceDisplay.printInvoice(invoice);
 
 	}
 
