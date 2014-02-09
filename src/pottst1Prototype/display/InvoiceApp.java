@@ -66,7 +66,7 @@ public class InvoiceApp
 		System.out.print("Enter the quantity for purchase: ");
 	}
 
-/*	public BigDecimal getInvoiceTotal()
+	public BigDecimal getInvoiceTotal()
 	{
 
 		BigDecimal invoiceTotal = new BigDecimal(0);
@@ -81,7 +81,7 @@ public class InvoiceApp
 	{
 		NumberFormat currency = NumberFormat.getCurrencyInstance();
 		return currency.format(this.getInvoiceTotal());
-	}*/
+	}
 
 }
 

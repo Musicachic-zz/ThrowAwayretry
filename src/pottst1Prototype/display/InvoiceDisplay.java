@@ -14,8 +14,17 @@ import pottst1Prototype.data.Product;
 
 import java.util.ArrayList;
 
+/**
+ * This class is the display of the invoice in a readable format.
+ */
 public class InvoiceDisplay
 {
+	/**
+	 * This method displays all the items that were entered while using the
+	 * InvoiceApp class.
+	 * @param invoice This is the invoice that already has the arrayList of
+	 * items.
+	 */
 	public static void printInvoice(ArrayList<Product> invoice)
 	{
 		System.out.println("+----------------------------------+");

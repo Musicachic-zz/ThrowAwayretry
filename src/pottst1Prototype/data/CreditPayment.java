@@ -10,26 +10,51 @@ package pottst1Prototype.data;
 *
 */
 
+/**
+ * This class contains the code that will support Credit Card payments in the
+ * future. It contains the getter and setters related to it.
+ */
+
 public class CreditPayment extends Payment
 {
 	private String cardNum;
 	private String expirationDate;
 
+	/**
+	 * This is the getter for the variable of cardNum which will be the
+	 * credit card number.
+	 * @return cardNum returns card number.
+	 */
 	public String getCardNum()
 	{
 		return cardNum;
 	}
 
+	/**
+	 * This is the setter for the variable of cardNum,
+	 * which will be the credit card number
+	 * @param cardNum is the credit card number.
+	 */
 	public void setCardNum(String cardNum)
 	{
 		this.cardNum = cardNum;
 	}
 
+	/**
+	 * This is the getter for the variable of credit card expiration date,
+	 * which will be used when implementing payments.
+	 * @return expirationDate returns the credit card expiration date.
+	 */
 	public String getExpirationDate()
 	{
 		return expirationDate;
 	}
 
+	/**
+	 * This the setter for the variable of credit card expiration date,
+	 * which will be used when implementing payments.
+	 * @param expirationDate is the credit card expiration date.
+	 */
 	public void setExpirationDate(String expirationDate)
 	{
 		this.expirationDate = expirationDate;

@@ -10,6 +10,10 @@ package pottst1Prototype.data;
 *
 */
 
+/**
+ * This class will be used later when Cash payments will be implemented.
+ */
+
 public class CashPayment extends Payment
 {
 }

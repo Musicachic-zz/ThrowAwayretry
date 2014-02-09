@@ -14,8 +14,19 @@ import pottst1Prototype.display.InitialSalesDisplay;
 import pottst1Prototype.display.InvoiceApp;
 import pottst1Prototype.display.Login;
 
+/**
+ * This class contains only the main method that calls the methods that will
+ * fire off the application.
+ */
+
 public class App
 {
+	/**
+	 * This method is the main method that fires off the running of the POP
+	 * project.
+	 *
+	 */
+
 	public static void main(String[] args)
 	{
 

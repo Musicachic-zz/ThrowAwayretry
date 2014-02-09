@@ -12,10 +12,17 @@ package pottst1Prototype.display;
 
 import java.util.Scanner;
 
+/**
+ * This class shows the initial sales display options and asks do you want to
+ * add, remove, or exit. Based on their selection it takes them to classes
+ * that will provide that option.
+ */
 public class InitialSalesDisplay
 {
 	/**
-	 * Describe what this method does for the javadoc.
+	 *  This method has code for the initial questions asked in the sales
+	 *  display. It will route to the next method to complete that action
+	 *  based on their choice.
 	 */
 
 	public static void initialDisplay()

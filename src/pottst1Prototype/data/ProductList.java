@@ -12,10 +12,19 @@ package pottst1Prototype.data;
 
 import java.math.BigDecimal;
 
+/**
+ * This class is an hardcoded array of Products available for the prototype.
+ * This will be updated by the manager once further along in the coding
+ * process.
+ */
 public class ProductList extends Product
 {
 	public static Product[] products = new Product[4];
 
+	/**
+	 * This method contains the products available array.
+	 * @return products This is the list of products available for purchase.
+	 */
 	public static Product[] getProducts()
 	{
 
