@@ -1,6 +1,3 @@
-package pottst1Prototype.display;
-
-
 /*         ====================================================
 *          # Name: Teresa Potts (POTTST1)
 *          # Date: 2/6/14
@@ -10,6 +7,8 @@ package pottst1Prototype.display;
 *
 *
 */
+
+package pottst1Prototype.display;
 
 import pottst1Prototype.data.Employee;
 
@@ -31,6 +30,7 @@ to verify that the username is 6-12 alphanumeric characters long as per the spec
 	 *
 	 * @return username This is the username of the employee using the program.
 	 */
+
 	public static String username()
 	{
 

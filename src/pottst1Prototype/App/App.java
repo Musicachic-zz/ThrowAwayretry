@@ -1,5 +1,3 @@
-package pottst1Prototype.App;
-
 /*         ====================================================
 *          # Name: Teresa Potts (POTTST1)
 *          # Date: 2/6/14
@@ -9,6 +7,7 @@ package pottst1Prototype.App;
 *
 *
 */
+package pottst1Prototype.App;
 
 import pottst1Prototype.display.InitialSalesDisplay;
 import pottst1Prototype.display.InvoiceApp;

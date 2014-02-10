@@ -1,5 +1,3 @@
-package pottst1Prototype.display;
-
 /*         ====================================================
 *          # Name: Teresa Potts (POTTST1)
 *          # Date: 2/7/14
@@ -9,6 +7,8 @@ package pottst1Prototype.display;
 *
 *
 */
+
+package pottst1Prototype.display;
 
 import pottst1Prototype.data.Product;
 

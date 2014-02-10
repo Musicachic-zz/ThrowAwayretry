@@ -1,5 +1,3 @@
-package pottst1Prototype.data;
-
 /*         ====================================================
 *          # Name: Teresa Potts (POTTST1)
 *          # Date: 2/6/14
@@ -9,6 +7,8 @@ package pottst1Prototype.data;
 *
 *
 */
+
+package pottst1Prototype.data;
 
 /**
  * This class will be used later when Cash payments will be implemented.

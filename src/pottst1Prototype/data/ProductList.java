@@ -1,5 +1,3 @@
-package pottst1Prototype.data;
-
 /*         ====================================================
 *          # Name: Teresa Potts (POTTST1)
 *          # Date: 2/6/14
@@ -10,6 +8,8 @@ package pottst1Prototype.data;
 *
 */
 
+package pottst1Prototype.data;
+
 import java.math.BigDecimal;
 
 /**
@@ -17,6 +17,7 @@ import java.math.BigDecimal;
  * This will be updated by the manager once further along in the coding
  * process.
  */
+
 public class ProductList extends Product
 {
 	public static Product[] products = new Product[4];
@@ -26,6 +27,7 @@ public class ProductList extends Product
 	 *
 	 * @return products This is the list of products available for purchase.
 	 */
+
 	public static Product[] getProducts()
 	{
 

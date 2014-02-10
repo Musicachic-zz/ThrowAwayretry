@@ -1,5 +1,3 @@
-package pottst1Prototype.display;
-
 /*         ====================================================
 *          # Name: Teresa Potts (POTTST1)
 *          # Date: 2/6/14
@@ -10,6 +8,8 @@ package pottst1Prototype.display;
 *
 */
 
+package pottst1Prototype.display;
+
 import java.util.Scanner;
 
 /**
@@ -17,6 +17,7 @@ import java.util.Scanner;
  * add, remove, or exit. Based on their selection it takes them to classes
  * that will provide that option.
  */
+
 public class InitialSalesDisplay
 {
 	/**

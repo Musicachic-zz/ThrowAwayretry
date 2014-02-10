@@ -1,5 +1,3 @@
-package pottst1Prototype.data;
-
 /*         ====================================================
 *          # Name: Teresa Potts (POTTST1)
 *          # Date: 2/6/14
@@ -10,6 +8,8 @@ package pottst1Prototype.data;
 *
 */
 
+package pottst1Prototype.data;
+
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 
@@ -17,6 +17,7 @@ import java.text.NumberFormat;
  * This class contains the getters, setters, and constructors for the
  * attributes of a product.
  */
+
 public class Product
 {
 	private String upc;
@@ -31,6 +32,7 @@ public class Product
 	 *
 	 * @return upc
 	 */
+
 	public String getUpc()
 	{
 		return upc;

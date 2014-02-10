@@ -1,5 +1,3 @@
-package pottst1Prototype.display;
-
 /*         ====================================================
 *          # Name: Teresa Potts (POTTST1)
 *          # Date: 2/6/14
@@ -9,6 +7,8 @@ package pottst1Prototype.display;
 *
 *
 */
+
+package pottst1Prototype.display;
 
 import pottst1Prototype.data.Product;
 import pottst1Prototype.data.ProductList;
@@ -26,6 +26,7 @@ import pottst1Prototype.display.InvoiceDisplay;
  * desired. Utimately it should also take the quantity based on what is
  * available.
  */
+
 public class InvoiceApp
 {
 	public static ArrayList<Product> invoice = new ArrayList<>();
@@ -37,6 +38,7 @@ public class InvoiceApp
 	 * checks to see if the UPC exists in the ProductList and if does adds it
 	 * to the arrayList.
 	 */
+
 	public static void addDisplay()
 	{
 
@@ -77,6 +79,7 @@ public class InvoiceApp
 	 * This method as the user how many of a product a customer will be
 	 * purchasing.
 	 */
+
 	public static void askForQuantity()
 	{
 
@@ -91,6 +94,7 @@ public class InvoiceApp
 	 * @return invoiceTotal This is the total price of all products on the
 	 *         invoice.
 	 */
+
 	public BigDecimal getInvoiceTotal()
 	{
 
@@ -107,6 +111,7 @@ public class InvoiceApp
 	 *
 	 * @return getInvoiceTotal in a readable currency format.
 	 */
+
 	public String getFormattedTotal()
 	{
 		NumberFormat currency = NumberFormat.getCurrencyInstance();
