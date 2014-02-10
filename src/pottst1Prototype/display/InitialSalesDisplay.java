@@ -28,8 +28,6 @@ public class InitialSalesDisplay
 	public static void initialDisplay()
 	{
 
-		System.out.println("Sales Display\n");
-
 		System.out.print("Would you like to do: Add, Remove, or Exit?: ");
 
 		Scanner sc = new Scanner(System.in);

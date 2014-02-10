@@ -28,7 +28,7 @@ public class InvoiceDisplay
 	 */
 	public static void printInvoice(ArrayList<Product> invoice)
 	{
-		System.out.println("+----------------------------------+");
+		System.out.println("+----------------------------------------------+");
 
 		/*
 		for (int i = 0; i < invoice.length; i++) {
@@ -41,7 +41,7 @@ public class InvoiceDisplay
 			System.out.println(p);
 		}
 
-		System.out.println("+----------------------------------+");
+		System.out.println("+----------------------------------------------+");
 		System.out.println();
 	}
 }

@@ -25,6 +25,7 @@ public class Product
 	private int quantity;
 	private int numInStock;
 
+
 	/**
 	 * This is the getter for the product's upc.
 	 *
@@ -138,6 +139,7 @@ public class Product
 	{
 		NumberFormat nf = NumberFormat.getCurrencyInstance();
 		return "|" + description + "    |" + nf.format(price) + " x " + quantity + " = " +
-				       nf.format(price.multiply(BigDecimal.valueOf(quantity))) + "|";
+				       nf.format(price.multiply(BigDecimal.valueOf(quantity))
+				       ) + "|";
 	}
 }
