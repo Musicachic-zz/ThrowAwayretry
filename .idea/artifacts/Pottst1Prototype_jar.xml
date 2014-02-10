@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="ThrowAway:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/ThrowAway_jar</output-path>
+  <artifact type="jar" name="Pottst1Prototype:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Pottst1Prototype_jar</output-path>
     <root id="archive" name="ThrowAway.jar">
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
