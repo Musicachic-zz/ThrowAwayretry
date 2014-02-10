@@ -23,6 +23,7 @@ public class ProductList extends Product
 
 	/**
 	 * This method contains the products available array.
+	 *
 	 * @return products This is the list of products available for purchase.
 	 */
 	public static Product[] getProducts()

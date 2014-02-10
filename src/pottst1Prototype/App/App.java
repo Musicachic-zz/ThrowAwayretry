@@ -24,7 +24,6 @@ public class App
 	/**
 	 * This method is the main method that fires off the running of the POP
 	 * project.
-	 *
 	 */
 
 	public static void main(String[] args)

@@ -28,6 +28,7 @@ to verify that the username is 6-12 alphanumeric characters long as per the spec
 	/**
 	 * This method prompts the user to enter their username and then
 	 * validates against a hardcoded username during the prototype phase.
+	 *
 	 * @return username This is the username of the employee using the program.
 	 */
 	public static String username()
@@ -68,9 +69,10 @@ to verify that the username is 6-12 alphanumeric characters long as per the spec
 	/**
 	 * This method prompts the user to enter their password and then
 	 * validates against a hardcoded password during the prototype phase.
+	 *
 	 * @return password This is the password of the employee using the
-	 * program. Eventually there will be a list of usernames and passwords
-	 * and must fit the requirements in the spec.
+	 *         program. Eventually there will be a list of usernames and passwords
+	 *         and must fit the requirements in the spec.
 	 */
 
 	public static String password()

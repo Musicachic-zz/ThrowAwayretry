@@ -25,8 +25,9 @@ abstract class Payment
 	/**
 	 * This is the getter for the amount someone will pay towards their
 	 * invoice total.
+	 *
 	 * @return amount   This is the amount someone is paying towards their
-	 * invoice total.
+	 *         invoice total.
 	 */
 	public BigDecimal getAmount()
 	{
@@ -36,8 +37,9 @@ abstract class Payment
 	/**
 	 * This is the setter for the amount someone will pay towards their
 	 * invoice total.
+	 *
 	 * @param amount This is the amount someone will pay toward their invoice
-	 * total.
+	 *               total.
 	 */
 	public void setAmount(BigDecimal amount)
 	{

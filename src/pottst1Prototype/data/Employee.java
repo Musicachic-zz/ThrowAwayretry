@@ -26,6 +26,7 @@ public class Employee
 
 	/**
 	 * This is the getter for username the employee enters.
+	 *
 	 * @return username
 	 */
 	public String getUsername()
@@ -35,6 +36,7 @@ public class Employee
 
 	/**
 	 * This is the setter for the username the employee enters.
+	 *
 	 * @param username This is the username entered by the employee.
 	 */
 	public void setUsername(String username)
@@ -46,6 +48,7 @@ public class Employee
 	 * This is the getter for the password entered by the employee. We are
 	 * using the char[] return type since it will not be easily just shown as
 	 * a string.
+	 *
 	 * @return password
 	 */
 	public char[] getPassword()
@@ -55,8 +58,9 @@ public class Employee
 
 	/**
 	 * This is the setter for the password entered by the employee.
+	 *
 	 * @param password This is being passed as a char[] so it won't be shown
-	 * as a string.
+	 *                 as a string.
 	 */
 	public void setPassword(char[] password)
 	{
@@ -66,6 +70,7 @@ public class Employee
 	/**
 	 * This is the getter for the access level since there are managers and
 	 * regular employees.
+	 *
 	 * @return accessLevel of Employee or Manager
 	 */
 	public String getAccessLevel()
@@ -75,6 +80,7 @@ public class Employee
 
 	/**
 	 * This is the setter for the access level.
+	 *
 	 * @param accessLevel The string accessLevel is passed in.
 	 */
 	public void setAccessLevel(String accessLevel)

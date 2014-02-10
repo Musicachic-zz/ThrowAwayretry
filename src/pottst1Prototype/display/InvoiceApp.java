@@ -12,10 +12,12 @@ package pottst1Prototype.display;
 
 import pottst1Prototype.data.Product;
 import pottst1Prototype.data.ProductList;
+
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import pottst1Prototype.display.InvoiceDisplay;
 
 /**
@@ -75,7 +77,8 @@ public class InvoiceApp
 	 * This method as the user how many of a product a customer will be
 	 * purchasing.
 	 */
-	public static void askForQuantity(){
+	public static void askForQuantity()
+	{
 
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter the quantity for purchase: ");
@@ -84,8 +87,9 @@ public class InvoiceApp
 	/**
 	 * This is the getter for the invoice total based on all the items added
 	 * or removed from the invoice.
+	 *
 	 * @return invoiceTotal This is the total price of all products on the
-	 * invoice.
+	 *         invoice.
 	 */
 	public BigDecimal getInvoiceTotal()
 	{
@@ -100,6 +104,7 @@ public class InvoiceApp
 
 	/**
 	 * This formats the invoice total to currency format for readability.
+	 *
 	 * @return getInvoiceTotal in a readable currency format.
 	 */
 	public String getFormattedTotal()

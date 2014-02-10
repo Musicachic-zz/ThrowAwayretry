@@ -23,6 +23,7 @@ public class CreditPayment extends Payment
 	/**
 	 * This is the getter for the variable of cardNum which will be the
 	 * credit card number.
+	 *
 	 * @return cardNum returns card number.
 	 */
 	public String getCardNum()
@@ -33,6 +34,7 @@ public class CreditPayment extends Payment
 	/**
 	 * This is the setter for the variable of cardNum,
 	 * which will be the credit card number
+	 *
 	 * @param cardNum is the credit card number.
 	 */
 	public void setCardNum(String cardNum)
@@ -43,6 +45,7 @@ public class CreditPayment extends Payment
 	/**
 	 * This is the getter for the variable of credit card expiration date,
 	 * which will be used when implementing payments.
+	 *
 	 * @return expirationDate returns the credit card expiration date.
 	 */
 	public String getExpirationDate()
@@ -53,6 +56,7 @@ public class CreditPayment extends Payment
 	/**
 	 * This the setter for the variable of credit card expiration date,
 	 * which will be used when implementing payments.
+	 *
 	 * @param expirationDate is the credit card expiration date.
 	 */
 	public void setExpirationDate(String expirationDate)

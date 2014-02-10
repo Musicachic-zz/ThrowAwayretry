@@ -20,9 +20,9 @@ import java.util.Scanner;
 public class InitialSalesDisplay
 {
 	/**
-	 *  This method has code for the initial questions asked in the sales
-	 *  display. It will route to the next method to complete that action
-	 *  based on their choice.
+	 * This method has code for the initial questions asked in the sales
+	 * display. It will route to the next method to complete that action
+	 * based on their choice.
 	 */
 
 	public static void initialDisplay()

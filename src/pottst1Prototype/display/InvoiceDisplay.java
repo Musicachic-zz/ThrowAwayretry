@@ -22,8 +22,9 @@ public class InvoiceDisplay
 	/**
 	 * This method displays all the items that were entered while using the
 	 * InvoiceApp class.
+	 *
 	 * @param invoice This is the invoice that already has the arrayList of
-	 * items.
+	 *                items.
 	 */
 	public static void printInvoice(ArrayList<Product> invoice)
 	{
@@ -35,7 +36,8 @@ public class InvoiceDisplay
 		}
 		*/
 
-		for (Product p: InvoiceApp.invoice) {
+		for (Product p : InvoiceApp.invoice)
+		{
 			System.out.println(p);
 		}
 
