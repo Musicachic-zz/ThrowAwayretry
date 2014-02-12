@@ -23,8 +23,9 @@ import pottst1Prototype.display.InvoiceDisplay;
 /**
  * This is the class that creates the invoice array list. It validates that
  * the UPC entered is in the ProductList class and then prompts for the amount
- * desired. Utimately it should also take the quantity based on what is
- * available.
+ * desired. Ultimately it should also take the quantity based on what is
+ * available. This class was originally created in the Murach Java book in
+ * chapter 12. I modified it as I saw fit.
  */
 
 public class InvoiceApp

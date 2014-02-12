@@ -15,8 +15,10 @@ import pottst1Prototype.data.Product;
 import java.util.ArrayList;
 
 /**
- * This class is the display of the invoice in a readable format.
+ * This class is the display of the invoice in a readable format. Inspired by
+ * the display we did in class.
  */
+
 public class InvoiceDisplay
 {
 	/**

@@ -15,7 +15,7 @@ import java.text.NumberFormat;
 
 /**
  * This class contains the getters, setters, and constructors for the
- * attributes of a product.
+ * attributes of a product. This was created in class as a group.
  */
 
 public class Product
