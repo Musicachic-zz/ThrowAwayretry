@@ -87,27 +87,25 @@ public class InvoiceApp
 			String upc = sc.nextLine();
 			//Product p = new Product();
 
+
+
 			for (Product p : invoice)
 			{
 				if (p.getUpc().equals(upc))
 				{
-					//askForQuantity();
-					//int quantity = sc.nextInt();
-					//p.setQuantity(quantity);
-					invoice.remove(p);
+					int indexOfInvoice = invoice.indexOf(p);
+					askForQuantity();
+					int quantity = sc.nextInt();
+					p.setQuantity(quantity);
+					invoice.remove(indexOfInvoice);
 					InvoiceDisplay.printInvoice(invoice);
-					//System.out.println(invoice);
-					//invoiceSize++;
-					InitialSalesDisplay.initialDisplay();
 				}
-
 			}
 			System.out.println("Error! The UPC code was not found.");
-			addDisplay();
+			InitialSalesDisplay.initialDisplay();
 		}
 
-		InvoiceDisplay.printInvoice(invoice);
-
+		//InvoiceDisplay.printInvoice(invoice);
 	}
 
 	/**
