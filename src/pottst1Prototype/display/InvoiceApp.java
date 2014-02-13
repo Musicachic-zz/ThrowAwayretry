@@ -16,6 +16,8 @@ import pottst1Prototype.data.ProductList;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 import pottst1Prototype.display.InvoiceDisplay;
@@ -30,7 +32,8 @@ import pottst1Prototype.display.InvoiceDisplay;
 
 public class InvoiceApp
 {
-	public static ArrayList<Product> invoice = new ArrayList<>();
+	//public static ArrayList<Product> invoice = new ArrayList<>();
+	public Map<Product, Integer> invoice = new HashMap<Product, Integer>();
 	private static int invoiceSize = 0;
 	public int quantityPurchased = 0;
 
@@ -40,7 +43,7 @@ public class InvoiceApp
 	 * to the arrayList.
 	 */
 
-	public static void addDisplay()
+	public void addDisplay()
 	{
 
 		boolean isValid = false;
@@ -59,7 +62,8 @@ public class InvoiceApp
 					askForQuantity();
 					int quantity = sc.nextInt();
 					p.setQuantity(quantity);
-					invoice.add(p);
+					//invoice.add(p);
+					invoice.put(upc,quantity);
 					InvoiceDisplay.printInvoice(invoice);
 					//System.out.println(invoice);
 					//invoiceSize++;
