@@ -15,10 +15,7 @@ import pottst1Prototype.data.ProductList;
 
 import java.math.BigDecimal;
 import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 import pottst1Prototype.display.InvoiceDisplay;
 
@@ -33,7 +30,7 @@ import pottst1Prototype.display.InvoiceDisplay;
 public class InvoiceApp
 {
 	//public static ArrayList<Product> invoice = new ArrayList<>();
-	public Map<Product, Integer> invoice = new HashMap<Product, Integer>();
+	public Map<String, Integer> invoice = new HashMap<String, Integer>();
 	private static int invoiceSize = 0;
 	public int quantityPurchased = 0;
 
@@ -64,7 +61,8 @@ public class InvoiceApp
 					p.setQuantity(quantity);
 					//invoice.add(p);
 					invoice.put(upc,quantity);
-					InvoiceDisplay.printInvoice(invoice);
+					System.out.println(invoice);
+					//InvoiceDisplay.printInvoice(invoice);
 					//System.out.println(invoice);
 					//invoiceSize++;
 					InitialSalesDisplay.initialDisplay();
@@ -75,11 +73,11 @@ public class InvoiceApp
 			addDisplay();
 		}
 
-		InvoiceDisplay.printInvoice(invoice);
+		System.out.println(invoice);
 
 	}
 
-	public static void removeDisplay()
+/*	public static void removeDisplay()
 	{
 
 		boolean isValid = false;
@@ -107,10 +105,10 @@ public class InvoiceApp
 			}
 			System.out.println("Error! The UPC code was not found.");
 			InitialSalesDisplay.initialDisplay();
-		}
+		}*/
 
 		//InvoiceDisplay.printInvoice(invoice);
-	}
+
 
 	/**
 	 * This method as the user how many of a product a customer will be
@@ -136,7 +134,7 @@ public class InvoiceApp
 	{
 
 		BigDecimal invoiceTotal = new BigDecimal(0);
-		for (Product lineItem : invoice)
+		for (Product lineItem : invoice.entrySet())
 		{
 			invoiceTotal.add(lineItem.getPrice());
 		}

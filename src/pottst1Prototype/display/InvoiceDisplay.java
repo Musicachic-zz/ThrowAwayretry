@@ -38,7 +38,7 @@ public class InvoiceDisplay
 		}
 		*/
 
-		for (Product p : InvoiceApp.invoice)
+		for (Product p : invoice)
 		{
 			System.out.println(p);
 		}
