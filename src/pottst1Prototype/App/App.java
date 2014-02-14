@@ -9,6 +9,7 @@
 */
 package pottst1Prototype.App;
 
+import pottst1Prototype.data.Inventory;
 import pottst1Prototype.display.InitialSalesDisplay;
 import pottst1Prototype.display.InvoiceApp;
 import pottst1Prototype.display.Login;
@@ -25,11 +26,12 @@ public class App
 	 * project.
 	 */
 
-	public static void main(String[] args)
+	public void main(String[] args)
 	{
 
 		//Login.username();
 		//Login.password();
+		Inventory.addInventory();
 		System.out.println("Sales Display\n");
 		InitialSalesDisplay.initialDisplay();
 	}

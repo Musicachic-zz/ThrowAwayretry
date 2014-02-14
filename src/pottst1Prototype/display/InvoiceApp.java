@@ -134,7 +134,7 @@ public class InvoiceApp
 	{
 
 		BigDecimal invoiceTotal = new BigDecimal(0);
-		for (Product lineItem : invoice.entrySet())
+		for (Product lineItem : invoice.keySet(Product))
 		{
 			invoiceTotal.add(lineItem.getPrice());
 		}
