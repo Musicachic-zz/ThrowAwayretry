@@ -144,4 +144,10 @@ public class Product
 				       nf.format(price.multiply(BigDecimal.valueOf(quantity))
 				       ) + "|";
 	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		return upc.equals(((Product) obj).getUpc());
+	}
 }

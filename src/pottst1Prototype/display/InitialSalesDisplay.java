@@ -10,6 +10,8 @@
 
 package pottst1Prototype.display;
 
+import pottst1Prototype.data.Inventory;
+
 import java.util.Scanner;
 
 /**
@@ -28,6 +30,8 @@ public class InitialSalesDisplay
 
 	public static void initialDisplay()
 	{
+		//Inventory inventory = new Inventory();
+		//Invoice invoice = new Invoice();
 
 		System.out.print("Would you like to do: Add, Remove, or Exit?: ");
 
@@ -38,11 +42,12 @@ public class InitialSalesDisplay
 		{
 			System.out.println("You selected Add");
 			InvoiceApp.addDisplay();
+			//invoice.addProduct(product, quantity)
 		}
 		if (salesDisplayChoice.equalsIgnoreCase("Remove"))
 		{
 			System.out.println("You selected Remove");
-			InvoiceApp.removeDisplay();
+			//InvoiceApp.removeDisplay();
 		}
 		if (salesDisplayChoice.equalsIgnoreCase("Exit"))
 		{

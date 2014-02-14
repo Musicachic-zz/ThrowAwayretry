@@ -13,6 +13,8 @@ package pottst1Prototype.display;
 import pottst1Prototype.data.Product;
 
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * This class is the display of the invoice in a readable format. Inspired by
@@ -28,7 +30,7 @@ public class InvoiceDisplay
 	 * @param invoice This is the invoice that already has the arrayList of
 	 *                items.
 	 */
-	public static void printInvoice(ArrayList<Product> invoice)
+	public static void printInvoice(Map<Product, Integer> invoice)
 	{
 		System.out.println("+----------------------------------------------+");
 
@@ -38,9 +40,12 @@ public class InvoiceDisplay
 		}
 		*/
 
-		for (Product p : invoice)
+		for (Map.Entry<Product, Integer> entry : invoice.entrySet())
 		{
-			System.out.println(p);
+			Product product = entry.getKey();
+			Integer quantity = entry.getValue();
+			System.out.println(product.getDescription() + "    |" + quantity);
+			//System.out.println(p);
 		}
 
 		System.out.println("+----------------------------------------------+");

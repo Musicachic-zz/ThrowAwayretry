@@ -26,12 +26,11 @@ public class App
 	 * project.
 	 */
 
-	public void main(String[] args)
+	public static void main(String[] args)
 	{
 
 		//Login.username();
 		//Login.password();
-		Inventory.addInventory();
 		System.out.println("Sales Display\n");
 		InitialSalesDisplay.initialDisplay();
 	}

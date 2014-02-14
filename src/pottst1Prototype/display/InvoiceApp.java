@@ -30,7 +30,7 @@ import pottst1Prototype.display.InvoiceDisplay;
 public class InvoiceApp
 {
 	//public static ArrayList<Product> invoice = new ArrayList<>();
-	public Map<String, Integer> invoice = new HashMap<String, Integer>();
+	public static Map<Product, Integer> invoice = new HashMap<>();
 	private static int invoiceSize = 0;
 	public int quantityPurchased = 0;
 
@@ -40,7 +40,7 @@ public class InvoiceApp
 	 * to the arrayList.
 	 */
 
-	public void addDisplay()
+	public static void addDisplay()
 	{
 
 		boolean isValid = false;
@@ -58,10 +58,17 @@ public class InvoiceApp
 				{
 					askForQuantity();
 					int quantity = sc.nextInt();
-					p.setQuantity(quantity);
+					//p.setQuantity(quantity);
 					//invoice.add(p);
-					invoice.put(upc,quantity);
-					System.out.println(invoice);
+					Integer invoiceQuantity = invoice.get(p);
+					if (invoiceQuantity != null)
+					{
+						quantity += invoiceQuantity;
+					}
+					invoice.put(p,quantity);
+					InvoiceDisplay.printInvoice(invoice);
+
+					//System.out.println(invoice);
 					//InvoiceDisplay.printInvoice(invoice);
 					//System.out.println(invoice);
 					//invoiceSize++;
@@ -72,8 +79,6 @@ public class InvoiceApp
 			System.out.println("Error! The UPC code was not found.");
 			addDisplay();
 		}
-
-		System.out.println(invoice);
 
 	}
 
@@ -118,7 +123,7 @@ public class InvoiceApp
 	public static void askForQuantity()
 	{
 
-		Scanner sc = new Scanner(System.in);
+		//Scanner sc = new Scanner(System.in);
 		System.out.print("Enter the quantity for purchase: ");
 	}
 
@@ -134,7 +139,7 @@ public class InvoiceApp
 	{
 
 		BigDecimal invoiceTotal = new BigDecimal(0);
-		for (Product lineItem : invoice.keySet(Product))
+		for (Product lineItem : invoice.keySet())
 		{
 			invoiceTotal.add(lineItem.getPrice());
 		}
