@@ -47,7 +47,7 @@ public class InitialSalesDisplay
 		if (salesDisplayChoice.equalsIgnoreCase("Remove"))
 		{
 			System.out.println("You selected Remove");
-			//InvoiceApp.removeDisplay();
+			InvoiceApp.removeDisplay();
 		}
 		if (salesDisplayChoice.equalsIgnoreCase("Exit"))
 		{

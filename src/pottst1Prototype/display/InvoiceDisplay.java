@@ -12,6 +12,7 @@ package pottst1Prototype.display;
 
 import pottst1Prototype.data.Product;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
@@ -32,8 +33,14 @@ public class InvoiceDisplay
 	 */
 	public static void printInvoice(Map<Product, Integer> invoice)
 	{
-		System.out.println("+----------------------------------------------+");
 
+		System.out.println
+				("+--------------------------------------------------------" +
+				                   "-+");
+		System.out.println("Item Desc." + "            |" + "Qty" + "    x   " +
+				                   " " + "Price" + "    |" + "Subtotal");
+		System.out.println
+		("+---------------------------------------------------------+" );
 		/*
 		for (int i = 0; i < invoice.length; i++) {
 			System.out.println(invoice[i]);
@@ -44,11 +51,13 @@ public class InvoiceDisplay
 		{
 			Product product = entry.getKey();
 			Integer quantity = entry.getValue();
-			System.out.println(product.getDescription() + "    |" + quantity);
+			System.out.println(product.getDescription() + "    |" + quantity
+			+"           " + product.getPrice());
 			//System.out.println(p);
 		}
 
-		System.out.println("+----------------------------------------------+");
+		System.out.println
+			("+---------------------------------------------------------+");
 		System.out.println();
 	}
 }

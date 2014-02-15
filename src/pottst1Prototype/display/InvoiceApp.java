@@ -31,6 +31,7 @@ public class InvoiceApp
 {
 	//public static ArrayList<Product> invoice = new ArrayList<>();
 	public static Map<Product, Integer> invoice = new HashMap<>();
+	//public static Iterator<Map.Entry<Product,Integer>> iter = invoice.entrySet().iterator();
 	private static int invoiceSize = 0;
 	public int quantityPurchased = 0;
 
@@ -41,6 +42,51 @@ public class InvoiceApp
 	 */
 
 	public static void addDisplay()
+	{
+
+		boolean isValid = false;
+
+		while (!isValid)
+		{
+			Scanner sc = new Scanner(System.in);
+			System.out.print("Enter a UPC code: ");
+			String upc = sc.nextLine();
+			//Product p = new Product();
+
+
+			for (Product p : ProductList.getProducts())
+			{
+				if (p.getUpc().equals(upc))
+				{
+					askForQuantity();
+					int quantity = sc.nextInt();
+					//p.setQuantity(quantity);
+					//invoice.add(p);
+					Integer invoiceQuantity = invoice.get(p);
+					if (invoiceQuantity != null)
+					{
+						//quantity += invoice.values(invoiceQuantity);
+
+						invoice.put(p,invoiceQuantity);
+					}
+					invoice.put(p,quantity);
+					InvoiceDisplay.printInvoice(invoice);
+
+					//System.out.println(invoice);
+					//InvoiceDisplay.printInvoice(invoice);
+					//System.out.println(invoice);
+					//invoiceSize++;
+					InitialSalesDisplay.initialDisplay();
+				}
+
+			}
+			System.out.println("Error! The UPC code was not found.");
+			addDisplay();
+		}
+
+	}
+
+	public static void removeDisplay()
 	{
 
 		boolean isValid = false;
@@ -63,7 +109,11 @@ public class InvoiceApp
 					Integer invoiceQuantity = invoice.get(p);
 					if (invoiceQuantity != null)
 					{
-						quantity += invoiceQuantity;
+						//quantity -= invoiceQuantity;
+						//invoice.remove(p);
+						//invoice.values().remove(invoiceQuantity);
+						//iter.remove();
+
 					}
 					invoice.put(p,quantity);
 					InvoiceDisplay.printInvoice(invoice);
@@ -77,7 +127,7 @@ public class InvoiceApp
 
 			}
 			System.out.println("Error! The UPC code was not found.");
-			addDisplay();
+			removeDisplay();
 		}
 
 	}
