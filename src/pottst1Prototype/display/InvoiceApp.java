@@ -72,11 +72,6 @@ public class InvoiceApp
 					}
 					invoice.put(p,quantity);
 					InvoiceDisplay.printInvoice(invoice);
-
-					//System.out.println(invoice);
-					//InvoiceDisplay.printInvoice(invoice);
-					//System.out.println(invoice);
-					//invoiceSize++;
 					InitialSalesDisplay.initialDisplay();
 				}
 
