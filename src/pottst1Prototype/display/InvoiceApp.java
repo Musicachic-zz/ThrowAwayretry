@@ -65,9 +65,10 @@ public class InvoiceApp
 					Integer invoiceQuantity = invoice.get(p);
 					if (invoiceQuantity != null)
 					{
-						//quantity += invoice.values(invoiceQuantity);
 
-						invoice.put(p,invoiceQuantity);
+						quantity += invoice.get(p);
+
+						invoice.put(p,quantity);
 					}
 					invoice.put(p,quantity);
 					InvoiceDisplay.printInvoice(invoice);
@@ -110,7 +111,7 @@ public class InvoiceApp
 					if (invoiceQuantity != null)
 					{
 						//quantity -= invoiceQuantity;
-						//invoice.remove(p);
+						invoice.remove(p);
 						//invoice.values().remove(invoiceQuantity);
 						//iter.remove();
 

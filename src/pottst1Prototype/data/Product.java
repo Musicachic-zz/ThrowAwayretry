@@ -146,8 +146,19 @@ public class Product
 	}
 
 	@Override
-	public boolean equals(Object obj)
-	{
-		return upc.equals(((Product) obj).getUpc());
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Product that = (Product) o;
+
+		if (!upc.equals(that.upc)) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		return upc.hashCode();
 	}
 }
