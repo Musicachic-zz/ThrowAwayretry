@@ -105,14 +105,19 @@ public class InvoiceApp
 					Integer invoiceQuantity = invoice.get(p);
 					if (invoiceQuantity != null)
 					{
-						//quantity -= invoiceQuantity;
+						invoiceQuantity -= quantity;
 						invoice.remove(p);
 						//invoice.values().remove(invoiceQuantity);
 						//iter.remove();
 
 					}
+					else
+					{
+						System.out.println("The invoice is currently empty.");
+					}
 					invoice.put(p,quantity);
 					InvoiceDisplay.printInvoice(invoice);
+
 
 					//System.out.println(invoice);
 					//InvoiceDisplay.printInvoice(invoice);
