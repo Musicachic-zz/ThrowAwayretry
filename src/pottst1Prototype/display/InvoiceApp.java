@@ -100,23 +100,29 @@ public class InvoiceApp
 				{
 					askForQuantity();
 					int quantity = sc.nextInt();
-					//p.setQuantity(quantity);
-					//invoice.add(p);
+
 					Integer invoiceQuantity = invoice.get(p);
 					if (invoiceQuantity > 1)
 					{
 						invoiceQuantity -= quantity;
 						invoice.put(p,invoiceQuantity);
+						//InvoiceDisplay.printInvoice(invoice);
+
 					}
-					else if (invoiceQuantity==1){
+					else if (invoiceQuantity==1 ||
+							         (invoiceQuantity-quantity==0)){
 						invoice.remove(p);
 						invoiceSize = 0;
+						//InvoiceDisplay.printInvoice(invoice);
+
 					}
-					else
+					else if (invoiceQuantity==null || invoice==null
+							         ||invoiceQuantity==0
+							         ||invoiceSize==0)
 					{
+						//invoice.remove(p);
 						System.out.println("The invoice is currently empty.");
 					}
-
 					InvoiceDisplay.printInvoice(invoice);
 
 
@@ -126,6 +132,8 @@ public class InvoiceApp
 					//invoiceSize++;
 					InitialSalesDisplay.initialDisplay();
 				}
+
+
 
 			}
 			System.out.println("Error! The UPC code was not found.");
