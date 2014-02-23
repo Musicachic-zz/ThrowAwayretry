@@ -53,7 +53,6 @@ public class InvoiceApp
 			String upc = sc.nextLine();
 			//Product p = new Product();
 
-
 			for (Product p : ProductList.getProducts())
 			{
 				if (p.getUpc().equals(upc))
@@ -68,9 +67,9 @@ public class InvoiceApp
 
 						quantity += invoice.get(p);
 
-						invoice.put(p,quantity);
+						invoice.put(p, quantity);
 					}
-					invoice.put(p,quantity);
+					invoice.put(p, quantity);
 					InvoiceDisplay.printInvoice(invoice);
 					InitialSalesDisplay.initialDisplay();
 				}
@@ -102,38 +101,47 @@ public class InvoiceApp
 					int quantity = sc.nextInt();
 
 					Integer invoiceQuantity = invoice.get(p);
-					if (invoiceQuantity > 1)
+					while (invoiceQuantity != null)
 					{
-						invoiceQuantity -= quantity;
-						invoice.put(p,invoiceQuantity);
+						if (quantity < invoiceQuantity)
+						{
+							invoiceQuantity -= quantity;
+							invoice.put(p, invoiceQuantity);
+							//InvoiceDisplay.printInvoice(invoice);
+
+						}
+
+						else if (quantity == invoiceQuantity)
+						{
+							invoice.remove(p);
+							invoiceSize = 0;
+							//InvoiceDisplay.printInvoice(invoice);
+
+						}
+						else if(quantity > invoiceSize || quantity >
+								                                invoiceQuantity)
+						{
+							invoice.put(p, 0);
+							invoice.remove(p);
+						}
+/*						else
+						{
+							//invoice.remove(p);
+							//invoice.remove(p);
+							//invoiceSize = 0;
+							System.out.println("The invoice is currently empty.");
+						}*/
+						InvoiceDisplay.printInvoice(invoice);
+
+						//System.out.println(invoice);
 						//InvoiceDisplay.printInvoice(invoice);
-
+						//System.out.println(invoice);
+						//invoiceSize++;
+						InitialSalesDisplay.initialDisplay();
 					}
-					else if (invoiceQuantity==1 ||
-							         (invoiceQuantity-quantity==0)){
-						invoice.remove(p);
-						invoiceSize = 0;
-						//InvoiceDisplay.printInvoice(invoice);
-
-					}
-					else if (invoiceQuantity==null || invoice==null
-							         ||invoiceQuantity==0
-							         ||invoiceSize==0)
-					{
-						//invoice.remove(p);
-						System.out.println("The invoice is currently empty.");
-					}
-					InvoiceDisplay.printInvoice(invoice);
-
-
-					//System.out.println(invoice);
-					//InvoiceDisplay.printInvoice(invoice);
-					//System.out.println(invoice);
-					//invoiceSize++;
+					System.out.println("The invoice is currently empty.");
 					InitialSalesDisplay.initialDisplay();
 				}
-
-
 
 			}
 			System.out.println("Error! The UPC code was not found.");
@@ -172,8 +180,7 @@ public class InvoiceApp
 			InitialSalesDisplay.initialDisplay();
 		}*/
 
-		//InvoiceDisplay.printInvoice(invoice);
-
+	//InvoiceDisplay.printInvoice(invoice);
 
 	/**
 	 * This method as the user how many of a product a customer will be
