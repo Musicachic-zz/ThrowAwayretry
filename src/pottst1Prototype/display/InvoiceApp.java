@@ -15,9 +15,9 @@ import pottst1Prototype.data.ProductList;
 
 import java.math.BigDecimal;
 import java.text.NumberFormat;
-import java.util.*;
-
-import pottst1Prototype.display.InvoiceDisplay;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 /**
  * This is the class that creates the invoice array list. It validates that

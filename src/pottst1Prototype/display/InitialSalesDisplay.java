@@ -10,8 +10,6 @@
 
 package pottst1Prototype.display;
 
-import pottst1Prototype.data.Inventory;
-
 import java.util.Scanner;
 
 /**

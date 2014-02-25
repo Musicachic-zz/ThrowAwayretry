@@ -14,10 +14,7 @@ import pottst1Prototype.data.Payment;
 import pottst1Prototype.data.Product;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
-import java.util.ArrayList;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * This class is the display of the invoice in a readable format. Inspired by
