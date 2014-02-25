@@ -72,9 +72,18 @@ public class InvoiceDisplay
 		System.out.println("                              " + "Total(Pretax)" +
 				                   ":" +
 				                   " " + "$" + subTotalSum);
-		System.out.println("            "
-		                   + "Tax Rate: "
-		                   + Payment.TAX_RATE.setScale(2, BigDecimal.ROUND_HALF_UP));
+
+		BigDecimal taxRateFormatted = Payment.TAX_RATE.setScale(2,
+		                                                        BigDecimal
+				                                                        .ROUND_HALF_UP).multiply(BigDecimal.valueOf(100));
+		System.out.println("                                   "
+				                   + "Tax Rate: "
+				                   + taxRateFormatted + "%");
+
+		BigDecimal total = subTotalSum.multiply(BigDecimal.valueOf(1.06));
+		System.out.println("                                      " + "Total:" +
+				                   " $" +
+				                   total);
 
 		System.out.println
 				           ("+---------------------------------------------------------+");

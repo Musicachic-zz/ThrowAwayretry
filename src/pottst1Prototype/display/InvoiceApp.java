@@ -31,7 +31,8 @@ public class InvoiceApp
 {
 	//public static ArrayList<Product> invoice = new ArrayList<>();
 	public static Map<Product, Integer> invoice = new HashMap<>();
-	//public static Iterator<Map.Entry<Product,Integer>> iter = invoice.entrySet().iterator();
+	//public static Iterator<Map.Entry<Product,Integer>> iter = invoice
+	// .entrySet().iterator();
 	private static int invoiceSize = 0;
 	private static String lastUpc = null;
 	int quantity = 1;
@@ -54,11 +55,18 @@ public class InvoiceApp
 			System.out.print("Enter a UPC code: ");
 			String upc = sc.nextLine();
 
-			if(upc == null || upc.isEmpty()){
-				if(lastUpc == null)
+			if (upc == null || upc.isEmpty())
+			{
+				if (lastUpc == null)
 				{
 					System.out.println("Error: No UPC provided.");
 
+				}
+				else
+				{
+					upc = lastUpc;
+					System.out.println("Your UPC has defaulted to your last " +
+							                   "used UPC " + lastUpc);
 				}
 			}
 
@@ -71,7 +79,7 @@ public class InvoiceApp
 
 					Integer quantity;
 					String s = sc.nextLine();
-					if (s!= null && InvoiceApp.isInteger(s))
+					if (s != null && InvoiceApp.isInteger(s))
 					{
 						quantity = Integer.valueOf(s);
 					}
@@ -79,7 +87,6 @@ public class InvoiceApp
 					{
 						quantity = 1;
 					}
-
 
 					Integer invoiceQuantity = invoice.get(p);
 					if (invoiceQuantity != null)
@@ -111,7 +118,21 @@ public class InvoiceApp
 			Scanner sc = new Scanner(System.in);
 			System.out.print("Enter a UPC code: ");
 			String upc = sc.nextLine();
-			//Product p = new Product();
+
+			if (upc == null || upc.isEmpty())
+			{
+				if (lastUpc == null)
+				{
+					System.out.println("Error: No UPC provided.");
+
+				}
+				else
+				{
+					upc = lastUpc;
+					System.out.println("Your UPC has defaulted to your last " +
+							                   "used UPC " + lastUpc);
+				}
+			}
 
 			for (Product p : ProductList.getProducts())
 			{
@@ -119,7 +140,16 @@ public class InvoiceApp
 				{
 					lastUpc = upc;
 					askForQuantity();
-					int quantity = sc.nextInt();
+					Integer quantity;
+					String s = sc.nextLine();
+					if (s != null && InvoiceApp.isInteger(s))
+					{
+						quantity = Integer.valueOf(s);
+					}
+					else
+					{
+						quantity = 1;
+					}
 
 					Integer invoiceQuantity = invoice.get(p);
 					while (invoiceQuantity != null)
@@ -232,10 +262,13 @@ public class InvoiceApp
 		return currency.format(this.getInvoiceTotal());
 	}
 
-	public static boolean isInteger(String s) {
-		try {
+	public static boolean isInteger(String s)
+	{
+		try
+		{
 			Integer.parseInt(s);
-		} catch(NumberFormatException e) {
+		} catch (NumberFormatException e)
+		{
 			return false;
 		}
 		// only got here if we didn't return false
