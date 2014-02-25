@@ -33,6 +33,8 @@ public class InvoiceApp
 	public static Map<Product, Integer> invoice = new HashMap<>();
 	//public static Iterator<Map.Entry<Product,Integer>> iter = invoice.entrySet().iterator();
 	private static int invoiceSize = 0;
+	private static String lastUpc = null;
+	int quantity = 1;
 	public int quantityPurchased = 0;
 
 	/**
@@ -51,16 +53,34 @@ public class InvoiceApp
 			Scanner sc = new Scanner(System.in);
 			System.out.print("Enter a UPC code: ");
 			String upc = sc.nextLine();
-			//Product p = new Product();
+
+			if(upc == null || upc.isEmpty()){
+				if(lastUpc == null)
+				{
+					System.out.println("Error: No UPC provided.");
+
+				}
+			}
 
 			for (Product p : ProductList.getProducts())
 			{
 				if (p.getUpc().equals(upc))
 				{
+					lastUpc = upc;
 					askForQuantity();
-					int quantity = sc.nextInt();
-					//p.setQuantity(quantity);
-					//invoice.add(p);
+
+					Integer quantity;
+					String s = sc.nextLine();
+					if (s!= null && InvoiceApp.isInteger(s))
+					{
+						quantity = Integer.valueOf(s);
+					}
+					else
+					{
+						quantity = 1;
+					}
+
+
 					Integer invoiceQuantity = invoice.get(p);
 					if (invoiceQuantity != null)
 					{
@@ -97,6 +117,7 @@ public class InvoiceApp
 			{
 				if (p.getUpc().equals(upc))
 				{
+					lastUpc = upc;
 					askForQuantity();
 					int quantity = sc.nextInt();
 
@@ -118,25 +139,13 @@ public class InvoiceApp
 							//InvoiceDisplay.printInvoice(invoice);
 
 						}
-						else if(quantity > invoiceSize || quantity >
-								                                invoiceQuantity)
+						else if (quantity > invoiceSize || quantity >
+								                                   invoiceQuantity)
 						{
 							invoice.put(p, 0);
 							invoice.remove(p);
 						}
-/*						else
-						{
-							//invoice.remove(p);
-							//invoice.remove(p);
-							//invoiceSize = 0;
-							System.out.println("The invoice is currently empty.");
-						}*/
 						InvoiceDisplay.printInvoice(invoice);
-
-						//System.out.println(invoice);
-						//InvoiceDisplay.printInvoice(invoice);
-						//System.out.println(invoice);
-						//invoiceSize++;
 						InitialSalesDisplay.initialDisplay();
 					}
 					System.out.println("The invoice is currently empty.");
@@ -189,8 +198,6 @@ public class InvoiceApp
 
 	public static void askForQuantity()
 	{
-
-		//Scanner sc = new Scanner(System.in);
 		System.out.print("Enter the quantity for purchase: ");
 	}
 
@@ -223,6 +230,16 @@ public class InvoiceApp
 	{
 		NumberFormat currency = NumberFormat.getCurrencyInstance();
 		return currency.format(this.getInvoiceTotal());
+	}
+
+	public static boolean isInteger(String s) {
+		try {
+			Integer.parseInt(s);
+		} catch(NumberFormatException e) {
+			return false;
+		}
+		// only got here if we didn't return false
+		return true;
 	}
 
 }

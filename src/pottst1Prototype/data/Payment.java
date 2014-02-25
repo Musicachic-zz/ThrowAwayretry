@@ -17,7 +17,7 @@ import java.math.BigDecimal;
  * contains the TAX_RATE constant of 6%.
  */
 
-abstract class Payment
+public abstract class Payment
 {
 	public static final BigDecimal TAX_RATE = new BigDecimal(0.06);
 

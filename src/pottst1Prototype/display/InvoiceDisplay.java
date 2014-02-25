@@ -10,9 +10,11 @@
 
 package pottst1Prototype.display;
 
+import pottst1Prototype.data.Payment;
 import pottst1Prototype.data.Product;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
@@ -35,29 +37,47 @@ public class InvoiceDisplay
 	{
 
 		System.out.println
-				("+--------------------------------------------------------" +
-				                   "-+");
-		System.out.println("Item Desc." + "            |" + "Qty" + "    x   " +
-				                   " " + "Price" + "    |" + "Subtotal");
+				           ("+--------------------------------------------------------" +
+						            "-+");
+		System.out.println("Item Desc." + "            |" + "Qty" + "    x  " +
+				                   " " +
+				                   "" + "Price" + "    |" + "Subtotal");
 		System.out.println
-		("+---------------------------------------------------------+" );
+				           ("+---------------------------------------------------------+");
 		/*
 		for (int i = 0; i < invoice.length; i++) {
 			System.out.println(invoice[i]);
 		}
 		*/
+		BigDecimal subTotalSum = new BigDecimal(0);
 
 		for (Map.Entry<Product, Integer> entry : invoice.entrySet())
 		{
 			Product product = entry.getKey();
 			Integer quantity = entry.getValue();
-			System.out.println(product.getDescription() + "    |" + quantity
-			+"           " + product.getPrice());
+			String description = product.getDescription();
+			BigDecimal price = product.getPrice();
+			BigDecimal subtotal = price.multiply(new BigDecimal(quantity));
+			System.out.println(description + "    |"
+					                   + quantity + "          "
+					                   + "$" + price + "        "
+					                   + "$" + subtotal);
+
+			subTotalSum = subTotalSum.add(subtotal);
+
 			//System.out.println(p);
 		}
+		System.out.println
+				           ("+---------------------------------------------------------+");
+		System.out.println("                              " + "Total(Pretax)" +
+				                   ":" +
+				                   " " + "$" + subTotalSum);
+		System.out.println("            "
+		                   + "Tax Rate: "
+		                   + Payment.TAX_RATE.setScale(2, BigDecimal.ROUND_HALF_UP));
 
 		System.out.println
-			("+---------------------------------------------------------+");
+				           ("+---------------------------------------------------------+");
 		System.out.println();
 	}
 }
