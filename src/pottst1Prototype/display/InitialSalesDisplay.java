@@ -28,10 +28,8 @@ public class InitialSalesDisplay
 
 	public static void initialDisplay()
 	{
-		//Inventory inventory = new Inventory();
-		//Invoice invoice = new Invoice();
-
-		System.out.print("Would you like to do: Add, Remove, or Exit?: ");
+		System.out.print("Would you like to do: Add, Remove, Finish" +
+				                 "or Exit?: ");
 
 		Scanner sc = new Scanner(System.in);
 		String salesDisplayChoice = sc.next();
@@ -46,6 +44,11 @@ public class InitialSalesDisplay
 		{
 			System.out.println("You selected Remove");
 			InvoiceApp.removeDisplay();
+		}
+		if (salesDisplayChoice.equalsIgnoreCase("Finish"))
+		{
+			System.out.println("You selected Finish");
+			FinishDisplay.paymentOptions();
 		}
 		if (salesDisplayChoice.equalsIgnoreCase("Exit"))
 		{

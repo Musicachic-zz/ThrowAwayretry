@@ -29,10 +29,8 @@ import java.util.Scanner;
 
 public class InvoiceApp
 {
-	//public static ArrayList<Product> invoice = new ArrayList<>();
+
 	public static Map<Product, Integer> invoice = new HashMap<>();
-	//public static Iterator<Map.Entry<Product,Integer>> iter = invoice
-	// .entrySet().iterator();
 	private static int invoiceSize = 0;
 	private static String lastUpc = null;
 	int quantity = 1;
@@ -158,7 +156,6 @@ public class InvoiceApp
 						{
 							invoiceQuantity -= quantity;
 							invoice.put(p, invoiceQuantity);
-							//InvoiceDisplay.printInvoice(invoice);
 
 						}
 
@@ -166,7 +163,6 @@ public class InvoiceApp
 						{
 							invoice.remove(p);
 							invoiceSize = 0;
-							//InvoiceDisplay.printInvoice(invoice);
 
 						}
 						else if (quantity > invoiceSize || quantity >
@@ -188,38 +184,6 @@ public class InvoiceApp
 		}
 
 	}
-
-/*	public static void removeDisplay()
-	{
-
-		boolean isValid = false;
-
-		while (!isValid)
-		{
-			Scanner sc = new Scanner(System.in);
-			System.out.print("Enter a UPC code: ");
-			String upc = sc.nextLine();
-			//Product p = new Product();
-
-
-
-			for (Product p : invoice)
-			{
-				if (p.getUpc().equals(upc))
-				{
-					int indexOfInvoice = invoice.indexOf(p);
-					askForQuantity();
-					int quantity = sc.nextInt();
-					p.setQuantity(quantity);
-					invoice.remove(indexOfInvoice);
-					InvoiceDisplay.printInvoice(invoice);
-				}
-			}
-			System.out.println("Error! The UPC code was not found.");
-			InitialSalesDisplay.initialDisplay();
-		}*/
-
-	//InvoiceDisplay.printInvoice(invoice);
 
 	/**
 	 * This method as the user how many of a product a customer will be
@@ -262,6 +226,13 @@ public class InvoiceApp
 		return currency.format(this.getInvoiceTotal());
 	}
 
+	/**
+	 * This method checks to see if a string entered is a integer. Found this
+	 * method on stackoverflow so I could use it for
+	 * @param s String s is the user input for the quantity.
+	 * @return This returns a boolean.
+	 */
+
 	public static boolean isInteger(String s)
 	{
 		try
@@ -271,7 +242,7 @@ public class InvoiceApp
 		{
 			return false;
 		}
-		// only got here if we didn't return false
+
 		return true;
 	}
 
