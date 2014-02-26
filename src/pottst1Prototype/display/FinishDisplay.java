@@ -10,6 +10,14 @@
 
 package pottst1Prototype.display;
 
+import java.util.Scanner;
+
+/**
+ * This class has the display for finishing the processing on a invoice
+ * transaction and allowing a customer to pay for their products purchased.
+ * @author Z. Hoffman
+ */
+
 public class FinishDisplay
 {
 	public static void paymentOptions()
@@ -18,6 +26,28 @@ public class FinishDisplay
 		System.out.println("Cash");
 		System.out.println("Credit");
 		System.out.println("Check");
+
+		Scanner sc = new Scanner(System.in);
+		String paymentDisplayChoice = sc.next();
+
+		if (paymentDisplayChoice.equalsIgnoreCase("Cash"))
+		{
+			System.out.println("You selected Cash");
+
+		}
+
+		if (paymentDisplayChoice.equalsIgnoreCase("Credit"))
+		{
+			System.out.println("You selected Credit");
+
+		}
+
+		if (paymentDisplayChoice.equalsIgnoreCase("Check"))
+		{
+			System.out.println("You selected Check");
+
+		}
+
 	}
 
 	public void askForAmount() {
@@ -42,5 +72,10 @@ public class FinishDisplay
 
 	public void askForCheckNumber() {
 		System.out.println("Check Number: ");
+	}
+
+	public void initialPaymentDisplay()
+	{
+		System.out.println();
 	}
 }
