@@ -27,6 +27,7 @@ public class FinishDisplay
 {
 
 	private List<Payment> payments = new ArrayList<Payment>();
+	public BigDecimal remainingTotal;
 
 	public static void paymentOptions()
 	{
@@ -98,7 +99,27 @@ public class FinishDisplay
 		}
 		if (cashAmt != null && cashAmt.compareTo(String.valueOf(InvoiceDisplay
 				   .getTotal()))<0){
-			InvoiceDisplay.getTotal().subtract(new BigDecimal(cashAmt))
+			BigDecimal remainingTotal = InvoiceDisplay.getTotal().subtract(new
+					                                                      BigDecimal(cashAmt));
 		}
+	}
+
+	public void checkSelected()
+	{
+		Scanner sc = new Scanner(System.in);
+		askForRoutingNumber();
+		String routingNum = sc.nextLine();
+
+		if(routingNum==null || routingNum.isEmpty()){
+			System.out.print("Error: Please enter a valid routing number.");
+			checkSelected();
+		}
+		askForAccountNumber();
+		String accountNum = sc.nextLine();
+		askForCheckNumber();
+		String checkNum = sc.nextLine();
+		askForAmount();
+		String cashAmt = sc.nextLine();
+
 	}
 }
