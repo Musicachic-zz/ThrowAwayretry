@@ -23,6 +23,9 @@ import java.util.Map;
 
 public class InvoiceDisplay
 {
+
+	static BigDecimal total;
+
 	/**
 	 * This method displays all the items that were entered while using the
 	 * InvoiceApp class.
@@ -77,7 +80,7 @@ public class InvoiceDisplay
 				                   + "Tax Rate: "
 				                   + taxRateFormatted + "%");
 
-		BigDecimal total = subTotalSum.multiply(BigDecimal.valueOf(1.06));
+		total = subTotalSum.multiply(BigDecimal.valueOf(1.06));
 		System.out.println("                                      " + "Total:" +
 				                   " $" +
 				                   total);
@@ -85,5 +88,9 @@ public class InvoiceDisplay
 		System.out.println
 				           ("+---------------------------------------------------------+");
 		System.out.println();
+	}
+
+	public static BigDecimal getTotal(){
+		return total;
 	}
 }

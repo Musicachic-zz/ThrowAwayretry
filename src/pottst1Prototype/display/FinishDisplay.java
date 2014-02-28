@@ -10,16 +10,24 @@
 
 package pottst1Prototype.display;
 
+import pottst1Prototype.data.Payment;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
  * This class has the display for finishing the processing on a invoice
  * transaction and allowing a customer to pay for their products purchased.
- * @author Z. Hoffman
+ * @author Z. Hoffman + modifications by T. Potts
  */
 
 public class FinishDisplay
 {
+
+	private List<Payment> payments = new ArrayList<Payment>();
+
 	public static void paymentOptions()
 	{
 		System.out.println("Select a payment option: ");
@@ -46,6 +54,10 @@ public class FinishDisplay
 		{
 			System.out.println("You selected Check");
 
+		}
+		else{
+			System.out.println("Please enter valid payment option.");
+			paymentOptions();
 		}
 
 	}
@@ -74,8 +86,19 @@ public class FinishDisplay
 		System.out.println("Check Number: ");
 	}
 
-	public void initialPaymentDisplay()
+	public void cashSelected()
 	{
-		System.out.println();
+		askForAmount();
+		Scanner sc = new Scanner(System.in);
+		String cashAmt = sc.nextLine();
+
+		if (cashAmt==null || cashAmt.isEmpty()){
+			System.out.println("Error: Please enter a valid cash amount.");
+			cashSelected();
+		}
+		if (cashAmt != null && cashAmt.compareTo(String.valueOf(InvoiceDisplay
+				   .getTotal()))<0){
+			InvoiceDisplay.getTotal().subtract(new BigDecimal(cashAmt))
+		}
 	}
 }
