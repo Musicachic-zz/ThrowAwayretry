@@ -28,7 +28,7 @@ public class InitialSalesDisplay
 
 	public static void initialDisplay()
 	{
-		System.out.print("Would you like to do: Add, Remove, Finish" +
+		System.out.print("Would you like to do: Add, Remove, Finish " +
 				                 "or Exit?: ");
 
 		Scanner sc = new Scanner(System.in);
