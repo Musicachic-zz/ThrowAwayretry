@@ -100,7 +100,7 @@ public class FinishDisplay
 		Scanner sc = new Scanner(System.in);
 		String cashAmt = sc.nextLine();
 
-		if (cashAmt == null || cashAmt.isEmpty() || cashAmt.)
+		if (cashAmt == null || cashAmt.isEmpty())
 		{
 			System.out.println("Error: Please enter a valid cash amount.");
 			cashSelected();
