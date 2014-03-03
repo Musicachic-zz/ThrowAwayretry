@@ -98,20 +98,20 @@ public class FinishDisplay
 	{
 		askForAmount();
 		Scanner sc = new Scanner(System.in);
-		String cashAmt = sc.nextLine();
+		String s = sc.nextLine();
+		BigDecimal cashAmt;
 
-		if (cashAmt == null || cashAmt.isEmpty())
+		if (s == null || s.isEmpty())
 		{
 			System.out.println("Error: Please enter a valid cash amount.");
 			cashSelected();
 		}
-		if (cashAmt != null && cashAmt.compareTo(String.valueOf
-				                                                (InvoiceDisplay
-						                                                 .getTotal())) < 0)
+		if (s != null && s.compareTo(String.valueOf
+				       (InvoiceDisplay.getTotal())) < 0)
 		{
-			payments.add(cashAmt);
-			BigDecimal remainingTotal = InvoiceDisplay.getTotal().subtract(new
-					                                                               BigDecimal(cashAmt));
+			payments.add(s);
+			cashAmt = BigDecimal.valueOf(Long.parseLong(s));
+			BigDecimal remainingTotal = InvoiceDisplay.getTotal().subtract(cashAmt);
 			System.out.println(remainingTotal);
 			if (remainingTotal.compareTo(BigDecimal.ZERO) > 0)
 			{
