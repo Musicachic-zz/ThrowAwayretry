@@ -39,7 +39,6 @@ public class FinishDisplay
 		{
 			System.out.println("You selected Cash");
 			cashSelected();
-
 		}
 
 		if (paymentDisplayChoice.equalsIgnoreCase("Credit"))
