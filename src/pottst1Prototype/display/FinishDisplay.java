@@ -42,11 +42,14 @@ public class FinishDisplay
 				break;
 			case "CREDIT":
 				System.out.println("You selected Credit");
+				break;
 			case "CHECK":
 				System.out.println("You selected Check");
+				break;
 			default:
 				System.out.println("Please enter valid payment option.");
 				paymentOptions();
+				break;
 		}
 
 /*		if (paymentDisplayChoice.equalsIgnoreCase("Cash"))
