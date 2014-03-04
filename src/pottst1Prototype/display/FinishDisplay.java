@@ -26,19 +26,20 @@ public class FinishDisplay
 {
 
 	private static List<String> payments = new ArrayList<>();
-	public static BigDecimal remainingTotal;
+	private static BigDecimal remainingTotal = BigDecimal.valueOf(0);
 
 	public static void paymentOptions()
 	{
 		System.out.print("Select a payment option: Cash, Credit, or Check: ");
 
 		Scanner sc = new Scanner(System.in);
-		String paymentDisplayChoice = sc.next();
+		String paymentDisplayChoice = sc.nextLine();
 
 		if (paymentDisplayChoice.equalsIgnoreCase("Cash"))
 		{
 			System.out.println("You selected Cash");
 			cashSelected();
+
 		}
 
 		if (paymentDisplayChoice.equalsIgnoreCase("Credit"))
@@ -90,7 +91,8 @@ public class FinishDisplay
 		System.out.println("Check Number: ");
 	}
 
-	public static void transactionComplete(){
+	public static void transactionComplete()
+	{
 		System.out.println("Transaction complete");
 	}
 
@@ -101,27 +103,62 @@ public class FinishDisplay
 		String s = sc.nextLine();
 		BigDecimal cashAmt;
 
-		if (s == null || s.isEmpty())
+		if (payments == null || payments.isEmpty())
 		{
-			System.out.println("Error: Please enter a valid cash amount.");
-			cashSelected();
+
+			if (s == null || s.isEmpty())
+			{
+				System.out.println("Error: Please enter a valid cash amount.");
+				cashSelected();
+			}
+			if (s != null && s.compareTo(String.valueOf
+					                                    (InvoiceDisplay
+							                                     .getTotal()))
+					                 <= 0)
+			{
+				payments.add(s);
+				cashAmt = BigDecimal.valueOf(Double.parseDouble(s));
+				BigDecimal remainingTotal = InvoiceDisplay.getTotal().subtract
+						                                                      (cashAmt);
+				System.out.println(remainingTotal);
+				if (remainingTotal.compareTo(BigDecimal.ZERO) > 0)
+				{
+					paymentOptions();
+				}
+				else
+				{
+					transactionComplete();
+					System.exit(0);
+				}
+			}
 		}
-		if (s != null && s.compareTo(String.valueOf
-				       (InvoiceDisplay.getTotal())) < 0)
+		if (payments != null || !payments.isEmpty())
 		{
-			payments.add(s);
-			cashAmt = BigDecimal.valueOf(Long.parseLong(s));
-			BigDecimal remainingTotal = InvoiceDisplay.getTotal().subtract(cashAmt);
-			System.out.println(remainingTotal);
-			if (remainingTotal.compareTo(BigDecimal.ZERO) > 0)
+			if (s == null || s.isEmpty())
 			{
-				paymentOptions();
+				System.out.println("Error: Please enter a valid cash amount.");
+				cashSelected();
 			}
-			else
+			if (s != null && s.compareTo(String.valueOf
+					                                    (remainingTotal)) <= 0)
 			{
-				transactionComplete();
-				System.exit(0);
+				payments.add(s);
+				cashAmt = BigDecimal.valueOf(Double.parseDouble(s));
+				BigDecimal newRemainingTotal = remainingTotal.subtract
+						                                              (cashAmt);
+				System.out.println(newRemainingTotal);
+				if (newRemainingTotal.compareTo(BigDecimal.ZERO) > 0)
+				{
+					paymentOptions();
+					remainingTotal = newRemainingTotal;
+				}
+				else
+				{
+					transactionComplete();
+					System.exit(0);
+				}
 			}
+
 		}
 	}
 
