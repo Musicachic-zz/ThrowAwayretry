@@ -34,23 +34,50 @@ public class InitialSalesDisplay
 		Scanner sc = new Scanner(System.in);
 		String salesDisplayChoice = sc.next();
 
+/*		switch (salesDisplayChoice.toUpperCase()){
+			case "ADD":
+				System.out.println("You selected Add");
+				InvoiceApp.addDisplay();
+				break;
+
+			case "REMOVE":
+				System.out.println("You selected Remove");
+				InvoiceApp.removeDisplay();
+				break;
+
+			case "FINISH":
+				System.out.println("You selected Finish");
+				FinishDisplay.paymentOptions();
+				break;
+
+			case "EXIT":
+				System.out.println("You selected Exit.");
+				System.out.println("Goodbye.");
+				System.exit(0);
+
+			default:
+				System.out.println("Please enter a valid option.");
+				initialDisplay();
+				break;
+		}*/
+
 		if (salesDisplayChoice.equalsIgnoreCase("Add"))
 		{
 			System.out.println("You selected Add");
 			InvoiceApp.addDisplay();
 			//invoice.addProduct(product, quantity)
 		}
-		if (salesDisplayChoice.equalsIgnoreCase("Remove"))
+		else if (salesDisplayChoice.equalsIgnoreCase("Remove"))
 		{
 			System.out.println("You selected Remove");
 			InvoiceApp.removeDisplay();
 		}
-		if (salesDisplayChoice.equalsIgnoreCase("Finish"))
+		else if (salesDisplayChoice.equalsIgnoreCase("Finish"))
 		{
 			System.out.println("You selected Finish");
 			FinishDisplay.paymentOptions();
 		}
-		if (salesDisplayChoice.equalsIgnoreCase("Exit"))
+		else if (salesDisplayChoice.equalsIgnoreCase("Exit"))
 		{
 			System.out.println("You selected Exit.");
 			System.out.println("Goodbye.");
@@ -61,5 +88,6 @@ public class InitialSalesDisplay
 			System.out.println("Please enter a valid option.");
 			initialDisplay();
 		}
+
 	}
 }

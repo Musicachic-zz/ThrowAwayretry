@@ -163,7 +163,7 @@ public class FinishDisplay
 				BigDecimal newRemainingTotal = remainingTotal.subtract
 						                                              (cashAmt);
 				System.out.println(newRemainingTotal);
-				if (newRemainingTotal.compareTo(BigDecimal.ZERO) > 0)
+				if (newRemainingTotal.compareTo(BigDecimal.ZERO) < 0)
 				{
 					paymentOptions();
 					remainingTotal = newRemainingTotal;
