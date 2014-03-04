@@ -75,7 +75,8 @@ public class InvoiceDisplay
 
 		BigDecimal taxRateFormatted = Payment.TAX_RATE.setScale(2,
 		                                                        BigDecimal
-				                                                        .ROUND_HALF_UP).multiply(BigDecimal.valueOf(100));
+				                                                        .ROUND_HALF_UP).multiply(BigDecimal.valueOf
+				                                                                                                                                                          (100));
 		System.out.println("                                   "
 				                   + "Tax Rate: "
 				                   + taxRateFormatted + "%");
@@ -90,7 +91,8 @@ public class InvoiceDisplay
 		System.out.println();
 	}
 
-	public static BigDecimal getTotal(){
+	public static BigDecimal getTotal()
+	{
 		return total;
 	}
 }

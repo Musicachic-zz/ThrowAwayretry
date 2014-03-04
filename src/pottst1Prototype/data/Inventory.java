@@ -20,16 +20,16 @@ public class Inventory
 
 	Map<String, Integer> inventoryMap = new HashMap<>();
 
-	public void addInventory(){
+	public void addInventory()
+	{
 
-	Scanner sc = new Scanner(System.in);
-	System.out.println("Enter a upc to add to the stock: ");
-	String upc = sc.next();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a upc to add to the stock: ");
+		String upc = sc.next();
 
-	System.out.println("Enter the quantity you have in stock: ");
-	int numInStock = sc.nextInt();
+		System.out.println("Enter the quantity you have in stock: ");
+		int numInStock = sc.nextInt();
 
-
-	inventoryMap.put(upc, numInStock);
-}
+		inventoryMap.put(upc, numInStock);
+	}
 }

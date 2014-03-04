@@ -35,7 +35,21 @@ public class FinishDisplay
 		Scanner sc = new Scanner(System.in);
 		String paymentDisplayChoice = sc.nextLine();
 
-		if (paymentDisplayChoice.equalsIgnoreCase("Cash"))
+		switch (paymentDisplayChoice.toUpperCase()){
+			case "CASH":
+				System.out.println("You selected Cash");
+				cashSelected();
+				break;
+			case "CREDIT":
+				System.out.println("You selected Credit");
+			case "CHECK":
+				System.out.println("You selected Check");
+			default:
+				System.out.println("Please enter valid payment option.");
+				paymentOptions();
+		}
+
+/*		if (paymentDisplayChoice.equalsIgnoreCase("Cash"))
 		{
 			System.out.println("You selected Cash");
 			cashSelected();
@@ -56,7 +70,7 @@ public class FinishDisplay
 		{
 			System.out.println("Please enter valid payment option.");
 			paymentOptions();
-		}
+		}*/
 
 	}
 

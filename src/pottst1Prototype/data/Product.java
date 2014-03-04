@@ -26,7 +26,6 @@ public class Product
 	private int quantity;
 	private int numInStock;
 
-
 	/**
 	 * This is the getter for the product's upc.
 	 *
@@ -146,7 +145,8 @@ public class Product
 	}
 
 	@Override
-	public boolean equals(Object o) {
+	public boolean equals(Object o)
+	{
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 
@@ -158,7 +158,8 @@ public class Product
 	}
 
 	@Override
-	public int hashCode() {
+	public int hashCode()
+	{
 		return upc.hashCode();
 	}
 }

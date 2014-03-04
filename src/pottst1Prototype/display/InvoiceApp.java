@@ -229,6 +229,7 @@ public class InvoiceApp
 	/**
 	 * This method checks to see if a string entered is a integer. Found this
 	 * method on stackoverflow so I could use it for
+	 *
 	 * @param s String s is the user input for the quantity.
 	 * @return This returns a boolean.
 	 */

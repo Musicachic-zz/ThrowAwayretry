@@ -56,7 +56,8 @@ public class InitialSalesDisplay
 			System.out.println("Goodbye.");
 			System.exit(0);
 		}
-		else {
+		else
+		{
 			System.out.println("Please enter a valid option.");
 			initialDisplay();
 		}

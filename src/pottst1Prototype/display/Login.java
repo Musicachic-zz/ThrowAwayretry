@@ -21,7 +21,8 @@ import java.util.Scanner;
  */
 public class Login
 {
-	/* This method is for getting the input of the username from the user. Eventually I will need a validator class to call
+	/* This method is for getting the input of the username from the user. Eventually I will need a validator class to
+	call
 to verify that the username is 6-12 alphanumeric characters long as per the spec document.*/
 
 	/**
