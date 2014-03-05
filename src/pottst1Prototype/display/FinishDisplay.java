@@ -15,6 +15,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import pottst1Prototype.display.InitialSalesDisplay;
+
+import static pottst1Prototype.display.InitialSalesDisplay.newScanner;
+
 /**
  * This class has the display for finishing the processing on a invoice
  * transaction and allowing a customer to pay for their products purchased.
@@ -27,12 +31,12 @@ public class FinishDisplay
 
 	private static List<String> payments = new ArrayList<>();
 	private static BigDecimal remainingTotal = BigDecimal.valueOf(0);
+	private static Scanner sc = new Scanner(System.in);
+	//sc = new Scanner(System.in);
 
 	public static void paymentOptions()
 	{
 		System.out.print("Select a payment option: Cash, Credit, or Check: ");
-
-		Scanner sc = new Scanner(System.in);
 		String paymentDisplayChoice = sc.nextLine();
 
 		switch (paymentDisplayChoice.toUpperCase())
@@ -46,6 +50,7 @@ public class FinishDisplay
 				break;
 			case "CHECK":
 				System.out.println("You selected Check");
+				checkSelected();
 				break;
 			default:
 				System.out.println("Please enter valid payment option.");
@@ -93,19 +98,19 @@ public class FinishDisplay
 		System.out.print("Expiration Date: ");
 	}
 
-	public void askForAccountNumber()
+	public static void askForAccountNumber()
 	{
 		System.out.print("Account Number: ");
 	}
 
-	public void askForRoutingNumber()
+	public static void askForRoutingNumber()
 	{
 		System.out.print("Routing Number: ");
 	}
 
-	public void askForCheckNumber()
+	public static void askForCheckNumber()
 	{
-		System.out.println("Check Number: ");
+		System.out.print("Check Number: ");
 	}
 
 	public static void transactionComplete()
@@ -116,7 +121,6 @@ public class FinishDisplay
 	public static void cashSelected()
 	{
 		askForAmount();
-		Scanner sc = new Scanner(System.in);
 		String s = sc.nextLine();
 		BigDecimal cashAmt;
 		cashAmt = BigDecimal.valueOf(Double.parseDouble(s));
@@ -178,23 +182,103 @@ public class FinishDisplay
 		}
 	}
 
-	public void checkSelected()
+	public static void checkSelected()
 	{
-		Scanner sc = new Scanner(System.in);
 		askForRoutingNumber();
-		String routingNum = sc.nextLine();
+		String t = sc.nextLine();
+		Long routingNum;
 
-		if (routingNum == null || routingNum.isEmpty())
-		{
-			System.out.print("Error: Please enter a valid routing number.");
+
+		try {
+			routingNum = Long.parseLong(t);
+			System.out.println("Routing Number: " + routingNum);
+		}
+		catch (NumberFormatException nfe){
+			System.out.println("Error: Please enter a valid routing number.");
+			checkSelected();
+	}
+
+		askForAccountNumber();
+		String u = sc.nextLine();
+		Long accountNum;
+
+		try {
+			accountNum = Long.parseLong(u);
+			System.out.println("Account Number: " + accountNum);
+		}
+		catch (NumberFormatException nfe){
+			System.out.println("Error: Please enter a valid routing number.");
 			checkSelected();
 		}
-		askForAccountNumber();
-		String accountNum = sc.nextLine();
-		askForCheckNumber();
-		String checkNum = sc.nextLine();
-		askForAmount();
-		String cashAmt = sc.nextLine();
 
+		askForCheckNumber();
+		String v = sc.nextLine();
+		Integer checkNum;
+
+
+		try{
+			checkNum = Integer.parseInt(v);
+			System.out.println("Check Number: " + checkNum);
+		}
+		catch(NumberFormatException nfe){
+			System.out.print("Error: Please enter a valid check number.");
+			checkSelected();
+		}
+
+		askForAmount();
+		String s = sc.nextLine();
+		BigDecimal checkAmt;
+		checkAmt = BigDecimal.valueOf(Double.parseDouble(s));
+		if (payments == null || payments.isEmpty())
+		{
+			if (s == null || s.isEmpty())
+			{
+				System.out.println("Error: Please enter a valid check payment amount.");
+				checkSelected();
+			}
+			if (checkAmt.compareTo(InvoiceDisplay.getTotal()) < 0)
+			{
+				payments.add(s);
+
+				remainingTotal = InvoiceDisplay.getTotal().subtract(checkAmt);
+				System.out.println(remainingTotal);
+				if (remainingTotal.compareTo(BigDecimal.ZERO) > 0)
+				{
+					paymentOptions();
+				}
+				else
+				{
+					transactionComplete();
+					System.exit(0);
+				}
+			}
+		}
+		else // (payments != null || !payments.isEmpty())
+		{
+			//cashAmt = BigDecimal.valueOf(Double.parseDouble(s));
+			if (s == null || s.isEmpty())
+			{
+				System.out.println("Error: Please enter a valid cash amount.");
+				checkSelected();
+			}
+
+			else if (checkAmt.compareTo(remainingTotal) <= 0)
+			{
+				payments.add(s);
+				remainingTotal = remainingTotal.subtract(checkAmt);
+				System.out.println(remainingTotal);
+				if (remainingTotal.compareTo(BigDecimal.ZERO) > 0)
+				{
+					paymentOptions();
+					System.out.println(remainingTotal);
+
+				}
+				else
+				{
+					transactionComplete();
+					System.exit(0);
+				}
+			}
+		}
 	}
 }

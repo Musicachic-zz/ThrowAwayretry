@@ -20,6 +20,8 @@ import java.util.Scanner;
 
 public class InitialSalesDisplay
 {
+	private static Scanner sc;
+
 	/**
 	 * This method has code for the initial questions asked in the sales
 	 * display. It will route to the next method to complete that action
@@ -92,5 +94,10 @@ public class InitialSalesDisplay
 		}
 */
 
+	}
+
+	public static void newScanner(){
+
+		sc = new Scanner(System.in);
 	}
 }
