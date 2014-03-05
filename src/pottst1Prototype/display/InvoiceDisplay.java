@@ -95,4 +95,9 @@ public class InvoiceDisplay
 	{
 		return total;
 	}
+
+	public static void setTotal(BigDecimal total)
+	{
+		InvoiceDisplay.total = total;
+	}
 }

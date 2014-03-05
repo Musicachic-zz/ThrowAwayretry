@@ -100,7 +100,7 @@ public class InvoiceApp
 				}
 
 			}
-			System.out.println("Error! The UPC code was not found.");
+			System.out.println("Error! The UPC code was not found in add display.");
 			addDisplay();
 		}
 
@@ -178,7 +178,7 @@ public class InvoiceApp
 				}
 
 			}
-			System.out.println("Error! The UPC code was not found.");
+			System.out.println("Error! The UPC code was not found in remove display.");
 			removeDisplay();
 		}
 

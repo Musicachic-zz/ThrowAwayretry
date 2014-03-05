@@ -119,6 +119,7 @@ public class FinishDisplay
 		Scanner sc = new Scanner(System.in);
 		String s = sc.nextLine();
 		BigDecimal cashAmt;
+		cashAmt = BigDecimal.valueOf(Double.parseDouble(s));
 
 		if (payments == null || payments.isEmpty())
 		{
@@ -128,7 +129,7 @@ public class FinishDisplay
 				System.out.println("Error: Please enter a valid cash amount.");
 				cashSelected();
 			}
-			cashAmt = BigDecimal.valueOf(Double.parseDouble(s));
+			//cashAmt = BigDecimal.valueOf(Double.parseDouble(s));
 			if (cashAmt.compareTo(InvoiceDisplay.getTotal()) < 0)
 			{
 				payments.add(s);
@@ -149,13 +150,14 @@ public class FinishDisplay
 		}
 		else // (payments != null || !payments.isEmpty())
 		{
+			//cashAmt = BigDecimal.valueOf(Double.parseDouble(s));
 			if (s == null || s.isEmpty())
 			{
 				System.out.println("Error: Please enter a valid cash amount.");
 				cashSelected();
 			}
-			cashAmt = BigDecimal.valueOf(Double.parseDouble(s));
-			if (cashAmt.compareTo(remainingTotal) < 0)
+
+			else if (cashAmt.compareTo(remainingTotal) <= 0)
 			{
 				payments.add(s);
 				remainingTotal = remainingTotal.subtract(cashAmt);
