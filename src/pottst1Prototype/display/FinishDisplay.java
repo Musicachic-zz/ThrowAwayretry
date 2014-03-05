@@ -34,6 +34,10 @@ public class FinishDisplay
 	private static Scanner sc = new Scanner(System.in);
 	//sc = new Scanner(System.in);
 
+	/**
+	 * This method asks the user which payment method they want to use and then routes them to the method to complete
+	 * the process for that payment method.
+	 */
 	public static void paymentOptions()
 	{
 		System.out.print("Select a payment option: Cash, Credit, or Check: ");
@@ -58,6 +62,7 @@ public class FinishDisplay
 				break;
 		}
 
+		//Use if you are using Java 6 since it doesn't allow switch statements.
 /*		if (paymentDisplayChoice.equalsIgnoreCase("Cash"))
 		{
 			System.out.println("You selected Cash");
@@ -83,41 +88,67 @@ public class FinishDisplay
 
 	}
 
+	/**
+	 * This method is just a easy way to ask for the payment amount for each of the payment methods.
+	 */
 	public static void askForAmount()
 	{
 		System.out.print("Payment Amount: ");
 	}
 
-	public void askForCreditCardNumber()
+	/**
+	 * This method is just a easy way to ask for the credit card number.
+	 */
+	public static void askForCreditCardNumber()
 	{
 		System.out.print("Credit Card Number: ");
 	}
 
-	public void askForExpirationDate()
+	/**
+	 * This method is just a easy way to ask for the credit card expiration date.
+	 */
+	public static void askForExpirationDate()
 	{
 		System.out.print("Expiration Date: ");
 	}
 
+	/**
+	 * This method is a easy way to ask for the account number for the check payment method.
+	 */
 	public static void askForAccountNumber()
 	{
 		System.out.print("Account Number: ");
 	}
 
+	/**
+	 * This method is a easy way to ask for the routing number for the check payment method.
+	 */
 	public static void askForRoutingNumber()
 	{
 		System.out.print("Routing Number: ");
 	}
 
+	/**
+	 * This method is a easy way to ask for the check number for the check payment method.
+	 */
 	public static void askForCheckNumber()
 	{
 		System.out.print("Check Number: ");
 	}
 
+	/**
+	 * This method is a easy way to say the transaction is complete.
+	 */
 	public static void transactionComplete()
 	{
 		System.out.println("Transaction complete");
 	}
 
+	/**
+	 * This method ask for the information to complete a cash payment. It asks for the amount and allows the user to
+	 * call this method again and add another cash payment. It also adds a payment to the payment
+	 * ArrayList, so the user can remove payments in the future.
+	 */
 	public static void cashSelected()
 	{
 		askForAmount();
@@ -182,6 +213,11 @@ public class FinishDisplay
 		}
 	}
 
+	/**
+	 * This method ask for the information to complete a check payment. It asks for the routing number,
+	 * account number, check number, and amount. It also adds a payment to the payments ArrayList so payments can be
+	 * removed in the future.
+	 */
 	public static void checkSelected()
 	{
 		askForRoutingNumber();
@@ -266,6 +302,90 @@ public class FinishDisplay
 			{
 				payments.add(s);
 				remainingTotal = remainingTotal.subtract(checkAmt);
+				System.out.println(remainingTotal);
+				if (remainingTotal.compareTo(BigDecimal.ZERO) > 0)
+				{
+					paymentOptions();
+					System.out.println(remainingTotal);
+
+				}
+				else
+				{
+					transactionComplete();
+					System.exit(0);
+				}
+			}
+		}
+	}
+
+	public static void creditSelected(){
+		askForCreditCardNumber();
+		String t = sc.nextLine();
+		Long creditCardNum;
+
+		try{
+			creditCardNum = Long.parseLong(t);
+			System.out.println("Credit Card Number: " + creditCardNum);
+		}
+		catch(NumberFormatException nfe){
+			System.out.println("Error: Please enter a valid credit card number.");
+			creditSelected();
+		}
+
+		askForExpirationDate();
+		String u = sc.nextLine();
+		Integer expirationDate;
+
+		try{
+			expirationDate = Integer.parseInt(u);
+			System.out.println("Expiration Date: " + expirationDate);
+		}
+		catch (NumberFormatException nfe){
+			System.out.println("Error: Please enter a valid expiration date.");
+			creditSelected();
+		}
+
+		askForAmount();
+		String s = sc.nextLine();
+		BigDecimal creditCardAmt;
+		creditCardAmt = BigDecimal.valueOf(Double.parseDouble(s));
+		if (payments == null || payments.isEmpty())
+		{
+			if (s == null || s.isEmpty())
+			{
+				System.out.println("Error: Please enter a valid check payment amount.");
+				checkSelected();
+			}
+			if (creditCardAmt.compareTo(InvoiceDisplay.getTotal()) < 0)
+			{
+				payments.add(s);
+
+				remainingTotal = InvoiceDisplay.getTotal().subtract(creditCardAmt);
+				System.out.println(remainingTotal);
+				if (remainingTotal.compareTo(BigDecimal.ZERO) > 0)
+				{
+					paymentOptions();
+				}
+				else
+				{
+					transactionComplete();
+					System.exit(0);
+				}
+			}
+		}
+		else // (payments != null || !payments.isEmpty())
+		{
+			//cashAmt = BigDecimal.valueOf(Double.parseDouble(s));
+			if (s == null || s.isEmpty())
+			{
+				System.out.println("Error: Please enter a valid cash amount.");
+				checkSelected();
+			}
+
+			else if (creditCardAmt.compareTo(remainingTotal) <= 0)
+			{
+				payments.add(s);
+				remainingTotal = remainingTotal.subtract(creditCardAmt);
 				System.out.println(remainingTotal);
 				if (remainingTotal.compareTo(BigDecimal.ZERO) > 0)
 				{
