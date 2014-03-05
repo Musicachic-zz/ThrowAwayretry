@@ -51,6 +51,7 @@ public class FinishDisplay
 				break;
 			case "CREDIT":
 				System.out.println("You selected Credit");
+				creditSelected();
 				break;
 			case "CHECK":
 				System.out.println("You selected Check");
@@ -214,7 +215,7 @@ public class FinishDisplay
 	}
 
 	/**
-	 * This method ask for the information to complete a check payment. It asks for the routing number,
+	 * This method asks for the information to complete a check payment. It asks for the routing number,
 	 * account number, check number, and amount. It also adds a payment to the payments ArrayList so payments can be
 	 * removed in the future.
 	 */
@@ -224,25 +225,26 @@ public class FinishDisplay
 		String t = sc.nextLine();
 		Long routingNum;
 
-
-		try {
+		try
+		{
 			routingNum = Long.parseLong(t);
 			System.out.println("Routing Number: " + routingNum);
-		}
-		catch (NumberFormatException nfe){
+		} catch (NumberFormatException nfe)
+		{
 			System.out.println("Error: Please enter a valid routing number.");
 			checkSelected();
-	}
+		}
 
 		askForAccountNumber();
 		String u = sc.nextLine();
 		Long accountNum;
 
-		try {
+		try
+		{
 			accountNum = Long.parseLong(u);
 			System.out.println("Account Number: " + accountNum);
-		}
-		catch (NumberFormatException nfe){
+		} catch (NumberFormatException nfe)
+		{
 			System.out.println("Error: Please enter a valid routing number.");
 			checkSelected();
 		}
@@ -251,12 +253,12 @@ public class FinishDisplay
 		String v = sc.nextLine();
 		Integer checkNum;
 
-
-		try{
+		try
+		{
 			checkNum = Integer.parseInt(v);
 			System.out.println("Check Number: " + checkNum);
-		}
-		catch(NumberFormatException nfe){
+		} catch (NumberFormatException nfe)
+		{
 			System.out.print("Error: Please enter a valid check number.");
 			checkSelected();
 		}
@@ -318,16 +320,22 @@ public class FinishDisplay
 		}
 	}
 
-	public static void creditSelected(){
+	/**
+	 * This method asks for the information to complete a credit card payment. It asks for the credit card number,
+	 * expiration date, and amount. It also adds a payment to the payments ArrayList so a payment can be removed later.
+	 */
+	public static void creditSelected()
+	{
 		askForCreditCardNumber();
 		String t = sc.nextLine();
 		Long creditCardNum;
 
-		try{
+		try
+		{
 			creditCardNum = Long.parseLong(t);
 			System.out.println("Credit Card Number: " + creditCardNum);
-		}
-		catch(NumberFormatException nfe){
+		} catch (NumberFormatException nfe)
+		{
 			System.out.println("Error: Please enter a valid credit card number.");
 			creditSelected();
 		}
@@ -336,11 +344,12 @@ public class FinishDisplay
 		String u = sc.nextLine();
 		Integer expirationDate;
 
-		try{
+		try
+		{
 			expirationDate = Integer.parseInt(u);
 			System.out.println("Expiration Date: " + expirationDate);
-		}
-		catch (NumberFormatException nfe){
+		} catch (NumberFormatException nfe)
+		{
 			System.out.println("Error: Please enter a valid expiration date.");
 			creditSelected();
 		}
