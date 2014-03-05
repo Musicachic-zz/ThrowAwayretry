@@ -34,7 +34,7 @@ public class InitialSalesDisplay
 		Scanner sc = new Scanner(System.in);
 		String salesDisplayChoice = sc.next();
 
-/*		switch (salesDisplayChoice.toUpperCase()){
+		switch (salesDisplayChoice.toUpperCase()){
 			case "ADD":
 				System.out.println("You selected Add");
 				InvoiceApp.addDisplay();
@@ -54,13 +54,15 @@ public class InitialSalesDisplay
 				System.out.println("You selected Exit.");
 				System.out.println("Goodbye.");
 				System.exit(0);
+				break;
 
 			default:
 				System.out.println("Please enter a valid option.");
 				initialDisplay();
 				break;
-		}*/
+		}
 
+/*
 		if (salesDisplayChoice.equalsIgnoreCase("Add"))
 		{
 			System.out.println("You selected Add");
@@ -88,6 +90,7 @@ public class InitialSalesDisplay
 			System.out.println("Please enter a valid option.");
 			initialDisplay();
 		}
+*/
 
 	}
 }

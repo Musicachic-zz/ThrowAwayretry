@@ -165,8 +165,7 @@ public class InvoiceApp
 							invoiceSize = 0;
 
 						}
-						else if (quantity > invoiceSize || quantity >
-								                                   invoiceQuantity)
+						else //(quantity > invoiceSize || quantity >invoiceQuantity)
 						{
 							invoice.put(p, 0);
 							invoice.remove(p);

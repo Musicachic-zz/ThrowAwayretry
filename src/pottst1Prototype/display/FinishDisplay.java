@@ -35,7 +35,8 @@ public class FinishDisplay
 		Scanner sc = new Scanner(System.in);
 		String paymentDisplayChoice = sc.nextLine();
 
-		switch (paymentDisplayChoice.toUpperCase()){
+		switch (paymentDisplayChoice.toUpperCase())
+		{
 			case "CASH":
 				System.out.println("You selected Cash");
 				cashSelected();
@@ -58,13 +59,13 @@ public class FinishDisplay
 			cashSelected();
 		}
 
-		if (paymentDisplayChoice.equalsIgnoreCase("Credit"))
+		else if (paymentDisplayChoice.equalsIgnoreCase("Credit"))
 		{
 			System.out.println("You selected Credit");
 
 		}
 
-		if (paymentDisplayChoice.equalsIgnoreCase("Check"))
+		else if (paymentDisplayChoice.equalsIgnoreCase("Check"))
 		{
 			System.out.println("You selected Check");
 
@@ -127,15 +128,12 @@ public class FinishDisplay
 				System.out.println("Error: Please enter a valid cash amount.");
 				cashSelected();
 			}
-			if (s != null && s.compareTo(String.valueOf
-					                                    (InvoiceDisplay
-							                                     .getTotal()))
-					                 <= 0)
+			cashAmt = BigDecimal.valueOf(Double.parseDouble(s));
+			if (cashAmt.compareTo(InvoiceDisplay.getTotal()) < 0)
 			{
 				payments.add(s);
-				cashAmt = BigDecimal.valueOf(Double.parseDouble(s));
-				BigDecimal remainingTotal = InvoiceDisplay.getTotal().subtract
-						                                                      (cashAmt);
+
+				remainingTotal = InvoiceDisplay.getTotal().subtract(cashAmt);
 				System.out.println(remainingTotal);
 				if (remainingTotal.compareTo(BigDecimal.ZERO) > 0)
 				{
@@ -146,27 +144,27 @@ public class FinishDisplay
 					transactionComplete();
 					System.exit(0);
 				}
+
 			}
 		}
-		if (payments != null || !payments.isEmpty())
+		else // (payments != null || !payments.isEmpty())
 		{
 			if (s == null || s.isEmpty())
 			{
 				System.out.println("Error: Please enter a valid cash amount.");
 				cashSelected();
 			}
-			if (s != null && s.compareTo(String.valueOf
-					                                    (remainingTotal)) <= 0)
+			cashAmt = BigDecimal.valueOf(Double.parseDouble(s));
+			if (cashAmt.compareTo(remainingTotal) < 0)
 			{
 				payments.add(s);
-				cashAmt = BigDecimal.valueOf(Double.parseDouble(s));
-				BigDecimal newRemainingTotal = remainingTotal.subtract
-						                                              (cashAmt);
-				System.out.println(newRemainingTotal);
-				if (newRemainingTotal.compareTo(BigDecimal.ZERO) < 0)
+				remainingTotal = remainingTotal.subtract(cashAmt);
+				System.out.println(remainingTotal);
+				if (remainingTotal.compareTo(BigDecimal.ZERO) > 0)
 				{
 					paymentOptions();
-					remainingTotal = newRemainingTotal;
+					System.out.println(remainingTotal);
+
 				}
 				else
 				{
