@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import pottst1Prototype.data.Payment;
 import pottst1Prototype.display.InitialSalesDisplay;
 
 import static pottst1Prototype.display.InitialSalesDisplay.newScanner;
@@ -29,7 +30,8 @@ import static pottst1Prototype.display.InitialSalesDisplay.newScanner;
 public class FinishDisplay
 {
 
-	private static List<String> payments = new ArrayList<>();
+	private static List<Payment> payments;
+	payments = new ArrayList<Payment>()
 	private static BigDecimal remainingTotal = BigDecimal.valueOf(0);
 	private static Scanner sc = new Scanner(System.in);
 	//sc = new Scanner(System.in);
@@ -63,7 +65,7 @@ public class FinishDisplay
 				break;
 		}
 
-		//Use if you are using Java 6 since it doesn't allow switch statements.
+		//Use if you are using Java 6 since it doesn't allow switch statements for strings.
 /*		if (paymentDisplayChoice.equalsIgnoreCase("Cash"))
 		{
 			System.out.println("You selected Cash");
@@ -168,7 +170,7 @@ public class FinishDisplay
 			//cashAmt = BigDecimal.valueOf(Double.parseDouble(s));
 			if (cashAmt.compareTo(InvoiceDisplay.getTotal()) < 0)
 			{
-				payments.add(s);
+				payments.add(Payment.setAmount);
 
 				remainingTotal = InvoiceDisplay.getTotal().subtract(cashAmt);
 				System.out.println(remainingTotal);
@@ -195,7 +197,7 @@ public class FinishDisplay
 
 			else if (cashAmt.compareTo(remainingTotal) <= 0)
 			{
-				payments.add(s);
+				payments.add((Payment) payments);
 				remainingTotal = remainingTotal.subtract(cashAmt);
 				System.out.println(remainingTotal);
 				if (remainingTotal.compareTo(BigDecimal.ZERO) > 0)
@@ -276,7 +278,7 @@ public class FinishDisplay
 			}
 			if (checkAmt.compareTo(InvoiceDisplay.getTotal()) < 0)
 			{
-				payments.add(s);
+				payments.add((Payment) payments);
 
 				remainingTotal = InvoiceDisplay.getTotal().subtract(checkAmt);
 				System.out.println(remainingTotal);
@@ -302,7 +304,7 @@ public class FinishDisplay
 
 			else if (checkAmt.compareTo(remainingTotal) <= 0)
 			{
-				payments.add(s);
+				payments.add((Payment) payments);
 				remainingTotal = remainingTotal.subtract(checkAmt);
 				System.out.println(remainingTotal);
 				if (remainingTotal.compareTo(BigDecimal.ZERO) > 0)
@@ -367,7 +369,7 @@ public class FinishDisplay
 			}
 			if (creditCardAmt.compareTo(InvoiceDisplay.getTotal()) < 0)
 			{
-				payments.add(s);
+				payments.add((Payment) payments);
 
 				remainingTotal = InvoiceDisplay.getTotal().subtract(creditCardAmt);
 				System.out.println(remainingTotal);
@@ -382,7 +384,7 @@ public class FinishDisplay
 				}
 			}
 		}
-		else // (payments != null || !payments.isEmpty())
+		else // (payments != null && !payments.isEmpty())
 		{
 			//cashAmt = BigDecimal.valueOf(Double.parseDouble(s));
 			if (s == null || s.isEmpty())
@@ -393,7 +395,7 @@ public class FinishDisplay
 
 			else if (creditCardAmt.compareTo(remainingTotal) <= 0)
 			{
-				payments.add(s);
+				payments.add((Payment) payments);
 				remainingTotal = remainingTotal.subtract(creditCardAmt);
 				System.out.println(remainingTotal);
 				if (remainingTotal.compareTo(BigDecimal.ZERO) > 0)

@@ -64,6 +64,8 @@ public class InitialSalesDisplay
 				break;
 		}
 
+//Use if you are using Java 6 since it doesn't allow switch statements for strings.
+
 /*
 		if (salesDisplayChoice.equalsIgnoreCase("Add"))
 		{

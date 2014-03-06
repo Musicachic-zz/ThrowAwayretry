@@ -22,6 +22,7 @@ public abstract class Payment
 	public static final BigDecimal TAX_RATE = new BigDecimal(0.06);
 
 	private BigDecimal amount;
+	private String paymentMethod;
 
 	/**
 	 * This is the getter for the amount someone will pay towards their
@@ -47,5 +48,15 @@ public abstract class Payment
 	public void setAmount(BigDecimal amount)
 	{
 		this.amount = amount;
+	}
+
+	public String getPaymentMethod()
+	{
+		return paymentMethod;
+	}
+
+	public void setPaymentMethod(String paymentMethod)
+	{
+		this.paymentMethod = paymentMethod;
 	}
 }
