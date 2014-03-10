@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import pottst1Prototype.data.Employee;
 import pottst1Prototype.data.Payment;
 import pottst1Prototype.display.InitialSalesDisplay;
 
@@ -29,9 +30,8 @@ import static pottst1Prototype.display.InitialSalesDisplay.newScanner;
 
 public class FinishDisplay
 {
-
 	private static List<Payment> payments;
-	payments = new ArrayList<Payment>()
+
 	private static BigDecimal remainingTotal = BigDecimal.valueOf(0);
 	private static Scanner sc = new Scanner(System.in);
 	//sc = new Scanner(System.in);
@@ -293,7 +293,7 @@ public class FinishDisplay
 				}
 			}
 		}
-		else // (payments != null || !payments.isEmpty())
+		else // (payments != null && !payments.isEmpty())
 		{
 			//cashAmt = BigDecimal.valueOf(Double.parseDouble(s));
 			if (s == null || s.isEmpty())

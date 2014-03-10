@@ -20,6 +20,7 @@ import java.math.BigDecimal;
 public abstract class Payment
 {
 	public static final BigDecimal TAX_RATE = new BigDecimal(0.06);
+	public static Payment setAmount;
 
 	private BigDecimal amount;
 	private String paymentMethod;

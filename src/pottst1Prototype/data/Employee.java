@@ -28,8 +28,9 @@ public class Employee
 	 * This is the getter for username the employee enters.
 	 *
 	 * @return username
+	 * @param s
 	 */
-	public String getUsername()
+	public String getUsername(String s)
 	{
 		return username;
 	}
@@ -50,8 +51,9 @@ public class Employee
 	 * a string.
 	 *
 	 * @return password
+	 * @param s
 	 */
-	public char[] getPassword()
+	public char[] getPassword(String s)
 	{
 		return password;
 	}
@@ -72,8 +74,9 @@ public class Employee
 	 * regular employees.
 	 *
 	 * @return accessLevel of Employee or Manager
+	 * @param s
 	 */
-	public String getAccessLevel()
+	public String getAccessLevel(String s)
 	{
 		return accessLevel;
 	}
