@@ -10,11 +10,21 @@
 
 package pottst1Prototype.data;
 
+import java.math.BigDecimal;
+
 public class CheckPayment extends Payment
 {
 	private String routingNum;
 	private String accountNum;
 	private String checkNum;
+
+	public CheckPayment(BigDecimal amount, String paymentMethod, String routingNum, String accountNum, String checkNum)
+	{
+		super(amount, paymentMethod);
+		this.routingNum = routingNum;
+		this.accountNum = accountNum;
+		this.checkNum = checkNum;
+	}
 
 	public String getRoutingNum()
 	{

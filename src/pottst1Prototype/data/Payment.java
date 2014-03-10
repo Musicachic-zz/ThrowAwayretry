@@ -20,10 +20,15 @@ import java.math.BigDecimal;
 public abstract class Payment
 {
 	public static final BigDecimal TAX_RATE = new BigDecimal(0.06);
-	public static Payment setAmount;
 
 	private BigDecimal amount;
 	private String paymentMethod;
+
+	protected Payment(BigDecimal amount, String paymentMethod)
+	{
+		this.amount = amount;
+		this.paymentMethod = paymentMethod;
+	}
 
 	/**
 	 * This is the getter for the amount someone will pay towards their
