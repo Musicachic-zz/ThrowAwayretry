@@ -127,13 +127,13 @@ public class EmployeeUserPassword
 
 		while (sc.hasNextLine())
 		{
-			for (int i = 0; i < 2; i++){
 			String in = sc.nextLine();
+			System.out.println(in);
 			String[] fields = in.split("\t");
 			System.out.println("Username: " + fields[0]);
 			System.out.println("Password: " + fields[1]);
 			System.out.println("Access Level: " + fields[2]);
-			}
+
 		}
 	}
 }
