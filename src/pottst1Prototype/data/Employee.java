@@ -24,13 +24,23 @@ public class Employee
 	private char[] password;
 	private String accessLevel;
 
+	public Employee()
+	{
+	}
+
+	public Employee(String username, char[] password, String accessLevel)
+	{
+		this.username = username;
+		this.password = password;
+		this.accessLevel = accessLevel;
+	}
+
 	/**
 	 * This is the getter for username the employee enters.
 	 *
 	 * @return username
-	 * @param s
 	 */
-	public String getUsername(String s)
+	public String getUsername()
 	{
 		return username;
 	}
@@ -51,9 +61,8 @@ public class Employee
 	 * a string.
 	 *
 	 * @return password
-	 * @param s
 	 */
-	public char[] getPassword(String s)
+	public char[] getPassword()
 	{
 		return password;
 	}
@@ -74,9 +83,8 @@ public class Employee
 	 * regular employees.
 	 *
 	 * @return accessLevel of Employee or Manager
-	 * @param s
 	 */
-	public String getAccessLevel(String s)
+	public String getAccessLevel()
 	{
 		return accessLevel;
 	}
