@@ -49,8 +49,9 @@ public class EmployeeUserPassword
 
 		String choice = "y";
 
-		if(pw !=null){
-			while(choice.equalsIgnoreCase("y"))
+		if (pw != null)
+		{
+			while (choice.equalsIgnoreCase("y"))
 			{
 				//print question
 				System.out.print("What is the username? ");
@@ -95,7 +96,7 @@ public class EmployeeUserPassword
 				choice = sc.nextLine();
 			}
 			pw.close();
-		}
+
 
 		/*while (choice.equalsIgnoreCase("y"))
 		{
@@ -113,23 +114,26 @@ public class EmployeeUserPassword
 			//choice = s;
 		}*/
 
-	}
-
-	public static void showEmployeeFile(){
+		}
 		Scanner sc = null;
 
-		try {
+		try
+		{
 			sc = new Scanner(f);
-		} catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e)
+		{
 			System.out.println("Could not open file.");
 		}
 
-		for (int i = 0; i < 100; i++) {
+		while (sc.hasNextLine())
+		{
+			for (int i = 0; i < 2; i++){
 			String in = sc.nextLine();
 			String[] fields = in.split("\t");
 			System.out.println("Username: " + fields[0]);
 			System.out.println("Password: " + fields[1]);
 			System.out.println("Access Level: " + fields[2]);
+			}
 		}
 	}
 }
