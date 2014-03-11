@@ -11,6 +11,7 @@ package pottst1Prototype.App;
 
 import pottst1Prototype.data.EmployeeUserPassword;
 import pottst1Prototype.data.Inventory;
+import pottst1Prototype.data.ProductAndInventory;
 import pottst1Prototype.display.InitialSalesDisplay;
 import pottst1Prototype.display.InvoiceApp;
 import pottst1Prototype.display.Login;
@@ -33,7 +34,8 @@ public class App
 		//Login.username();
 		//Login.password();
 		//System.out.println("Sales Display\n");
-		InitialSalesDisplay.initialDisplay();
+		//InitialSalesDisplay.initialDisplay();
 		//EmployeeUserPassword.createEmployeeFile();
+		ProductAndInventory.addNewProduct();
 	}
 }

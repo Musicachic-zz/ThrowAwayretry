@@ -43,15 +43,25 @@ public class FinishDisplay
 	{
 		System.out.print("Would you like to ADD or REMOVE a payment? ");
 		String addOrRemovePayment = sc.nextLine();
+		boolean successful = false;
 
-		switch (addOrRemovePayment.toUpperCase()){
-			case "ADD":
-				System.out.println("You selected to add a payment.");
-				break;
-			case "REMOVE":
-				System.out.println("You selected to remove a payment.");
-				removePayments();
-				break;
+		while (successful==false)
+		{
+			switch (addOrRemovePayment.toUpperCase()){
+				case "ADD":
+					System.out.println("You selected to add a payment.");
+					successful=true;
+					break;
+				case "REMOVE":
+					System.out.println("You selected to remove a payment.");
+					removePayments();
+					successful=true;
+					break;
+				default:
+					System.out.print("Please select a valid option.");
+					addOrRemovePayment = sc.nextLine();
+					successful = false;
+			}
 		}
 
 		System.out.print("Select a payment option: Cash, Credit, or Check: ");
@@ -396,12 +406,11 @@ public class FinishDisplay
 		printPayments(payments);
 
 		System.out.print("Select a payment number to remove: ");
-		Integer paymentNum = Integer.parseInt(sc.nextLine())-1;
+		Number paymentNum = Integer.parseInt(sc.nextLine())-1;
 
-		if ((paymentNum==PaymentArrayDisplay.i))
-		{
-			payments.remove(paymentNum);
-		}
+		payments.remove(paymentNum);
 
+		printPayments(payments);
+		paymentOptions();
 	}
 }

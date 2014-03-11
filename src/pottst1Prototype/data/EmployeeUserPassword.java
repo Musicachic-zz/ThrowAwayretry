@@ -53,13 +53,13 @@ public class EmployeeUserPassword
 		{
 			while (choice.equalsIgnoreCase("y"))
 			{
-				//print question
+
 				System.out.print("What is the username? ");
 				String username = sc.nextLine();
-//print question
+
 				System.out.print("What is the password? ");
 				char[] password = sc.nextLine().toCharArray();
-//print question
+
 				System.out.print("What is the access level? Employee or Manager ");
 				String levelEntered = sc.nextLine();
 

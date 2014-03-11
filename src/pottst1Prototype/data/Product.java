@@ -26,6 +26,28 @@ public class Product
 	private int quantity;
 	private int numInStock;
 
+	public Product()
+	{
+
+	}
+
+	public Product(String upc, String description, BigDecimal price, int quantity, int numInStock)
+	{
+		this.upc = upc;
+		this.description = description;
+		this.price = price;
+		this.quantity = quantity;
+		this.numInStock = numInStock;
+	}
+
+	public Product(String upc, String description, BigDecimal price, int numInStock)
+	{
+		this.upc = upc;
+		this.description = description;
+		this.price = price;
+		this.numInStock = numInStock;
+	}
+
 	/**
 	 * This is the getter for the product's upc.
 	 *
