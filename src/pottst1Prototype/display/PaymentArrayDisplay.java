@@ -19,12 +19,15 @@ import pottst1Prototype.display.FinishDisplay;
 public class PaymentArrayDisplay
 {
 
+	public static Integer i = 1;
+
 	public static void printPayments(List<Payment> payments){
 
 		System.out.println("+---------------------------------------------------------+");
-		int i = 1;
+
 		for (Payment payment : payments)
 		{
+			//int i = 1;
 			String paymentMethod = payment.getPaymentMethod();
 			BigDecimal amount = payment.getAmount();
 			System.out.println( i++ + "Payment Method " + paymentMethod + "Payment Amount "  + amount);

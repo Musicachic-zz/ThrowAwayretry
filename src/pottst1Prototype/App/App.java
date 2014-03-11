@@ -33,7 +33,7 @@ public class App
 		//Login.username();
 		//Login.password();
 		//System.out.println("Sales Display\n");
-		//InitialSalesDisplay.initialDisplay();
-		EmployeeUserPassword.createEmployeeFile();
+		InitialSalesDisplay.initialDisplay();
+		//EmployeeUserPassword.createEmployeeFile();
 	}
 }

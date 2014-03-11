@@ -18,6 +18,8 @@ import java.util.Scanner;
 import pottst1Prototype.data.CashPayment;
 import pottst1Prototype.data.Payment;
 
+import static pottst1Prototype.display.PaymentArrayDisplay.printPayments;
+
 /**
  * This class has the display for finishing the processing on a invoice
  * transaction and allowing a customer to pay for their products purchased.
@@ -39,6 +41,19 @@ public class FinishDisplay
 	 */
 	public static void paymentOptions()
 	{
+		System.out.print("Would you like to ADD or REMOVE a payment? ");
+		String addOrRemovePayment = sc.nextLine();
+
+		switch (addOrRemovePayment.toUpperCase()){
+			case "ADD":
+				System.out.println("You selected to add a payment.");
+				break;
+			case "REMOVE":
+				System.out.println("You selected to remove a payment.");
+				removePayments();
+				break;
+		}
+
 		System.out.print("Select a payment option: Cash, Credit, or Check: ");
 		String paymentDisplayChoice = sc.nextLine();
 
@@ -279,7 +294,7 @@ public class FinishDisplay
 
 			remainingTotal = InvoiceDisplay.getTotal().subtract(paymentAmount);
 			System.out.println(remainingTotal);
-			PaymentArrayDisplay.printPayments(payments);
+			printPayments(payments);
 			if (remainingTotal.compareTo(BigDecimal.ZERO) > 0)
 			{
 				paymentOptions();
@@ -363,7 +378,7 @@ public class FinishDisplay
 		//payments.add((Payment) payments);
 		remainingTotal = remainingTotal.subtract(creditCardAmt);
 		System.out.println(remainingTotal);
-		PaymentArrayDisplay.printPayments(payments);
+		printPayments(payments);
 		if (remainingTotal.compareTo(BigDecimal.ZERO) > 0)
 		{
 			paymentOptions();
@@ -375,5 +390,18 @@ public class FinishDisplay
 			transactionComplete();
 			System.exit(0);
 		}
+	}
+
+	private static void removePayments(){
+		printPayments(payments);
+
+		System.out.print("Select a payment number to remove: ");
+		Integer paymentNum = Integer.parseInt(sc.nextLine())-1;
+
+		if ((paymentNum==PaymentArrayDisplay.i))
+		{
+			payments.remove(paymentNum);
+		}
+
 	}
 }
