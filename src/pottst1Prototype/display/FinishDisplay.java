@@ -408,7 +408,7 @@ public class FinishDisplay
 		System.out.print("Select a payment number to remove: ");
 		Number paymentNum = Integer.parseInt(sc.nextLine())-1;
 
-		payments.remove(paymentNum);
+		payments.remove(payments.get(paymentNum.intValue()));
 
 		printPayments(payments);
 		paymentOptions();
