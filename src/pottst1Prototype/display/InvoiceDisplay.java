@@ -65,7 +65,6 @@ public class InvoiceDisplay
 
 			subTotalSum = subTotalSum.add(subtotal);
 
-			//System.out.println(p);
 		}
 		System.out.println
 				           ("+---------------------------------------------------------+");

@@ -40,12 +40,12 @@ public class Product
 		this.numInStock = numInStock;
 	}
 
-	public Product(String upc, String description, BigDecimal price, int numInStock)
+	public Product(String upc, String description, BigDecimal price, int quantity)
 	{
 		this.upc = upc;
 		this.description = description;
 		this.price = price;
-		this.numInStock = numInStock;
+		this.quantity = quantity;
 	}
 
 	/**

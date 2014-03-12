@@ -62,14 +62,17 @@ public class ProductAndInventory
 				BigDecimal price = BigDecimal.valueOf(Double.parseDouble(sc.nextLine()));
 
 				System.out.print("What is the number in stock of the product? ");
-				int numInStock = Integer.parseInt(sc.nextLine());
+				int quantity = Integer.parseInt(sc.nextLine());
 
-				Product prod = new Product(upc, description, price, numInStock);
+				Product prod = new Product(upc, description, price, quantity);
 
 				pw.write(prod.getUpc() + "\t");
 				pw.write(prod.getDescription() + "\t");
 				pw.write(String.valueOf(prod.getPrice()) + "\t");
-				pw.write(prod.getNumInStock() + "\n");
+				pw.write(prod.getQuantity() + "\n");
+
+				System.out.print("Would you like to add another product? Y or N ");
+				choice = sc.nextLine();
 			}
 			pw.close();
 
