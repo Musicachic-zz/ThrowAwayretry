@@ -26,7 +26,7 @@ import java.util.Scanner;
 public class Login
 {
 
-	private static List<Employee> employee = new ArrayList<>();
+	public static List<Employee> employee = new ArrayList<>();
 
 	/**
 	 * This method prompts the user to enter their username and then
@@ -59,7 +59,7 @@ public class Login
 			System.out.print("Enter your username: ");
 			username = sc.nextLine();
 
-			if (username.isEmpty())
+			if (username.isEmpty() || username == null)
 			{
 				System.out.println("Error! Username is required. Try again.");
 			}
@@ -71,27 +71,31 @@ public class Login
 					if (e.getUsername().equals(username))
 					{
 						//Todo:create temporary username
-						tempUsername = new String(String.valueOf(e));
+						//tempUsername = new String(String.valueOf(e));
+						password();
 						break;
 					}
 					else
 					{
 						System.out.println("Error! Username doesn't exist. Try again.");
+						isValid = false;
 					}
 
 				}
 			}
-			if (tempUsername == null)
+/*			else if (tempUsername == null)
 			{
 				System.out.println("Error! Username doesn't exist. Try again.");
 				isValid = false;
-			}
+			}*/
 
-			else
+/*			else
 			{
 				tempUsername = username;
 				isValid = true;
-			}
+			}*/
+
+			//}
 
 		}
 		return username;

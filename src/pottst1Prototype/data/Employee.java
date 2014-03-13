@@ -35,11 +35,6 @@ public class Employee
 		this.accessLevel = accessLevel;
 	}
 
-	public Employee(Employee e)
-	{
-		//To change body of created methods use File | Settings | File Templates.
-	}
-
 	/**
 	 * This is the getter for username the employee enters.
 	 *

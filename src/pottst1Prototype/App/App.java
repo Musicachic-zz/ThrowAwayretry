@@ -29,7 +29,7 @@ public class App
 	{
 
 		Login.username();
-		//Login.password();
+		Login.password();
 		//System.out.println("Sales Display\n");
 		//InitialSalesDisplay.initialDisplay();
 		//EmployeeUserPassword.createAndAddEmployeeFile();
