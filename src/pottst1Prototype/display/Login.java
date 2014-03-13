@@ -11,7 +11,11 @@
 package pottst1Prototype.display;
 
 import pottst1Prototype.data.Employee;
+import pottst1Prototype.data.ExtractEmployees;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -21,9 +25,8 @@ import java.util.Scanner;
  */
 public class Login
 {
-	/* This method is for getting the input of the username from the user. Eventually I will need a validator class to
-	call
-to verify that the username is 6-12 alphanumeric characters long as per the spec document.*/
+
+	private static List<Employee> employee = new ArrayList<>();
 
 	/**
 	 * This method prompts the user to enter their username and then
@@ -32,13 +35,19 @@ to verify that the username is 6-12 alphanumeric characters long as per the spec
 	 * @return username This is the username of the employee using the program.
 	 */
 
+		/* This method is for getting the input of the username from the user. Eventually I will need a validator
+		class to
+	call
+	to verify that the username is 6-12 alphanumeric characters long as per the spec document.*/
 	public static String username()
 	{
 
-		Employee employee = new Employee();
+		//Employee employee = new Employee();
 		//Will use this boolean more when actually validating the password.
 		boolean isValid = false;
+		//ExtractEmployees.readEmployeeFile();
 
+		String tempUsername = null;
 		String username = "";
 		Scanner sc = new Scanner(System.in);
 
@@ -54,12 +63,33 @@ to verify that the username is 6-12 alphanumeric characters long as per the spec
 			{
 				System.out.println("Error! Username is required. Try again.");
 			}
-			else if (!username.equalsIgnoreCase("employee"))
+			else if (!username.isEmpty())
+			{
+				for (Employee e : employee)
+				{
+
+					if (e.getUsername().equals(username))
+					{
+						//Todo:create temporary username
+						tempUsername = new String(String.valueOf(e));
+						break;
+					}
+					else
+					{
+						System.out.println("Error! Username doesn't exist. Try again.");
+					}
+
+				}
+			}
+			if (tempUsername == null)
 			{
 				System.out.println("Error! Username doesn't exist. Try again.");
+				isValid = false;
 			}
+
 			else
 			{
+				tempUsername = username;
 				isValid = true;
 			}
 

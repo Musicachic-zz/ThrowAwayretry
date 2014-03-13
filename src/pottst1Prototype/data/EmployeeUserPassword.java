@@ -21,7 +21,7 @@ public class EmployeeUserPassword
 	static String m = Employee.MANAGER_LEVEL;
 	static File f;
 
-	public static void createEmployeeFile()
+	public static void createAndAddEmployeeFile()
 	{
 		File f = new File("Employee.txt");
 
@@ -115,7 +115,7 @@ public class EmployeeUserPassword
 		}*/
 
 		}
-		Scanner sc = null;
+/*		Scanner sc = null;
 
 		try
 		{
@@ -134,6 +134,6 @@ public class EmployeeUserPassword
 			System.out.println("Password: " + fields[1]);
 			System.out.println("Access Level: " + fields[2]);
 
-		}
+		}*/
 	}
 }

@@ -41,7 +41,7 @@ public class FinishDisplay
 	 */
 	public static void paymentOptions()
 	{
-		System.out.print("Would you like to ADD or REMOVE a payment? ");
+		System.out.print("Would you like to Add or Remove a payment? ");
 		String addOrRemovePayment = sc.nextLine();
 		boolean successful = false;
 

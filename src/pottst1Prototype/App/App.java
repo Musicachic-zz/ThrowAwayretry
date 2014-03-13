@@ -10,10 +10,7 @@
 package pottst1Prototype.App;
 
 import pottst1Prototype.data.EmployeeUserPassword;
-import pottst1Prototype.data.Inventory;
-import pottst1Prototype.data.ProductAndInventory;
 import pottst1Prototype.display.InitialSalesDisplay;
-import pottst1Prototype.display.InvoiceApp;
 import pottst1Prototype.display.Login;
 
 /**
@@ -31,11 +28,11 @@ public class App
 	public static void main(String[] args)
 	{
 
-		//Login.username();
+		Login.username();
 		//Login.password();
 		//System.out.println("Sales Display\n");
-		InitialSalesDisplay.initialDisplay();
-		//EmployeeUserPassword.createEmployeeFile();
+		//InitialSalesDisplay.initialDisplay();
+		//EmployeeUserPassword.createAndAddEmployeeFile();
 		//ProductAndInventory.addNewProduct();
 	}
 }
