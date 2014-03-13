@@ -12,12 +12,15 @@ package pottst1Prototype.data;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ExtractEmployees
 {
+	public static List<Employee> employee = new ArrayList<>();
 
-	public static void readEmployeeFile()
+	//public static List readEmployeeFile()
 {
 
 	//Scanner sc = new Scanner(System.in);
@@ -42,8 +45,10 @@ public class ExtractEmployees
 		System.out.println("Password: " + fields[1]);
 		System.out.println("Access Level: " + fields[2]);
 
+
 	}
 
+	return employee;
 
 }
 }

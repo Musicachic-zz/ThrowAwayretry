@@ -14,9 +14,10 @@ import pottst1Prototype.data.Employee;
 import pottst1Prototype.data.ExtractEmployees;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+
+import static pottst1Prototype.data.ExtractEmployees.*;
 
 /**
  * This class is contains the method that prompts the user for their username
@@ -26,7 +27,7 @@ import java.util.Scanner;
 public class Login
 {
 
-	public static List<Employee> employee = new ArrayList<>();
+	//public static List<Employee> employee = new ArrayList<>();
 
 	/**
 	 * This method prompts the user to enter their username and then
@@ -41,6 +42,7 @@ public class Login
 	to verify that the username is 6-12 alphanumeric characters long as per the spec document.*/
 	public static String username()
 	{
+		employee = readEmployeeFile();
 
 		//Employee employee = new Employee();
 		//Will use this boolean more when actually validating the password.
