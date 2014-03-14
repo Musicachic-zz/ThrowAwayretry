@@ -12,12 +12,8 @@ package pottst1Prototype.display;
 
 import pottst1Prototype.data.Employee;
 import pottst1Prototype.data.ExtractEmployees;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-import static pottst1Prototype.data.ExtractEmployees.*;
 
 /**
  * This class is contains the method that prompts the user for their username
@@ -40,14 +36,9 @@ public class Login
 		class to
 	call
 	to verify that the username is 6-12 alphanumeric characters long as per the spec document.*/
-	public static String username()
+	public static void username()
 	{
-		employee = readEmployeeFile();
-
-		//Employee employee = new Employee();
-		//Will use this boolean more when actually validating the password.
-		boolean isValid = false;
-		//ExtractEmployees.readEmployeeFile();
+		List<Employee> employee = ExtractEmployees.readEmployeeFile();
 
 		String tempUsername = null;
 		String username = "";
@@ -56,7 +47,7 @@ public class Login
 		System.out.println("Login Display");
 		System.out.println();
 
-		while (!isValid)
+		while (tempUsername == null)
 		{
 			System.out.print("Enter your username: ");
 			username = sc.nextLine();
@@ -73,34 +64,17 @@ public class Login
 					if (e.getUsername().equals(username))
 					{
 						//Todo:create temporary username
-						//tempUsername = new String(String.valueOf(e));
-						password();
+						tempUsername = String.valueOf(e);
 						break;
 					}
-					else
-					{
-						System.out.println("Error! Username doesn't exist. Try again.");
-						isValid = false;
-					}
-
 				}
+
 			}
-/*			else if (tempUsername == null)
-			{
+			if (tempUsername == null)
 				System.out.println("Error! Username doesn't exist. Try again.");
-				isValid = false;
-			}*/
-
-/*			else
-			{
-				tempUsername = username;
-				isValid = true;
-			}*/
-
-			//}
-
 		}
-		return username;
+		password();
+
 	}
 
 	/**

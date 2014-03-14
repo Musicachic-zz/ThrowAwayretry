@@ -20,7 +20,7 @@ public class ExtractEmployees
 {
 	public static List<Employee> employee = new ArrayList<>();
 
-	//public static List readEmployeeFile()
+	public static List<Employee> readEmployeeFile()
 {
 
 	//Scanner sc = new Scanner(System.in);
@@ -38,13 +38,17 @@ public class ExtractEmployees
 
 	while (sc.hasNextLine())
 	{
+		Employee e = new Employee();
 		String in = sc.nextLine();
 		System.out.println(in);
-		String[] fields = in.split("\t");
-		System.out.println("Username: " + fields[0]);
-		System.out.println("Password: " + fields[1]);
-		System.out.println("Access Level: " + fields[2]);
-
+		String[] fields = in.split("\t", -1);
+		e.setUsername(fields[1]);
+		e.setPassword(fields[2].toCharArray());
+		e.setAccessLevel(fields[0]);
+		System.out.println("Username: " + fields[1]);
+		System.out.println("Password: " + fields[2]);
+		System.out.println("Access Level: " + fields[0]);
+		employee.add(e);
 
 	}
 

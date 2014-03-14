@@ -28,8 +28,8 @@ public class App
 
 	public static void main(String[] args)
 	{
-		ExtractEmployees.readEmployeeFile();
-		//Login.username();
+		//ExtractEmployees.readEmployeeFile();
+		Login.username();
 		//Login.password();
 		//System.out.println("Sales Display\n");
 		//InitialSalesDisplay.initialDisplay();
