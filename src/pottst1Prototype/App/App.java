@@ -9,6 +9,7 @@
 */
 package pottst1Prototype.App;
 
+import pottst1Prototype.data.AddRemoveEmployees;
 import pottst1Prototype.data.EmployeeUserPassword;
 import pottst1Prototype.data.ExtractEmployees;
 import pottst1Prototype.display.InitialSalesDisplay;
@@ -29,6 +30,7 @@ public class App
 	public static void main(String[] args)
 	{
 		//ExtractEmployees.readEmployeeFile();
+		AddRemoveEmployees.doesFileExist();
 		Login.username();
 		//Login.password();
 		//System.out.println("Sales Display\n");

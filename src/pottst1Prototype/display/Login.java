@@ -24,6 +24,7 @@ import java.util.Scanner;
 public class Login
 {
 	private static Employee loggedInEmployee;
+	private static String loggedInUsername;
 	/**
 	 * This method prompts the user to enter their username and then
 	 * validates against a hardcoded username during the prototype phase.
@@ -51,7 +52,7 @@ public class Login
 			System.out.print("Enter your username: ");
 			username = sc.nextLine();
 
-			if (username.isEmpty() || username == null)
+			if (username == null || username.isEmpty())
 			{
 				System.out.println("Error! Username is required. Try again.");
 			}
@@ -64,6 +65,7 @@ public class Login
 					{
 						//Todo:create temporary username
 						tempUsername = String.valueOf(e);
+						loggedInUsername = username;
 						break;
 					}
 				}
@@ -109,7 +111,7 @@ public class Login
 			}*/
 
 			//Tried to implement using in char[] but confused the hell out of me. Will need to get help on this.
-			if (password.isEmpty() || password == null)
+			if (password == null || password.isEmpty())
 			{
 				System.out.println("Error! Password is required.");
 
@@ -118,7 +120,7 @@ public class Login
 			{
 				for (Employee e : employee)
 				{
-					if (String.valueOf(e.getPassword()).equals(password))
+					if (e.getUsername().equals(loggedInUsername) && String.valueOf(e.getPassword()).equals(password))
 					{
 						System.out.println("Login Successful");
 						tempPassword = String.valueOf(e);

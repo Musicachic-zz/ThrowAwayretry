@@ -12,9 +12,6 @@ package pottst1Prototype.display;
 
 import pottst1Prototype.data.AddRemoveEmployees;
 import pottst1Prototype.data.Employee;
-import pottst1Prototype.data.ExtractEmployees;
-
-import java.util.List;
 import java.util.Scanner;
 
 public class ManagersDisplay
@@ -24,8 +21,8 @@ public class ManagersDisplay
 
 	public static void initialMgrsDisplay()
 	{
-		Employee employee = Login.getLoggedInEmployee();
 		Login.username();
+		Employee employee = Login.getLoggedInEmployee();
 
 			if (employee.getAccessLevel().equalsIgnoreCase("Manager"))
 			{
@@ -50,6 +47,7 @@ public class ManagersDisplay
 						break;
 
 				}
+				InitialSalesDisplay.initialDisplay();
 			}
 			else
 			{
