@@ -1,4 +1,1 @@
 MANAGER	ADMIN	password
-EMPLOYEE	TPOTTS1	password1
-EMPLOYEE	SCOTT	password
-MANAGER	TPOTTS2	password2

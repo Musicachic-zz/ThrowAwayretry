@@ -14,6 +14,7 @@ import pottst1Prototype.data.EmployeeUserPassword;
 import pottst1Prototype.data.ExtractEmployees;
 import pottst1Prototype.display.InitialSalesDisplay;
 import pottst1Prototype.display.Login;
+import pottst1Prototype.display.ManagersDisplay;
 
 /**
  * This class contains only the main method that calls the methods that will
@@ -31,11 +32,13 @@ public class App
 	{
 		//ExtractEmployees.readEmployeeFile();
 		AddRemoveEmployees.doesFileExist();
+		ExtractEmployees.readEmployeeFile();
 		Login.username();
 		//Login.password();
 		//System.out.println("Sales Display\n");
 		InitialSalesDisplay.initialDisplay();
 		//EmployeeUserPassword.createAndAddEmployeeFile();
 		//ProductAndInventory.addNewProduct();
+		//ManagersDisplay.initialMgrsDisplay();
 	}
 }

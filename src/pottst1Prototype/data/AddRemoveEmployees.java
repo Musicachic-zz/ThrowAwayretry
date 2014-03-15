@@ -10,6 +10,8 @@
 
 package pottst1Prototype.data;
 
+import pottst1Prototype.display.ManagersDisplay;
+
 import java.io.*;
 import java.util.Scanner;
 
@@ -22,7 +24,8 @@ public class AddRemoveEmployees
 	static File f;
 	static PrintWriter pw = null;
 
-	public static void doesFileExist(){
+	public static void doesFileExist()
+	{
 		File f = new File("Employee.txt");
 
 		if (!f.exists())
@@ -51,8 +54,6 @@ public class AddRemoveEmployees
 	public static void addEmployee()
 	{
 		File f = new File("Employee.txt");
-
-
 
 		String choice = "y";
 		try
@@ -110,10 +111,68 @@ public class AddRemoveEmployees
 		}
 	}
 
+	public static void removeEmployee()
+	{
+		File f = new File("Employee.txt");
 
+		String choice = "y";
 
+		try
+		{
+			PrintWriter pw = new PrintWriter(new FileOutputStream(f, false));
 
-	public static void removeEmployee(){
+			while (choice.equalsIgnoreCase("y"))
+			{
 
+				System.out.print("Please enter the username you would like to remove:");
+				String username = sc.nextLine().toUpperCase();
+				Boolean found = false;
+
+				if (username.equalsIgnoreCase("ADMIN"))
+				{
+					System.out.println("This user cannot be removed.");
+					ManagersDisplay.initialMgrsDisplay();
+				}
+				else
+				{
+					for (Employee e : ExtractEmployees.employee)
+					{
+
+						if (e.getUsername().equalsIgnoreCase(username))
+						{
+							ExtractEmployees.employee.remove(e);
+							found = true;
+							break;
+						}
+					}
+
+					if (!found)
+					{
+						System.out.println("This employee was not found.");
+						ManagersDisplay.initialMgrsDisplay();
+					}
+					else
+					{
+						for (Employee e : ExtractEmployees.employee)
+						{
+							pw.write(e.getAccessLevel() + "\t");
+							pw.write(e.getUsername() + "\t");
+							pw.write(String.valueOf(e.getPassword()) + "\n");
+							pw.flush();
+						}
+						pw.close();
+						System.out.print("Would you like to remove another user? Y or N ");
+						choice = sc.nextLine();
+
+						ManagersDisplay.initialMgrsDisplay();
+					}
+				}
+
+			}
+		} catch (FileNotFoundException e1)
+		{
+
+			e1.printStackTrace();
+		}
 	}
 }

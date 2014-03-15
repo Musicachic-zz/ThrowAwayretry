@@ -38,7 +38,7 @@ public class Login
 	to verify that the username is 6-12 alphanumeric characters long as per the spec document.*/
 	public static void username()
 	{
-		List<Employee> employee = ExtractEmployees.readEmployeeFile();
+		List<Employee> employee = ExtractEmployees.employee;
 
 		String tempUsername = null;
 		String username = "";
@@ -61,7 +61,7 @@ public class Login
 				for (Employee e : employee)
 				{
 
-					if (e.getUsername().equals(username))
+					if (e.getUsername().equalsIgnoreCase(username))
 					{
 						//Todo:create temporary username
 						tempUsername = String.valueOf(e);
@@ -91,7 +91,7 @@ public class Login
 
 	public static void password()
 	{
-		List<Employee> employee = ExtractEmployees.readEmployeeFile();
+		List<Employee> employee = ExtractEmployees.employee;
 		String password = "";
 		String tempPassword = null;
 		Scanner sc = new Scanner(System.in);
@@ -120,7 +120,7 @@ public class Login
 			{
 				for (Employee e : employee)
 				{
-					if (e.getUsername().equals(loggedInUsername) && String.valueOf(e.getPassword()).equals(password))
+					if (e.getUsername().equalsIgnoreCase(loggedInUsername) && String.valueOf(e.getPassword()).equals(password))
 					{
 						System.out.println("Login Successful");
 						tempPassword = String.valueOf(e);

@@ -23,7 +23,6 @@ public class ExtractEmployees
 	public static List<Employee> readEmployeeFile()
 {
 
-	//Scanner sc = new Scanner(System.in);
 	File f = new File("Employee.txt");
 
 	Scanner sc = null;
