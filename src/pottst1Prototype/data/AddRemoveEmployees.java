@@ -74,7 +74,7 @@ public class AddRemoveEmployees
 				String employeeLevel = null;
 				boolean successful = false;
 
-				while (successful == false)
+				while (!successful)
 				{
 					switch (levelEntered.toUpperCase())
 					{
