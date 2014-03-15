@@ -1,4 +1,4 @@
 MANAGER	ADMIN	password
-EMPLOYEE	tpotts1	password1
+EMPLOYEE	TPOTTS1	password1
 EMPLOYEE	SCOTT	password
 MANAGER	TPOTTS2	password2
