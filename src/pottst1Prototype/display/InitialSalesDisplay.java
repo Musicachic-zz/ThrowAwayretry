@@ -30,7 +30,7 @@ public class InitialSalesDisplay
 
 	public static void initialDisplay()
 	{
-		System.out.print("Would you like to do: Add, Remove, Finish " +
+		System.out.print("Would you like to do: Add, Remove, Finish, Management " +
 				                 "or Exit?: ");
 
 		Scanner sc = new Scanner(System.in);
@@ -51,6 +51,10 @@ public class InitialSalesDisplay
 				System.out.println("You selected Finish");
 				FinishDisplay.paymentOptions();
 				break;
+
+			case "MANAGEMENT":
+				System.out.println("You selected management options");
+				ManagersDisplay.initialMgrsDisplay();
 
 			case "EXIT":
 				System.out.println("You selected Exit.");
@@ -98,8 +102,4 @@ public class InitialSalesDisplay
 
 	}
 
-	public static void newScanner(){
-
-		sc = new Scanner(System.in);
-	}
 }

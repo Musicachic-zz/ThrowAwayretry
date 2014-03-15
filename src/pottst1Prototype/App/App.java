@@ -32,7 +32,7 @@ public class App
 		Login.username();
 		//Login.password();
 		//System.out.println("Sales Display\n");
-		//InitialSalesDisplay.initialDisplay();
+		InitialSalesDisplay.initialDisplay();
 		//EmployeeUserPassword.createAndAddEmployeeFile();
 		//ProductAndInventory.addNewProduct();
 	}

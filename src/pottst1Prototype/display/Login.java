@@ -12,6 +12,7 @@ package pottst1Prototype.display;
 
 import pottst1Prototype.data.Employee;
 import pottst1Prototype.data.ExtractEmployees;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -22,9 +23,7 @@ import java.util.Scanner;
  */
 public class Login
 {
-
-	//public static List<Employee> employee = new ArrayList<>();
-
+	private static Employee loggedInEmployee;
 	/**
 	 * This method prompts the user to enter their username and then
 	 * validates against a hardcoded username during the prototype phase.
@@ -71,7 +70,9 @@ public class Login
 
 			}
 			if (tempUsername == null)
+			{
 				System.out.println("Error! Username doesn't exist. Try again.");
+			}
 		}
 		password();
 
@@ -86,17 +87,18 @@ public class Login
 	 *         and must fit the requirements in the spec.
 	 */
 
-	public static String password()
+	public static void password()
 	{
-
+		List<Employee> employee = ExtractEmployees.readEmployeeFile();
+		String password = "";
+		String tempPassword = null;
 		Scanner sc = new Scanner(System.in);
 
-		String password = null;
 		//char[] pass = "password".toCharArray();
 
 		boolean isValid = false;
 
-		while (!isValid)
+		while (tempPassword == null)
 		{
 			System.out.print("Enter your password: ");
 			password = sc.nextLine();
@@ -107,20 +109,34 @@ public class Login
 			}*/
 
 			//Tried to implement using in char[] but confused the hell out of me. Will need to get help on this.
-			if (password.equals("password"))
+			if (password.isEmpty() || password == null)
 			{
-				isValid = true;
-				System.out.println("Login Successful");
-				System.out.println();
-			}
-			else
-			{
+				System.out.println("Error! Password is required.");
 
+			}
+			else if (!password.isEmpty())
+			{
+				for (Employee e : employee)
+				{
+					if (String.valueOf(e.getPassword()).equals(password))
+					{
+						System.out.println("Login Successful");
+						tempPassword = String.valueOf(e);
+						loggedInEmployee = e;
+						break;
+					}
+				}
+			}
+			if (tempPassword == null)
+			{
 				System.out.println("Error! Password is invalid. Try again.");
 			}
 		}
-		return password;
+
 	}
 
+	public static Employee getLoggedInEmployee(){
+		return loggedInEmployee;
+	}
 }
 
