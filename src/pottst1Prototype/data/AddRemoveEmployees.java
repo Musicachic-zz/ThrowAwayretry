@@ -68,7 +68,7 @@ public class AddRemoveEmployees
 				System.out.print("Please enter the password you would like to add: ");
 				char[] password = sc.nextLine().toCharArray();
 
-				System.out.print("What is the access level? E for Employee or M for Manager");
+				System.out.print("What is the access level? E for Employee or M for Manager ");
 				String levelEntered = sc.nextLine();
 
 				String employeeLevel = null;
@@ -124,7 +124,7 @@ public class AddRemoveEmployees
 			while (choice.equalsIgnoreCase("y"))
 			{
 
-				System.out.print("Please enter the username you would like to remove:");
+				System.out.print("Please enter the username you would like to remove: ");
 				String username = sc.nextLine().toUpperCase();
 				Boolean found = false;
 
