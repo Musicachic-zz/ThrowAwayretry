@@ -10,11 +10,9 @@
 package pottst1Prototype.App;
 
 import pottst1Prototype.data.AddRemoveEmployees;
-import pottst1Prototype.data.EmployeeUserPassword;
 import pottst1Prototype.data.ExtractEmployees;
 import pottst1Prototype.display.InitialSalesDisplay;
 import pottst1Prototype.display.Login;
-import pottst1Prototype.display.ManagersDisplay;
 
 /**
  * This class contains only the main method that calls the methods that will
