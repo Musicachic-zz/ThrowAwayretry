@@ -32,10 +32,8 @@ public class Login
 	 * @return username This is the username of the employee using the program.
 	 */
 
-		/* This method is for getting the input of the username from the user. Eventually I will need a validator
-		class to
-	call
-	to verify that the username is 6-12 alphanumeric characters long as per the spec document.*/
+	/* This method is for getting the input of the username from the user. Eventually I will need a validator
+	class to call to verify that the username is 6-12 alphanumeric characters long as per the spec document.*/
 	public static void username()
 	{
 		List<Employee> employee = ExtractEmployees.employee;
@@ -82,11 +80,7 @@ public class Login
 
 	/**
 	 * This method prompts the user to enter their password and then
-	 * validates against a hardcoded password during the prototype phase.
-	 *
-	 * @return password This is the password of the employee using the
-	 *         program. Eventually there will be a list of usernames and passwords
-	 *         and must fit the requirements in the spec.
+	 * validates against the exmployee.txt password.
 	 */
 
 	public static void password()
@@ -95,8 +89,6 @@ public class Login
 		String password = "";
 		String tempPassword = null;
 		Scanner sc = new Scanner(System.in);
-
-		//char[] pass = "password".toCharArray();
 
 		boolean isValid = false;
 
@@ -137,6 +129,11 @@ public class Login
 
 	}
 
+	/**
+	 * This method is used just to return the last logged in employee so I can use it later to not have to check if a
+	 * manager is logged in or not.
+	 * @return loggedInEmployee
+	 */
 	public static Employee getLoggedInEmployee(){
 		return loggedInEmployee;
 	}

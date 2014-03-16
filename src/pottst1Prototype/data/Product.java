@@ -166,6 +166,11 @@ public class Product
 				       ) + "|";
 	}
 
+	/**
+	 * This is the override method that checks whether or not a product is equal.
+	 * @param Object O
+	 * @return boolean true
+	 */
 	@Override
 	public boolean equals(Object o)
 	{
@@ -179,6 +184,10 @@ public class Product
 		return true;
 	}
 
+	/**
+	 * This is the required override for the Map to work.
+	 * @return
+	 */
 	@Override
 	public int hashCode()
 	{

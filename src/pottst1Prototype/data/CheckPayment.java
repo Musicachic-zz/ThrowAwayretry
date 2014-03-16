@@ -12,6 +12,10 @@ package pottst1Prototype.data;
 
 import java.math.BigDecimal;
 
+/**
+ * This class is used for check payments. It references the Payment class.
+ */
+
 public class CheckPayment extends Payment
 {
 	private String routingNum;

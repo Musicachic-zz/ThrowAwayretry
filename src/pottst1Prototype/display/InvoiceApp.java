@@ -10,9 +10,8 @@
 
 package pottst1Prototype.display;
 
+import pottst1Prototype.data.ExtractProductsandInventory;
 import pottst1Prototype.data.Product;
-import pottst1Prototype.data.ProductList;
-
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.HashMap;
@@ -21,7 +20,7 @@ import java.util.Scanner;
 
 /**
  * This is the class that creates the invoice array list. It validates that
- * the UPC entered is in the ProductList class and then prompts for the amount
+ * the UPC entered is in the ExtractProductsandInventory class and then prompts for the amount
  * desired. Ultimately it should also take the quantity based on what is
  * available. This class was originally created in the Murach Java book in
  * chapter 12. I modified it as I saw fit.
@@ -38,7 +37,7 @@ public class InvoiceApp
 
 	/**
 	 * This method is used to add products to the invoice arrayList. It
-	 * checks to see if the UPC exists in the ProductList and if does adds it
+	 * checks to see if the UPC exists in the ExtractProductsandInventory and if does adds it
 	 * to the arrayList.
 	 */
 
@@ -68,7 +67,7 @@ public class InvoiceApp
 				}
 			}
 
-			for (Product p : ProductList.getProducts())
+			for (Product p : ExtractProductsandInventory.prod)
 			{
 				if (p.getUpc().equals(upc))
 				{
@@ -106,6 +105,12 @@ public class InvoiceApp
 
 	}
 
+	/**
+	 * This method is used to remove products from the invoice arrayList. It
+	 * checks to see if the UPC exists in the ExtractProductsandInventory and if does removes it
+	 * from the arrayList.
+	 */
+
 	public static void removeDisplay()
 	{
 
@@ -132,7 +137,7 @@ public class InvoiceApp
 				}
 			}
 
-			for (Product p : ProductList.getProducts())
+			for (Product p : ExtractProductsandInventory.prod)
 			{
 				if (p.getUpc().equals(upc))
 				{
@@ -165,7 +170,7 @@ public class InvoiceApp
 							invoiceSize = 0;
 
 						}
-						else //(quantity > invoiceSize || quantity >invoiceQuantity)
+						else
 						{
 							invoice.put(p, 0);
 							invoice.remove(p);

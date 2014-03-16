@@ -15,6 +15,10 @@ import pottst1Prototype.display.ManagersDisplay;
 import java.io.*;
 import java.util.Scanner;
 
+/**
+ * This class contains the methods to check if the employee file exists, add employee,
+ * and remove employee that the managers use.
+ */
 public class AddRemoveEmployees
 {
 	private static Scanner sc = new Scanner(System.in);
@@ -23,6 +27,10 @@ public class AddRemoveEmployees
 	static String m = Employee.MANAGER_LEVEL;
 	static File f;
 	static PrintWriter pw = null;
+
+	/**
+	 * This method checks to see if the employee.txt file exists (which it should).
+	 */
 
 	public static void doesFileExist()
 	{
@@ -40,8 +48,6 @@ public class AddRemoveEmployees
 			}
 		}
 
-		//PrintWriter pw = null;
-
 		try
 		{
 			pw = new PrintWriter(new FileOutputStream(f, true));
@@ -51,8 +57,14 @@ public class AddRemoveEmployees
 		}
 	}
 
+	/**
+	 * This method prompts the manager to enter in the information to add a new employee. Once they enter in the
+	 * information it appends to the employee.txt file.
+	 */
 	public static void addEmployee()
 	{
+		//todo: verify someone cannot enter a duplicate username.
+
 		File f = new File("Employee.txt");
 
 		String choice = "y";
@@ -110,6 +122,11 @@ public class AddRemoveEmployees
 			e1.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
 		}
 	}
+
+	/**
+	 * This method prompts the manager to enter in the information to remove a employee. Once they enter in the
+	 * information it removes the line from employee.txt file. It does not allow anyone to remove the ADMIN user.
+	 */
 
 	public static void removeEmployee()
 	{

@@ -14,15 +14,24 @@ import java.io.*;
 import java.math.BigDecimal;
 import java.util.Scanner;
 
+/**
+ * This class contains method to check if the productsandinventory.txt file exists,
+ * the add and remove product method for the manager function to use.
+ */
+
 public class ProductAndInventory
 {
 	private static Scanner sc = new Scanner(System.in);
 	private static Product prod;
 	static File f;
+	static PrintWriter pw = null;
 
-	public static void addNewProduct()
+	/**
+	 * This method checks to see if the ProductsAndInventory.txt file exists and if not it will create it.
+	 */
+	public static void doesFileExist()
 	{
-		File f = new File("ProductsAndInventory.txt");
+		f = new File("ProductsAndInventory.txt");
 
 		if (!f.exists())
 		{
@@ -36,8 +45,6 @@ public class ProductAndInventory
 			}
 		}
 
-		PrintWriter pw = null;
-
 		try
 		{
 			pw = new PrintWriter(new FileOutputStream(f, true));
@@ -45,11 +52,23 @@ public class ProductAndInventory
 		{
 			System.out.println("Could not locate file.");
 		}
+	}
+
+	/**
+	 * This method will allow a manager to add a new product. After they enter in the answers based on the prompts it
+	 * will write the new product to the file. It will also catch the exception if the file is not found.
+	 */
+
+	public static void addNewProduct()
+	{
+		File f = new File("ProductsAndInventory.txt");
 
 		String choice = "y";
 
-		if (pw != null)
+		try
 		{
+			pw = new PrintWriter(new FileOutputStream(f, true));
+
 			while (choice.equalsIgnoreCase("y"))
 			{
 				System.out.print("What is the upc? ");
@@ -64,7 +83,7 @@ public class ProductAndInventory
 				System.out.print("What is the number in stock of the product? ");
 				int quantity = Integer.parseInt(sc.nextLine());
 
-				Product prod = new Product(upc, description, price, quantity);
+				prod = new Product(upc, description, price, quantity);
 
 				pw.write(prod.getUpc() + "\t");
 				pw.write(prod.getDescription() + "\t");
@@ -76,27 +95,9 @@ public class ProductAndInventory
 			}
 			pw.close();
 
-		}
-
-		Scanner sc = null;
-
-		try
+		} catch (FileNotFoundException e)
 		{
-			sc = new Scanner(f);
-		}
-		catch(FileNotFoundException e){
-			System.out.println("Could not open file.");
-		}
-
-		while (sc.hasNextLine())
-		{
-			String in = sc.nextLine();
-			System.out.println(in);
-			String[] fields = in.split("\t");
-			System.out.println("UPC: " + fields[0]);
-			System.out.println("Description: " + fields[1]);
-			System.out.println("Price:  $" + fields[2]);
-			System.out.println("# in Stock " + fields[3]);
+			System.out.println("Could not locate file.");
 		}
 	}
 }

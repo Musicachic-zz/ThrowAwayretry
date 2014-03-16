@@ -11,6 +11,8 @@ package pottst1Prototype.App;
 
 import pottst1Prototype.data.AddRemoveEmployees;
 import pottst1Prototype.data.ExtractEmployees;
+import pottst1Prototype.data.ExtractProductsandInventory;
+import pottst1Prototype.data.ProductAndInventory;
 import pottst1Prototype.display.InitialSalesDisplay;
 import pottst1Prototype.display.Login;
 
@@ -28,15 +30,11 @@ public class App
 
 	public static void main(String[] args)
 	{
-		//ExtractEmployees.readEmployeeFile();
 		AddRemoveEmployees.doesFileExist();
 		ExtractEmployees.readEmployeeFile();
+		ProductAndInventory.doesFileExist();
+		ExtractProductsandInventory.readProductFile();
 		Login.username();
-		//Login.password();
-		//System.out.println("Sales Display\n");
 		InitialSalesDisplay.initialDisplay();
-		//EmployeeUserPassword.createAndAddEmployeeFile();
-		//ProductAndInventory.addNewProduct();
-		//ManagersDisplay.initialMgrsDisplay();
 	}
 }

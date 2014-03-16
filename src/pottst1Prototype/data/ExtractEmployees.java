@@ -16,10 +16,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * This class reads out the content of the employee.txt file to a List. This List then gets referenced as someone
+ * verifies what exists in the file.
+ */
+
 public class ExtractEmployees
 {
 	public static List<Employee> employee = new ArrayList<>();
 
+	/**
+	 * This method reads out the content of the employee.txt file to list.
+	 * @return employee
+	 */
 	public static List<Employee> readEmployeeFile()
 {
 
@@ -30,7 +39,8 @@ public class ExtractEmployees
 	try
 	{
 		sc = new Scanner(f);
-	} catch (FileNotFoundException e)
+	}
+	catch (FileNotFoundException e)
 	{
 		System.out.println("Could not open file.");
 	}

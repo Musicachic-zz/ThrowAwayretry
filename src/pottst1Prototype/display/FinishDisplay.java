@@ -189,17 +189,14 @@ public class FinishDisplay
 				System.out.println("Error: Please enter a valid cash amount.");
 				cashSelected();
 			}
-			//cashAmt = BigDecimal.valueOf(Double.parseDouble(s));
 			if (cashAmt.compareTo(InvoiceDisplay.getTotal()) < 0)
 			{
 				payments.add(new CashPayment(cashAmt, "CASH"));
-				//payments.remove();
 				calculateIncompleteTotal(cashAmt);
 			}
 		}
-		else // (payments != null || !payments.isEmpty())
+		else
 		{
-			//cashAmt = BigDecimal.valueOf(Double.parseDouble(s));
 			if (s == null || s.isEmpty())
 			{
 				System.out.println("Error: Please enter a valid cash amount.");
@@ -279,9 +276,8 @@ public class FinishDisplay
 				calculateIncompleteTotal(checkAmt);
 			}
 		}
-		else // (payments != null && !payments.isEmpty())
+		else
 		{
-			//cashAmt = BigDecimal.valueOf(Double.parseDouble(s));
 			if (s == null || s.isEmpty())
 			{
 				System.out.println("Error: Please enter a valid cash amount.");
@@ -290,7 +286,6 @@ public class FinishDisplay
 
 			else if (checkAmt.compareTo(remainingTotal) <= 0)
 			{
-				//payments.add((Payment) payments);
 				calculateTotalAndFinish(checkAmt);
 			}
 		}
@@ -300,8 +295,6 @@ public class FinishDisplay
 	{
 		if (paymentAmount.compareTo(InvoiceDisplay.getTotal()) < 0)
 		{
-			//payments.add((Payment) payments);
-
 			remainingTotal = InvoiceDisplay.getTotal().subtract(paymentAmount);
 			System.out.println(remainingTotal);
 			printPayments(payments);
@@ -366,9 +359,8 @@ public class FinishDisplay
 				calculateIncompleteTotal(creditCardAmt);
 			}
 		}
-		else // (payments != null && !payments.isEmpty())
+		else
 		{
-			//cashAmt = BigDecimal.valueOf(Double.parseDouble(s));
 			if (s == null || s.isEmpty())
 			{
 				System.out.println("Error: Please enter a valid cash amount.");
@@ -383,9 +375,13 @@ public class FinishDisplay
 		}
 	}
 
+	/**
+	 * This method is written for all the code that was being duplicated for all the payment types to do the
+	 * comparisons on the remaining total and how much has been paid already.
+	 * @param creditCardAmt
+	 */
 	private static void calculateTotalAndFinish(BigDecimal creditCardAmt)
 	{
-		//payments.add((Payment) payments);
 		remainingTotal = remainingTotal.subtract(creditCardAmt);
 		System.out.println(remainingTotal);
 		printPayments(payments);
@@ -402,6 +398,9 @@ public class FinishDisplay
 		}
 	}
 
+	/**
+	 * This method is written to remove the payment from the payment arraylist based on the user input.
+	 */
 	private static void removePayments(){
 		printPayments(payments);
 

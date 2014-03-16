@@ -13,8 +13,7 @@ package pottst1Prototype.data;
 import java.math.BigDecimal;
 
 /**
- * This class contains the code that will support Credit Card payments in the
- * future. It contains the getter and setters related to it.
+ * This class is used for credit card payments. It references the Payment class.
  */
 
 public class CreditPayment extends Payment

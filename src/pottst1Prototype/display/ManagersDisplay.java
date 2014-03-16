@@ -12,14 +12,21 @@ package pottst1Prototype.display;
 
 import pottst1Prototype.data.AddRemoveEmployees;
 import pottst1Prototype.data.Employee;
-
+import pottst1Prototype.data.ProductAndInventory;
 import java.util.Scanner;
+
+/**
+ * This class has the display options for the managers menu and lets the user input their choice.
+ */
 
 public class ManagersDisplay
 {
 
 	private static Scanner sc = new Scanner(System.in);
 
+	/**
+	 * This method has the manager's menu and prompts them to enter in which option they would like.
+	 */
 	public static void initialMgrsDisplay()
 	{
 		Login.username();
@@ -27,7 +34,7 @@ public class ManagersDisplay
 
 		if (employee.getAccessLevel().equalsIgnoreCase("Manager"))
 		{
-			System.out.print("Would you like to add employee, remove employee, or exit?");
+			System.out.print("Would you like to add employee, remove employee, inventory or exit?");
 			String managersChoice = sc.nextLine();
 			switch (managersChoice.toUpperCase())
 			{
@@ -38,6 +45,11 @@ public class ManagersDisplay
 				case "REMOVE":
 					System.out.println("You selected Remove Employee");
 					AddRemoveEmployees.removeEmployee();
+					break;
+				case "INVENTORY":
+					System.out.println("You selected Inventory");
+					ProductAndInventory.addNewProduct();
+					break;
 				case "EXIT":
 					System.out.println();
 					initialMgrsDisplay();
