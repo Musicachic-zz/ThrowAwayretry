@@ -29,6 +29,7 @@ public class ManagersDisplay
 	 */
 	public static void initialMgrsDisplay()
 	{
+		System.out.println("You've entered the Manager's verification.");
 		Login.username();
 		Employee employee = Login.getLoggedInEmployee();
 

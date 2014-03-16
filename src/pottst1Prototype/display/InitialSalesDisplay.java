@@ -20,7 +20,7 @@ import java.util.Scanner;
 
 public class InitialSalesDisplay
 {
-	private static Scanner sc;
+	private static Scanner sc = new Scanner(System.in);
 
 	/**
 	 * This method has code for the initial questions asked in the sales
@@ -33,10 +33,10 @@ public class InitialSalesDisplay
 		System.out.print("Would you like to do: Add Sale, Remove Sale, Finish Sale, Management functions" +
 				                 "or Exit? Add/Remove/Finish/Management/Exit: ");
 
-		Scanner sc = new Scanner(System.in);
 		String salesDisplayChoice = sc.next();
 
-		switch (salesDisplayChoice.toUpperCase()){
+		switch (salesDisplayChoice.toUpperCase())
+		{
 			case "ADD":
 				System.out.println("You selected Add");
 				InvoiceApp.addDisplay();
