@@ -30,8 +30,8 @@ public class InitialSalesDisplay
 
 	public static void initialDisplay()
 	{
-		System.out.print("Would you like to do: Add, Remove, Finish, Management " +
-				                 "or Exit?: ");
+		System.out.print("Would you like to do: Add Sale, Remove Sale, Finish Sale, Management functions" +
+				                 "or Exit? Add/Remove/Finish/Management/Exit: ");
 
 		Scanner sc = new Scanner(System.in);
 		String salesDisplayChoice = sc.next();

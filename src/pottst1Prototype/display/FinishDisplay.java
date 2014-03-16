@@ -41,11 +41,11 @@ public class FinishDisplay
 	 */
 	public static void paymentOptions()
 	{
-		System.out.print("Would you like to Add or Remove a payment? ");
+		System.out.print("Would you like to do with a payment? Add/Remove: ");
 		String addOrRemovePayment = sc.nextLine();
 		boolean successful = false;
 
-		while (successful==false)
+		while (!successful)
 		{
 			switch (addOrRemovePayment.toUpperCase()){
 				case "ADD":
