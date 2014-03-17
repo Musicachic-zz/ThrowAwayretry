@@ -33,8 +33,8 @@ public class InvoiceApp
 	public static Map<Product, Integer> invoice = new HashMap<>();
 	private static int invoiceSize = 0;
 	private static String lastUpc = null;
-	int quantity = 1;
-	public int quantityPurchased = 0;
+	//int quantity = 1;
+	//public int quantityPurchased = 0;
 
 	/**
 	 * This method is used to add products to the invoice arrayList. It

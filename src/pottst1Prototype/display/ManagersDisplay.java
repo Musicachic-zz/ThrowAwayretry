@@ -34,8 +34,8 @@ public class ManagersDisplay
 
 		if (employee.getAccessLevel().equalsIgnoreCase("Manager"))
 		{
-			System.out.print("Would you like to Add employee, Remove employee, " +
-					                 "Inventory or Exit? Add/Remove/Inventory/Exit: ");
+			System.out.print("Would you like to Add Employee (Add), Remove Employee (Remove), " +
+					                 "Inventory or Exit?: ");
 			String managersChoice = sc.nextLine();
 			switch (managersChoice.toUpperCase())
 			{

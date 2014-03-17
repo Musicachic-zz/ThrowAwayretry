@@ -43,7 +43,7 @@ public class LoginDisplay
 		String username = "";
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("LoginDisplay Display");
+		System.out.println("Login Display");
 		System.out.println();
 
 		while (tempUsername == null)
@@ -91,19 +91,11 @@ public class LoginDisplay
 		String tempPassword = null;
 		Scanner sc = new Scanner(System.in);
 
-		boolean isValid = false;
-
 		while (tempPassword == null)
 		{
 			System.out.print("Enter your password: ");
 			password = sc.nextLine();
 
-/*			if (password.equals(""))
-			{
-				System.out.println("Error! Password is required. Try again.");
-			}*/
-
-			//Tried to implement using in char[] but confused the hell out of me. Will need to get help on this.
 			if (password == null || password.isEmpty())
 			{
 				System.out.println("Error! Password is required.");
