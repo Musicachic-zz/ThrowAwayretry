@@ -10,9 +10,7 @@
 
 package pottst1Prototype.display;
 
-import pottst1Prototype.data.AddRemoveEmployees;
 import pottst1Prototype.data.Employee;
-import pottst1Prototype.data.ProductAndInventory;
 
 import java.util.Scanner;
 
@@ -43,15 +41,15 @@ public class ManagersDisplay
 			{
 				case "ADD":
 					System.out.println("You selected Add Employee");
-					AddRemoveEmployees.addEmployee();
+					AddRemoveEmployeesDisplay.addEmployee();
 					break;
 				case "REMOVE":
 					System.out.println("You selected Remove Employee");
-					AddRemoveEmployees.removeEmployee();
+					AddRemoveEmployeesDisplay.removeEmployee();
 					break;
 				case "INVENTORY":
 					System.out.println("You selected Inventory");
-					ProductAndInventory.addNewProduct();
+					ProductAndInventoryDisplay.addNewProduct();
 					break;
 				case "EXIT":
 					System.out.println();

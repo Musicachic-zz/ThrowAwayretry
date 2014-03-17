@@ -11,6 +11,8 @@
 package pottst1Prototype.display;
 
 import pottst1Prototype.data.CashPayment;
+import pottst1Prototype.data.CheckPayment;
+import pottst1Prototype.data.CreditPayment;
 import pottst1Prototype.data.Payment;
 
 import java.math.BigDecimal;
@@ -40,7 +42,7 @@ public class FinishDisplay
 	 */
 	public static void paymentOptions()
 	{
-		System.out.print("Would you like to do with a payment? Add/Remove: ");
+		System.out.print("Would you like to do with a payment? Add/Remove/Exit: ");
 		String addOrRemovePayment = sc.nextLine();
 		boolean successful = false;
 
@@ -56,6 +58,10 @@ public class FinishDisplay
 					System.out.println("You selected to remove a payment.");
 					removePayments();
 					successful = true;
+					break;
+				case "EXIT":
+					System.out.println("You selected to exit the payment menu.");
+					InitialSalesDisplay.initialDisplay();
 					break;
 				default:
 					System.out.print("Please select a valid option.");
@@ -287,6 +293,7 @@ public class FinishDisplay
 
 			else if (checkAmt.compareTo(remainingTotal) <= 0)
 			{
+				payments.add(new CheckPayment(checkAmt, "CHECK"));
 				calculateTotalAndFinish(checkAmt);
 			}
 		}
@@ -297,10 +304,12 @@ public class FinishDisplay
 		if (paymentAmount.compareTo(InvoiceDisplay.getTotal()) < 0)
 		{
 			remainingTotal = InvoiceDisplay.getTotal().subtract(paymentAmount);
-			System.out.println(remainingTotal);
+			//System.out.println(remainingTotal);
 			printPayments(payments);
 			if (remainingTotal.compareTo(BigDecimal.ZERO) > 0)
 			{
+				System.out.println("The remaining amount due: " + remainingTotal);
+				System.out.println();
 				paymentOptions();
 			}
 			else
@@ -371,6 +380,7 @@ public class FinishDisplay
 
 			else if (creditCardAmt.compareTo(remainingTotal) <= 0)
 			{
+				payments.add(new CreditPayment(creditCardAmt, "CREDIT"));
 				calculateTotalAndFinish(creditCardAmt);
 
 			}
@@ -390,8 +400,9 @@ public class FinishDisplay
 		printPayments(payments);
 		if (remainingTotal.compareTo(BigDecimal.ZERO) > 0)
 		{
+			System.out.println("The remaining amount due: " + remainingTotal);
 			paymentOptions();
-			System.out.println(remainingTotal);
+
 
 		}
 		else

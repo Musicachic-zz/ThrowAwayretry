@@ -8,7 +8,9 @@
 *
 */
 
-package pottst1Prototype.data;
+package pottst1Prototype.display;
+
+import pottst1Prototype.data.Product;
 
 import java.io.*;
 import java.math.BigDecimal;
@@ -19,7 +21,7 @@ import java.util.Scanner;
  * the add and remove product method for the manager function to use.
  */
 
-public class ProductAndInventory
+public class ProductAndInventoryDisplay
 {
 	private static Scanner sc = new Scanner(System.in);
 	private static Product prod;

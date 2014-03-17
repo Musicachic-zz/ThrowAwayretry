@@ -8,10 +8,10 @@
 *
 */
 
-package pottst1Prototype.data;
+package pottst1Prototype.display;
 
-import pottst1Prototype.display.ManagersDisplay;
-
+import pottst1Prototype.data.Employee;
+import pottst1Prototype.data.ExtractEmployees;
 import java.io.*;
 import java.util.Scanner;
 
@@ -19,7 +19,7 @@ import java.util.Scanner;
  * This class contains the methods to check if the employee file exists, add employee,
  * and remove employee that the managers use.
  */
-public class AddRemoveEmployees
+public class AddRemoveEmployeesDisplay
 {
 	private static Scanner sc = new Scanner(System.in);
 	private static Employee em;
@@ -34,7 +34,7 @@ public class AddRemoveEmployees
 
 	public static void doesFileExist()
 	{
-		File f = new File("Employee.txt");
+		f = new File("Employee.txt");
 
 		if (!f.exists())
 		{
@@ -105,7 +105,7 @@ public class AddRemoveEmployees
 					}
 				}
 
-				Employee em = new Employee(username, password, employeeLevel);
+				em = new Employee(username, password, employeeLevel);
 				//String choice = "y";
 
 				pw.write(em.getAccessLevel() + "\t");

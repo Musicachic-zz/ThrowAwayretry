@@ -59,4 +59,9 @@ public class CheckPayment extends Payment
 	{
 		this.checkNum = checkNum;
 	}
+
+	public CheckPayment(BigDecimal amount, String paymentMethod)
+	{
+		super(amount, paymentMethod);
+	}
 }

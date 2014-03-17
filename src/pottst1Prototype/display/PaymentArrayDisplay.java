@@ -27,7 +27,8 @@ public class PaymentArrayDisplay
 		{
 			String paymentMethod = payment.getPaymentMethod();
 			BigDecimal amount = payment.getAmount();
-			System.out.println((i + 1) + "Payment Method " + paymentMethod + "Payment Amount " + amount);
+			System.out.println((i + 1) + "   Payment Method " + paymentMethod + "          Payment Amount " +
+					                   amount);
 			i++;
 		}
 		System.out.println("+---------------------------------------------------------+");

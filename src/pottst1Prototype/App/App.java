@@ -9,12 +9,12 @@
 */
 package pottst1Prototype.App;
 
-import pottst1Prototype.data.AddRemoveEmployees;
 import pottst1Prototype.data.ExtractEmployees;
 import pottst1Prototype.data.ExtractProductsandInventory;
-import pottst1Prototype.data.ProductAndInventory;
+import pottst1Prototype.display.AddRemoveEmployeesDisplay;
 import pottst1Prototype.display.InitialSalesDisplay;
 import pottst1Prototype.display.LoginDisplay;
+import pottst1Prototype.display.ProductAndInventoryDisplay;
 
 /**
  * This class contains only the main method that calls the methods that will
@@ -30,9 +30,9 @@ public class App
 
 	public static void main(String[] args)
 	{
-		AddRemoveEmployees.doesFileExist();
+		AddRemoveEmployeesDisplay.doesFileExist();
 		ExtractEmployees.readEmployeeFile();
-		ProductAndInventory.doesFileExist();
+		ProductAndInventoryDisplay.doesFileExist();
 		ExtractProductsandInventory.readProductFile();
 		LoginDisplay.username();
 		InitialSalesDisplay.initialDisplay();

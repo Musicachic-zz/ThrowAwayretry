@@ -26,7 +26,7 @@ public class ExtractProductsandInventory
 
 		File f = new File("ProductsAndInventory.txt");
 
-		Scanner sc = null;
+		Scanner sc;
 
 		try
 		{
@@ -36,16 +36,16 @@ public class ExtractProductsandInventory
 			{
 				Product p = new Product();
 				String in = sc.nextLine();
-				System.out.println(in);
+				//System.out.println(in);
 				String[] fields = in.split("\t", -1);
 				p.setDescription(fields[1]);
 				p.setPrice(new BigDecimal(fields[2]));
 				p.setUpc(fields[0]);
 				p.setQuantity(Integer.valueOf(fields[3]));
-				System.out.println("Description " + fields[1]);
-				System.out.println("Price per unit: " + fields[2]);
-				System.out.println("UPC: " + fields[0]);
-				System.out.println("Quantity: " + fields[3]);
+				//System.out.println("Description " + fields[1]);
+				//System.out.println("Price per unit: " + fields[2]);
+				//System.out.println("UPC: " + fields[0]);
+				//System.out.println("Quantity: " + fields[3]);
 				prod.add(p);
 
 			}

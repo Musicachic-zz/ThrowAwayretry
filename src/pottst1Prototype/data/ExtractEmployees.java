@@ -49,14 +49,14 @@ public class ExtractEmployees
 		{
 			Employee e = new Employee();
 			String in = sc.nextLine();
-			System.out.println(in);
+			//System.out.println(in);
 			String[] fields = in.split("\t", -1);
 			e.setUsername(fields[1]);
 			e.setPassword(fields[2].toCharArray());
 			e.setAccessLevel(fields[0]);
-			System.out.println("Username: " + fields[1]);
-			System.out.println("Password: " + fields[2]);
-			System.out.println("Access Level: " + fields[0]);
+			//System.out.println("Username: " + fields[1]);
+			//System.out.println("Password: " + fields[2]);
+			//System.out.println("Access Level: " + fields[0]);
 			employee.add(e);
 
 		}

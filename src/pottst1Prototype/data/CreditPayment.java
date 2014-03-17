@@ -71,4 +71,9 @@ public class CreditPayment extends Payment
 	{
 		this.expirationDate = expirationDate;
 	}
+
+	public CreditPayment(BigDecimal amount, String paymentMethod)
+	{
+		super(amount, paymentMethod);
+	}
 }
