@@ -26,8 +26,8 @@ public class ProductAndInventoryDisplay
 {
 	private static Scanner sc = new Scanner(System.in);
 	private static Product prod;
-	static File f;
-	static PrintWriter pw = null;
+	public static File f;
+	public static PrintWriter pw = null;
 
 	/**
 	 * This method checks to see if the ProductsAndInventory.txt file exists and if not it will create it.
