@@ -47,15 +47,16 @@ public class FinishDisplay
 
 		while (!successful)
 		{
-			switch (addOrRemovePayment.toUpperCase()){
+			switch (addOrRemovePayment.toUpperCase())
+			{
 				case "ADD":
 					System.out.println("You selected to add a payment.");
-					successful=true;
+					successful = true;
 					break;
 				case "REMOVE":
 					System.out.println("You selected to remove a payment.");
 					removePayments();
-					successful=true;
+					successful = true;
 					break;
 				default:
 					System.out.print("Please select a valid option.");
@@ -272,7 +273,8 @@ public class FinishDisplay
 				System.out.println("Error: Please enter a valid check payment amount.");
 				checkSelected();
 			}
-			if (checkAmt.compareTo(InvoiceDisplay.getTotal()) < 0) {
+			if (checkAmt.compareTo(InvoiceDisplay.getTotal()) < 0)
+			{
 				calculateIncompleteTotal(checkAmt);
 			}
 		}
@@ -355,7 +357,8 @@ public class FinishDisplay
 				System.out.println("Error: Please enter a valid check payment amount.");
 				checkSelected();
 			}
-			if(creditCardAmt.compareTo(InvoiceDisplay.getTotal()) < 0) {
+			if (creditCardAmt.compareTo(InvoiceDisplay.getTotal()) < 0)
+			{
 				calculateIncompleteTotal(creditCardAmt);
 			}
 		}
@@ -378,6 +381,7 @@ public class FinishDisplay
 	/**
 	 * This method is written for all the code that was being duplicated for all the payment types to do the
 	 * comparisons on the remaining total and how much has been paid already.
+	 *
 	 * @param creditCardAmt
 	 */
 	private static void calculateTotalAndFinish(BigDecimal creditCardAmt)
@@ -401,11 +405,12 @@ public class FinishDisplay
 	/**
 	 * This method is written to remove the payment from the payment arraylist based on the user input.
 	 */
-	private static void removePayments(){
+	private static void removePayments()
+	{
 		printPayments(payments);
 
 		System.out.print("Select a payment number to remove: ");
-		Number paymentNum = Integer.parseInt(sc.nextLine())-1;
+		Number paymentNum = Integer.parseInt(sc.nextLine()) - 1;
 
 		payments.remove(payments.get(paymentNum.intValue()));
 

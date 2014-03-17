@@ -12,6 +12,7 @@ package pottst1Prototype.display;
 
 import pottst1Prototype.data.ExtractProductsandInventory;
 import pottst1Prototype.data.Product;
+
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.HashMap;

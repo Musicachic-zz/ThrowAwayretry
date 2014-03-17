@@ -19,7 +19,8 @@ import pottst1Prototype.display.FinishDisplay;
 public class PaymentArrayDisplay
 {
 
-	public static void printPayments(List<Payment> payments){
+	public static void printPayments(List<Payment> payments)
+	{
 
 		System.out.println("+---------------------------------------------------------+");
 		int i = 0;
@@ -27,11 +28,10 @@ public class PaymentArrayDisplay
 		{
 			String paymentMethod = payment.getPaymentMethod();
 			BigDecimal amount = payment.getAmount();
-			System.out.println( (i+1) + "Payment Method " + paymentMethod + "Payment Amount "  + amount);
+			System.out.println((i + 1) + "Payment Method " + paymentMethod + "Payment Amount " + amount);
 			i++;
 		}
 		System.out.println("+---------------------------------------------------------+");
-		
-		
+
 	}
 }

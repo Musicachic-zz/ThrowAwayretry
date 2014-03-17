@@ -21,10 +21,11 @@ import java.util.Scanner;
  * and password. It contains the hardcoded username and password we are using
  * during the prototyping phase.
  */
-public class Login
+public class LoginDisplay
 {
 	private static Employee loggedInEmployee;
 	private static String loggedInUsername;
+
 	/**
 	 * This method prompts the user to enter their username and then
 	 * validates against a hardcoded username during the prototype phase.
@@ -42,7 +43,7 @@ public class Login
 		String username = "";
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Login Display");
+		System.out.println("LoginDisplay Display");
 		System.out.println();
 
 		while (tempUsername == null)
@@ -114,7 +115,7 @@ public class Login
 				{
 					if (e.getUsername().equalsIgnoreCase(loggedInUsername) && String.valueOf(e.getPassword()).equals(password))
 					{
-						System.out.println("Login Successful");
+						System.out.println("LoginDisplay Successful");
 						tempPassword = String.valueOf(e);
 						loggedInEmployee = e;
 						break;
@@ -132,9 +133,11 @@ public class Login
 	/**
 	 * This method is used just to return the last logged in employee so I can use it later to not have to check if a
 	 * manager is logged in or not.
+	 *
 	 * @return loggedInEmployee
 	 */
-	public static Employee getLoggedInEmployee(){
+	public static Employee getLoggedInEmployee()
+	{
 		return loggedInEmployee;
 	}
 }

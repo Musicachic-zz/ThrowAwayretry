@@ -14,7 +14,7 @@ import pottst1Prototype.data.ExtractEmployees;
 import pottst1Prototype.data.ExtractProductsandInventory;
 import pottst1Prototype.data.ProductAndInventory;
 import pottst1Prototype.display.InitialSalesDisplay;
-import pottst1Prototype.display.Login;
+import pottst1Prototype.display.LoginDisplay;
 
 /**
  * This class contains only the main method that calls the methods that will
@@ -34,7 +34,7 @@ public class App
 		ExtractEmployees.readEmployeeFile();
 		ProductAndInventory.doesFileExist();
 		ExtractProductsandInventory.readProductFile();
-		Login.username();
+		LoginDisplay.username();
 		InitialSalesDisplay.initialDisplay();
 	}
 }
