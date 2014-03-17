@@ -10,13 +10,13 @@
 
 package pottst1Prototype.display;
 
+import pottst1Prototype.data.CashPayment;
+import pottst1Prototype.data.Payment;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-import pottst1Prototype.data.CashPayment;
-import pottst1Prototype.data.Payment;
 
 import static pottst1Prototype.display.PaymentArrayDisplay.printPayments;
 
@@ -33,7 +33,6 @@ public class FinishDisplay
 
 	private static BigDecimal remainingTotal = BigDecimal.valueOf(0);
 	private static Scanner sc = new Scanner(System.in);
-	//sc = new Scanner(System.in);
 
 	/**
 	 * This method asks the user which payment method they want to use and then routes them to the method to complete

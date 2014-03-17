@@ -10,11 +10,10 @@
 
 package pottst1Prototype.display;
 
+import pottst1Prototype.data.Payment;
+
 import java.math.BigDecimal;
 import java.util.List;
-
-import pottst1Prototype.data.Payment;
-import pottst1Prototype.display.FinishDisplay;
 
 public class PaymentArrayDisplay
 {
