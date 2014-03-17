@@ -403,7 +403,6 @@ public class FinishDisplay
 			System.out.println("The remaining amount due: " + remainingTotal);
 			paymentOptions();
 
-
 		}
 		else
 		{

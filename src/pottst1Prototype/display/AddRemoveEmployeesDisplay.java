@@ -12,6 +12,7 @@ package pottst1Prototype.display;
 
 import pottst1Prototype.data.Employee;
 import pottst1Prototype.data.ExtractEmployees;
+
 import java.io.*;
 import java.util.Scanner;
 

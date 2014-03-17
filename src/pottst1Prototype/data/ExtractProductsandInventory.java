@@ -36,11 +36,10 @@ public class ExtractProductsandInventory
 			{
 				Product p = new Product();
 				String in = sc.nextLine();
-				//System.out.println(in);
 				String[] fields = in.split("\t", -1);
+				p.setUpc(fields[0]);
 				p.setDescription(fields[1]);
 				p.setPrice(new BigDecimal(fields[2]));
-				p.setUpc(fields[0]);
 				p.setQuantity(Integer.valueOf(fields[3]));
 				//System.out.println("Description " + fields[1]);
 				//System.out.println("Price per unit: " + fields[2]);

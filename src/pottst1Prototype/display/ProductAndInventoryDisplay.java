@@ -41,8 +41,7 @@ public class ProductAndInventoryDisplay
 			try
 			{
 				f.createNewFile();
-			}
-			catch (IOException e)
+			} catch (IOException e)
 			{
 				System.out.println("Could not create file.");
 				System.exit(-1);
@@ -52,8 +51,7 @@ public class ProductAndInventoryDisplay
 		try
 		{
 			pw = new PrintWriter(new FileOutputStream(f, true));
-		}
-		catch (FileNotFoundException e)
+		} catch (FileNotFoundException e)
 		{
 			System.out.println("Could not locate file.");
 		}
@@ -100,12 +98,15 @@ public class ProductAndInventoryDisplay
 			}
 			pw.close();
 
-		}
-		catch (FileNotFoundException e)
+		} catch (FileNotFoundException e)
 		{
 			System.out.println("Could not locate file.");
 		}
 	}
+
+	/**
+	 * This method allow a manager to remove a product completely from the ProductsAndInventory.txt file.
+	 */
 
 	public static void removeProduct()
 	{
@@ -115,7 +116,7 @@ public class ProductAndInventoryDisplay
 
 		try
 		{
-			pw = new PrintWriter(new FileOutputStream(f, true));
+			pw = new PrintWriter(new FileOutputStream(f, false));
 
 			while (choice.equalsIgnoreCase("y"))
 			{
@@ -123,37 +124,40 @@ public class ProductAndInventoryDisplay
 				String upc = sc.nextLine();
 				Boolean found = false;
 
-				for(Product p : ExtractProductsandInventory.prod){
-					if(p.getUpc().equals(upc)){
+				for (Product p : ExtractProductsandInventory.prod)
+				{
+					if (p.getUpc().equals(upc))
+					{
 						ExtractProductsandInventory.prod.remove(p);
 						found = true;
 						break;
 					}
 				}
 
-				if(!found){
+				if (!found)
+				{
 					System.out.println("This upc was not found.");
-					ManagersDisplay.initialMgrsDisplay();
+					ManagersDisplay.inventoryMenu();
 				}
-				else{
-					for(Product p : ExtractProductsandInventory.prod){
-					pw.write(p.getUpc() + "\t");
-					pw.write(p.getDescription() + "\t");
-					pw.write(String.valueOf(prod.getPrice()) + "\t");
-					pw.write(p.getQuantity() + "\n");
-					pw.flush();
-			}
+				else
+				{
+					for (Product p : ExtractProductsandInventory.prod)
+					{
+						pw.write(p.getUpc() + "\t");
+						pw.write(p.getDescription() + "\t");
+						pw.write(String.valueOf(p.getPrice()) + "\t");
+						pw.write(p.getQuantity() + "\n");
+						pw.flush();
+					}
 					pw.close();
-					System.out.print("Would you like to add another product? Y or N ");
+					System.out.print("Would you like to remove another product? Y or N ");
 					choice = sc.nextLine();
-					ManagersDisplay.initialMgrsDisplay();
+					InitialSalesDisplay.initialDisplay();
 				}
-
 
 			}
 
-		}
-		catch (FileNotFoundException e)
+		} catch (FileNotFoundException e)
 		{
 			System.out.println("Could not locate file.");
 		}

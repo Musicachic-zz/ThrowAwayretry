@@ -105,9 +105,10 @@ public class LoginDisplay
 			{
 				for (Employee e : employee)
 				{
-					if (e.getUsername().equalsIgnoreCase(loggedInUsername) && String.valueOf(e.getPassword()).equals(password))
+					if (e.getUsername().equalsIgnoreCase(loggedInUsername) && String.valueOf(e.getPassword()).equals
+							                                                                                          (password))
 					{
-						System.out.println("LoginDisplay Successful");
+						System.out.println("Login Successful");
 						tempPassword = String.valueOf(e);
 						loggedInEmployee = e;
 						break;

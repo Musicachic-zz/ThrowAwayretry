@@ -174,7 +174,6 @@ public class Product
 	/**
 	 * This is the override method that checks whether or not a product is equal.
 	 *
-	 * @param Object O
 	 * @return boolean true
 	 */
 	@Override

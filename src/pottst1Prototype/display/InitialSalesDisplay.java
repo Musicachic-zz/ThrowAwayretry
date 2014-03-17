@@ -31,7 +31,7 @@ public class InitialSalesDisplay
 	public static void initialDisplay()
 	{
 		System.out.print("Would you like to do: Add Sale (Add), Remove Sale (Remove), Finish Sale (Finish), " +
-				                 "Management functions (Management) or Exit?: ");
+				                 "Management Functions (Management) or Exit?: ");
 
 		String salesDisplayChoice = sc.next();
 
