@@ -48,6 +48,11 @@ public class Product
 		this.quantity = quantity;
 	}
 
+	public Product(String upc)
+	{
+		this.upc = upc;
+	}
+
 	/**
 	 * This is the getter for the product's upc.
 	 *

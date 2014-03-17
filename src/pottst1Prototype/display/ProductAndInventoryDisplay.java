@@ -10,6 +10,7 @@
 
 package pottst1Prototype.display;
 
+import pottst1Prototype.data.ExtractProductsandInventory;
 import pottst1Prototype.data.Product;
 
 import java.io.*;
@@ -40,7 +41,8 @@ public class ProductAndInventoryDisplay
 			try
 			{
 				f.createNewFile();
-			} catch (IOException e)
+			}
+			catch (IOException e)
 			{
 				System.out.println("Could not create file.");
 				System.exit(-1);
@@ -50,7 +52,8 @@ public class ProductAndInventoryDisplay
 		try
 		{
 			pw = new PrintWriter(new FileOutputStream(f, true));
-		} catch (FileNotFoundException e)
+		}
+		catch (FileNotFoundException e)
 		{
 			System.out.println("Could not locate file.");
 		}
@@ -97,7 +100,60 @@ public class ProductAndInventoryDisplay
 			}
 			pw.close();
 
-		} catch (FileNotFoundException e)
+		}
+		catch (FileNotFoundException e)
+		{
+			System.out.println("Could not locate file.");
+		}
+	}
+
+	public static void removeProduct()
+	{
+		File f = new File("ProductsAndInventory.txt");
+
+		String choice = "y";
+
+		try
+		{
+			pw = new PrintWriter(new FileOutputStream(f, true));
+
+			while (choice.equalsIgnoreCase("y"))
+			{
+				System.out.print("What is the upc of the product you would like to remove? ");
+				String upc = sc.nextLine();
+				Boolean found = false;
+
+				for(Product p : ExtractProductsandInventory.prod){
+					if(p.getUpc().equals(upc)){
+						ExtractProductsandInventory.prod.remove(p);
+						found = true;
+						break;
+					}
+				}
+
+				if(!found){
+					System.out.println("This upc was not found.");
+					ManagersDisplay.initialMgrsDisplay();
+				}
+				else{
+					for(Product p : ExtractProductsandInventory.prod){
+					pw.write(p.getUpc() + "\t");
+					pw.write(p.getDescription() + "\t");
+					pw.write(String.valueOf(prod.getPrice()) + "\t");
+					pw.write(p.getQuantity() + "\n");
+					pw.flush();
+			}
+					pw.close();
+					System.out.print("Would you like to add another product? Y or N ");
+					choice = sc.nextLine();
+					ManagersDisplay.initialMgrsDisplay();
+				}
+
+
+			}
+
+		}
+		catch (FileNotFoundException e)
 		{
 			System.out.println("Could not locate file.");
 		}
