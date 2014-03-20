@@ -362,8 +362,8 @@ public class FinishDisplay
 		{
 			if (s == null || s.isEmpty())
 			{
-				System.out.println("Error: Please enter a valid check payment amount.");
-				checkSelected();
+				System.out.println("Error: Please enter a valid credit payment amount.");
+				creditSelected();
 			}
 			if (creditCardAmt.compareTo(InvoiceDisplay.getTotal()) < 0)
 			{
@@ -375,7 +375,7 @@ public class FinishDisplay
 			if (s == null || s.isEmpty())
 			{
 				System.out.println("Error: Please enter a valid cash amount.");
-				checkSelected();
+				creditSelected();
 			}
 
 			else if (creditCardAmt.compareTo(remainingTotal) <= 0)

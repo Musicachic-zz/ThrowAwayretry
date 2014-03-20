@@ -7,6 +7,10 @@
       </element>
       <element id="module-output" name="ThrowAway" />
       <element id="dir-copy" path="$PROJECT_DIR$/src" />
+      <element id="file-copy" path="$PROJECT_DIR$/Employee.txt" />
+      <element id="file-copy" path="$PROJECT_DIR$/ProductsAndInventory.txt" />
+      <element id="file-copy" path="$PROJECT_DIR$/README" />
+      <element id="file-copy" path="$PROJECT_DIR$/ThrowAway.iml" />
     </root>
   </artifact>
 </component>
