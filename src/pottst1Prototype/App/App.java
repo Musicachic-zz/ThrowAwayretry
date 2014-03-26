@@ -11,10 +11,15 @@ package pottst1Prototype.App;
 
 import pottst1Prototype.data.ExtractEmployees;
 import pottst1Prototype.data.ExtractProductsandInventory;
+import GUI.LoginPanel;
+import GUI.SalesOrderPanel;
 import pottst1Prototype.display.AddRemoveEmployeesDisplay;
 import pottst1Prototype.display.InitialSalesDisplay;
 import pottst1Prototype.display.LoginDisplay;
 import pottst1Prototype.display.ProductAndInventoryDisplay;
+
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * This class contains only the main method that calls the methods that will
@@ -34,6 +39,25 @@ public class App
 		ExtractEmployees.readEmployeeFile();
 		ProductAndInventoryDisplay.doesFileExist();
 		ExtractProductsandInventory.readProductFile();
+
+		//This is for calling the GUI to load.
+
+		JFrame f = new JFrame("GUI Demo");
+		//f.setMinimumSize(new Dimension(600, 400));
+		//f.setResizable(false);
+
+		//f.add(new LoginPanel());
+
+
+		//f.setVisible(true);
+
+		f = new JFrame("Sales Panel");
+		f.setMinimumSize(new Dimension(600, 400));
+		f.setResizable(false);
+		f.add(new SalesOrderPanel());
+		f.setVisible(true);
+
+	// Back to getting the command line involved.
 		LoginDisplay.username();
 		InitialSalesDisplay.initialDisplay();
 	}
