@@ -9,6 +9,7 @@
 */
 package pottst1Prototype.App;
 
+import GUI.InvoicePanel;
 import pottst1Prototype.data.ExtractEmployees;
 import pottst1Prototype.data.ExtractProductsandInventory;
 import GUI.LoginPanel;
@@ -43,18 +44,27 @@ public class App
 		//This is for calling the GUI to load.
 
 		JFrame f = new JFrame("GUI Demo");
-		//f.setMinimumSize(new Dimension(600, 400));
-		//f.setResizable(false);
 
-		//f.add(new LoginPanel());
+		//Login Panel Stuff
+/*
+		f.setMinimumSize(new Dimension(600, 400));
+		f.setResizable(false);
+		f.add(new LoginPanel());
+		f.setVisible(true);
+*/
 
-
-		//f.setVisible(true);
-
-		f = new JFrame("Sales Panel");
+		//Initial Sales Display Stuff
+/*		f = new JFrame("Sales Panel");
 		f.setMinimumSize(new Dimension(600, 400));
 		f.setResizable(false);
 		f.add(new SalesOrderPanel());
+		f.setVisible(true);*/
+
+		//Invoice Panel Stuff
+		f = new JFrame("Invoice Panel");
+		f.setMinimumSize(new Dimension(600, 400));
+		f.setResizable(false);
+		f.add(new InvoicePanel());
 		f.setVisible(true);
 
 	// Back to getting the command line involved.
