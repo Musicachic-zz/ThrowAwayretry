@@ -2,6 +2,8 @@ package stringcalc;
 
 import org.junit.Test;
 
+import java.util.Scanner;
+
 /**
  * Used to perform basic arithmetic operations on Strings. <br />
  * Any Strings sent as parameters to any of these methods are expected to be
@@ -16,23 +18,23 @@ import org.junit.Test;
  * off to 10 fractional digits, rounding up on half or higher.
  *
  * @author hoffmanz
- *
  */
-public interface StringCalculator {
-
+public interface StringCalculator
+{
 	/**
 	 * Performs addition of the numeric values represented by the String
 	 * parameters.
 	 *
 	 * @param a
-	 *            First addend/operand.
+	 * First addend/operand.
 	 * @param b
-	 *            Second addend/operand.
+	 * Second addend/operand.
 	 * @return Sum of the numeric values represented by the first and second
-	 *         operands.
+	 * operands.
 	 * @throws NumberFormatException
-	 *             if either operand does not represent a numeric value.
+	 * if either operand does not represent a numeric value.
 	 */
+
 	String add(String a, String b) throws NumberFormatException;
 
 	/**
@@ -40,14 +42,16 @@ public interface StringCalculator {
 	 * parameters.
 	 *
 	 * @param a
-	 *            Minuend / first operand.
+	 * Minuend / first operand.
 	 * @param b
-	 *            Subtrahend / second operand.
+	 * Subtrahend / second operand.
 	 * @return Difference of the numeric values represented by the first and
-	 *         second operands.
+	 * second operands.
 	 * @throws NumberFormatException
-	 *             if either operand does not represent a numeric value.
+	 * if either operand does not represent a numeric value.
 	 */
+
+
 	String subtract(String a, String b) throws NumberFormatException;
 
 	@Test
@@ -70,16 +74,12 @@ public interface StringCalculator {
 	 * Performs division of the numeric values represented by the String
 	 * parameters.
 	 *
-	 * @param a
-	 *            Dividend / first operand.
-	 * @param b
-	 *            Divisor / second operand.
+	 * @param a Dividend / first operand.
+	 * @param b Divisor / second operand.
 	 * @return Quotient of the numeric values represented by the first and
 	 *         second operands.
-	 * @throws NumberFormatException
-	 *             if either operand does not represent a numeric value.
-	 * @throws ArithmeticException
-	 *             if the divisor is zero.
+	 * @throws NumberFormatException if either operand does not represent a numeric value.
+	 * @throws ArithmeticException   if the divisor is zero.
 	 */
 	String divide(String a, String b) throws NumberFormatException,
 			                                         ArithmeticException;
