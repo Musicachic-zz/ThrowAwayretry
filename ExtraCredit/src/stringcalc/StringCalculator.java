@@ -54,7 +54,6 @@ public interface StringCalculator
 
 	String subtract(String a, String b) throws NumberFormatException;
 
-	@Test
 	/**
 	 * Performs multiplication of the numeric values represented by the String
 	 * parameters.

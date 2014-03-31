@@ -46,12 +46,10 @@ public class App
 		JFrame f = new JFrame("GUI Demo");
 
 		//Login Panel Stuff
-/*
 		f.setMinimumSize(new Dimension(600, 400));
 		f.setResizable(false);
 		f.add(new LoginPanel());
 		f.setVisible(true);
-*/
 
 		//Initial Sales Display Stuff
 /*		f = new JFrame("Sales Panel");
@@ -61,11 +59,11 @@ public class App
 		f.setVisible(true);*/
 
 		//Invoice Panel Stuff
-		f = new JFrame("Invoice Panel");
+/*		f = new JFrame("Invoice Panel");
 		f.setMinimumSize(new Dimension(600, 400));
 		f.setResizable(false);
 		f.add(new InvoicePanel());
-		f.setVisible(true);
+		f.setVisible(true);*/
 
 	// Back to getting the command line involved.
 		LoginDisplay.username();
