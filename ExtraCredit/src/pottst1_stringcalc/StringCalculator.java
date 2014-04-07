@@ -1,8 +1,4 @@
-package stringcalc;
-
-import org.junit.Test;
-
-import java.util.Scanner;
+package pottst1_stringcalc;
 
 /**
  * Used to perform basic arithmetic operations on Strings. <br />

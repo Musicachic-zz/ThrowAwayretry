@@ -24,6 +24,8 @@ import java.util.Scanner;
 public class ExtractEmployees
 {
 	public static List<Employee> employee = new ArrayList<>();
+	String tempUsername = null;
+	public static String loggedInUsername;
 
 	/**
 	 * This method reads out the content of the employee.txt file to list.
@@ -40,7 +42,8 @@ public class ExtractEmployees
 		try
 		{
 			sc = new Scanner(f);
-		} catch (FileNotFoundException e)
+		}
+		catch (FileNotFoundException e)
 		{
 			System.out.println("Could not open file.");
 		}
@@ -62,6 +65,32 @@ public class ExtractEmployees
 		}
 
 		return employee;
+
+	}
+
+	public void getEmployee(String username)
+	{
+		Employee em = null;
+
+		for (Employee e : employee)
+		{
+
+			if (e.getUsername().equalsIgnoreCase(username))
+			{
+				//Todo:create temporary username
+				tempUsername = String.valueOf(e);
+				loggedInUsername = username;
+				break;
+			}
+		}
+
+		if (tempUsername == null)
+		{
+			{
+				System.out.println("Error! Username doesn't exist. Try again.");
+			}
+
+		}
 
 	}
 }

@@ -8,19 +8,17 @@
 *
 */
 
-package GUI;
+package pottst1Prototype.GUI;
 
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+import pottst1Prototype.GUI.*;
+import pottst1Prototype.display.LoginDisplay;
 
 /**
- * This class was done as a group in class for our first experience with swing GUI.
+ * This class was done as a group in class for our first experience with swing pottst1Prototype.GUI.
  *
  *@author HoffmanZ
  *
@@ -28,20 +26,31 @@ import javax.swing.JTextField;
 public class LoginPanel extends JPanel {
 
 	private static final long serialVersionUID = 4932513626147661013L;
+	private JLabel errorMessage = new JLabel("");
+	private JFrame frame;
+	private LoginButtonListener trigger = new LoginButtonListener(this);
+	private JTextField uf = new JTextField(10);
+	private JPasswordField pf = new JPasswordField(10);
 
-	public LoginPanel() {
+	public LoginPanel(JFrame frame) {
 		// this.setLayout(new FlowLayout(FlowLayout.LEFT));
 		// this.setLayout(new BorderLayout());
-		this.setLayout(new GridLayout(7,3));
+		super(new GridLayout(7, 3));
+		this.frame = frame;
 
-		JTextField uf = new JTextField();
+		Font font = errorMessage.getFont();
+		errorMessage.setFont(new Font(font.getFontName(), Font.BOLD, font
+				                                                             .getSize()));
+		errorMessage.setForeground(Color.RED);
+
+/*		JTextField uf = new JTextField();
 		uf.setColumns(10);
 
 		JPasswordField pf = new JPasswordField();
-		pf.setColumns(10);
+		pf.setColumns(10);*/
 
 		this.add(new JPanel());
-		this.add(new JPanel());
+		this.add(errorMessage);
 		this.add(new JPanel());
 		this.add(new JPanel());
 		this.add(new JPanel());
@@ -86,5 +95,21 @@ public class LoginPanel extends JPanel {
 		this.add(new JPanel());
 		this.add(new JPanel());
 		this.add(new JPanel());
+
+		loginButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				trigger.doLogin(uf.getText(),
+				                   pf.getPassword(), LoginPanel.this.frame);
+
+			}
+
+		});
+	}
+
+	public void printLoginError()
+	{
+		errorMessage.setText("Username and/or password invalid.");
 	}
 }

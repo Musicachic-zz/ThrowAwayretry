@@ -9,11 +9,9 @@
 */
 package pottst1Prototype.App;
 
-import GUI.InvoicePanel;
 import pottst1Prototype.data.ExtractEmployees;
 import pottst1Prototype.data.ExtractProductsandInventory;
-import GUI.LoginPanel;
-import GUI.SalesOrderPanel;
+import pottst1Prototype.GUI.*;
 import pottst1Prototype.display.AddRemoveEmployeesDisplay;
 import pottst1Prototype.display.InitialSalesDisplay;
 import pottst1Prototype.display.LoginDisplay;
@@ -41,14 +39,15 @@ public class App
 		ProductAndInventoryDisplay.doesFileExist();
 		ExtractProductsandInventory.readProductFile();
 
-		//This is for calling the GUI to load.
+		//This is for calling the pottst1Prototype.GUI to load.
 
-		JFrame f = new JFrame("GUI Demo");
+		JFrame f = new JFrame("pottst1Prototype.GUI Demo");
 
 		//Login Panel Stuff
 		f.setMinimumSize(new Dimension(600, 400));
 		f.setResizable(false);
-		f.add(new LoginPanel());
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.add(new LoginPanel(f));
 		f.setVisible(true);
 
 		//Initial Sales Display Stuff

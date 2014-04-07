@@ -8,7 +8,7 @@
 *
 */
 
-package GUI;
+package pottst1Prototype.GUI;
 
 import javax.swing.*;
 import java.awt.*;

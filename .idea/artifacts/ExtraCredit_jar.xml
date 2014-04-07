@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ExtraCredit:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ExtraCredit_jar</output-path>
+    <root id="archive" name="ExtraCredit.jar">
+      <element id="module-output" name="ExtraCredit" />
+      <element id="extracted-dir" path="$APPLICATION_HOME_DIR$/lib/junit-4.10.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/ExtraCredit/ExtraCredit.iml" />
+      <element id="file-copy" path="$PROJECT_DIR$/ExtraCredit/src/pottst1_stringcalc/StringCalculator.java" />
+      <element id="file-copy" path="$PROJECT_DIR$/ExtraCredit/src/pottst1_stringcalc/StringCalculatorImpl.java" />
+      <element id="file-copy" path="$PROJECT_DIR$/ExtraCredit/src/pottst1_stringcalc/StringCalculatorImplTest.java" />
+    </root>
+  </artifact>
+</component>
