@@ -1,2 +1,2 @@
 MANAGER	ADMIN	password
-EMPLOYEE	TPOTTS	password
+EMPLOYEE	TPOTTS	password1

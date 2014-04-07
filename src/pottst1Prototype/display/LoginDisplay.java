@@ -57,17 +57,7 @@ public class LoginDisplay
 			}
 			else if (!username.isEmpty())
 			{
-				for (Employee e : employee)
-				{
-
-					if (e.getUsername().equalsIgnoreCase(username))
-					{
-						//Todo:create temporary username
-						tempUsername = String.valueOf(e);
-						loggedInUsername = username;
-						break;
-					}
-				}
+				tempUsername = usernameLogin(employee, username);
 
 			}
 			if (tempUsername == null)
@@ -77,6 +67,23 @@ public class LoginDisplay
 		}
 		password();
 
+	}
+
+	public static String usernameLogin(List<Employee> employee, String username)
+	{
+		String tempUsername = "";
+		for (Employee e : employee)
+		{
+
+			if (e.getUsername().equalsIgnoreCase(username))
+			{
+				//Todo:create temporary username
+				tempUsername = String.valueOf(e);
+				loggedInUsername = username;
+				break;
+			}
+		}
+		return tempUsername;
 	}
 
 	/**
@@ -103,17 +110,7 @@ public class LoginDisplay
 			}
 			else if (!password.isEmpty())
 			{
-				for (Employee e : employee)
-				{
-					if (e.getUsername().equalsIgnoreCase(loggedInUsername) && String.valueOf(e.getPassword()).equals
-							                                                                                          (password))
-					{
-						System.out.println("Login Successful");
-						tempPassword = String.valueOf(e);
-						loggedInEmployee = e;
-						break;
-					}
-				}
+				tempPassword = passwordLogin(employee, password);
 			}
 			if (tempPassword == null)
 			{
@@ -121,6 +118,24 @@ public class LoginDisplay
 			}
 		}
 
+	}
+
+	public static String passwordLogin(List<Employee> employee, String password)
+	{
+		String tempPassword = "";
+
+		for (Employee e : employee)
+		{
+			if (e.getUsername().equalsIgnoreCase(loggedInUsername) && String.valueOf(e.getPassword()).equals
+					                                                                                          (password))
+			{
+				System.out.println("Login Successful");
+				tempPassword = String.valueOf(e);
+				loggedInEmployee = e;
+				break;
+			}
+		}
+		return tempPassword;
 	}
 
 	/**
@@ -132,6 +147,22 @@ public class LoginDisplay
 	public static Employee getLoggedInEmployee()
 	{
 		return loggedInEmployee;
+	}
+
+	public static boolean usernameAndPasswordLogin(List<Employee> employee, String username, String password){
+		for (Employee e : employee)
+		{
+
+			if (e.getUsername().equalsIgnoreCase(username)
+					    && String.valueOf(e.getPassword()).equals(password))
+			{
+				System.out.println("Login Successful");
+				loggedInUsername = username;
+				loggedInEmployee = e;
+				return true;
+			}
+		}
+		return false;
 	}
 }
 

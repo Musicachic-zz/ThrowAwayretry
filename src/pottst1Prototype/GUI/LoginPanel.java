@@ -82,7 +82,7 @@ public class LoginPanel extends JPanel {
 		// Start button section
 		JPanel buttonPanel = new JPanel();
 		JButton loginButton = new JButton("Log In");
-		loginButton.addActionListener(new LoginButtonListener(uf, pf));
+		loginButton.addActionListener(new LoginButtonListener(uf, pf, this));
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
 		buttonPanel.add(loginButton);
 		this.add(buttonPanel);
@@ -95,21 +95,19 @@ public class LoginPanel extends JPanel {
 		this.add(new JPanel());
 		this.add(new JPanel());
 		this.add(new JPanel());
-
-		loginButton.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				trigger.doLogin(uf.getText(),
-				                   pf.getPassword(), LoginPanel.this.frame);
-
-			}
-
-		});
 	}
 
 	public void printLoginError()
 	{
-		errorMessage.setText("Username and/or password invalid.");
+		errorMessage.setText("Invalid username/password.");
+	}
+
+	public void displayError(String message) {
+		errorMessage.setText(message);
+	}
+
+	public JFrame getFrame()
+	{
+		return frame;
 	}
 }

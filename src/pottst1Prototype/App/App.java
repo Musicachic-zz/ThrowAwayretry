@@ -44,18 +44,18 @@ public class App
 		JFrame f = new JFrame("pottst1Prototype.GUI Demo");
 
 		//Login Panel Stuff
-		f.setMinimumSize(new Dimension(600, 400));
+/*		f.setMinimumSize(new Dimension(600, 400));
 		f.setResizable(false);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.add(new LoginPanel(f));
-		f.setVisible(true);
+		f.setVisible(true);*/
 
 		//Initial Sales Display Stuff
-/*		f = new JFrame("Sales Panel");
+		f = new JFrame("Sales Panel");
 		f.setMinimumSize(new Dimension(600, 400));
 		f.setResizable(false);
 		f.add(new SalesOrderPanel());
-		f.setVisible(true);*/
+		f.setVisible(true);
 
 		//Invoice Panel Stuff
 /*		f = new JFrame("Invoice Panel");
