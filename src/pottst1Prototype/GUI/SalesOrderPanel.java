@@ -31,6 +31,7 @@ public class SalesOrderPanel extends JPanel
 		JPanel buttonPanel = new JPanel();
 		JButton addButton = new JButton("Add");
 		addButton.addActionListener(new SalesOrderPanelListener(this));
+		addButton.setName("Add");
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		buttonPanel.add(addButton);
 		this.add(buttonPanel);
@@ -38,6 +39,7 @@ public class SalesOrderPanel extends JPanel
 		buttonPanel = new JPanel();
 		JButton removeButton = new JButton("Remove");
 		removeButton.addActionListener(new SalesOrderPanelListener(this));
+		removeButton.setName("Remove");
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		buttonPanel.add(removeButton);
 		this.add(buttonPanel);
@@ -45,6 +47,7 @@ public class SalesOrderPanel extends JPanel
 		buttonPanel = new JPanel();
 		JButton finishButton = new JButton("Finish");
 		finishButton.addActionListener(new SalesOrderPanelListener(this));
+		finishButton.setName("Finish");
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		buttonPanel.add(finishButton);
 		this.add(buttonPanel);
@@ -52,6 +55,7 @@ public class SalesOrderPanel extends JPanel
 		buttonPanel = new JPanel();
 		JButton managementButton = new JButton("Management");
 		managementButton.addActionListener(new SalesOrderPanelListener(this));
+		managementButton.setName("Management");
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		buttonPanel.add(managementButton);
 		this.add(buttonPanel);
@@ -59,6 +63,7 @@ public class SalesOrderPanel extends JPanel
 		buttonPanel = new JPanel();
 		JButton exitButton = new JButton("Exit");
 		exitButton.addActionListener(new SalesOrderPanelListener(this));
+		exitButton.setName("Exit");
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		buttonPanel.add(exitButton);
 		this.add(buttonPanel);

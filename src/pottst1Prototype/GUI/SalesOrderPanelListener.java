@@ -14,17 +14,23 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import pottst1Prototype.data.Product;
+import pottst1Prototype.display.InvoiceApp;
+
 public class SalesOrderPanelListener implements ActionListener
 {
+	private JTextField add;
+	private JTextField remove;
+	private JTextField finish;
+	private JTextField management;
+	private JTextField exit;
+	private DefaultListModel<Product> product;
+	private JList<Product> invoice;
 
-	private JButton add;
-	private JButton remove;
-	private JButton finish;
-	private JButton management;
-	private JButton exit;
 	public SalesOrderPanel initialSalesDisplay;
 
-	public SalesOrderPanelListener(JButton add, JButton remove, JButton finish, JButton management, JButton exit)
+	public SalesOrderPanelListener(JTextField add, JTextField remove, JTextField finish, JTextField management,
+	                               JTextField exit)
 	{
 		this.add = add;
 		this.remove = remove;
@@ -43,17 +49,62 @@ public class SalesOrderPanelListener implements ActionListener
 		System.out.println("Button clicked");
 
 		JButton source = (JButton) e.getSource();
-		if(add.getText().equals(this)){
+
+		switch (source.getName())
+		{
+			case "Add":
+				add();
+				break;
+			case "Remove":
+				remove();
+				break;
+			case "Finish":
+				finish();
+				break;
+			case "Management":
+				management();
+				break;
+			case "Exit":
+				exit();
+				break;
+
+		}
+	}
+
+	private void add()
+	{
+
+		System.out.println("Add button clicked.");
+
+	}
+
+	private void remove(){
+		System.out.println("Remove button clicked.");
+	}
+
+	private void finish(){
+		System.out.println("Finish button clicked.");
+	}
+
+	private void management(){
+		System.out.println("Management button clicked.");
+	}
+
+	private void exit(){
+		System.out.println("Exit button clicked.");
+	}
+
+/*		if(add.getText().equals(this)){
 			source.setText("Please wait...");
 			source.setEnabled(false);
 			initialSalesDisplay.displayError("Successful");
 		}
 
-		if (e.getSource() instanceof JButton){
+		else if (e.getSource() instanceof JButton){
 			//source = (JButton) e.getSource();
 
 			source.setText("Please wait...");
 			source.setEnabled(false);
-		}
-	}
+		}*/
 }
+
