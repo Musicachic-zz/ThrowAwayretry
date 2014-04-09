@@ -17,11 +17,6 @@ import java.awt.*;
 
 public class InvoicePanel extends JPanel
 {
-	private JTextField add;
-	private JTextField remove;
-	private JTextField finish;
-	private JTextField management;
-	private JTextField exit;
 	private DefaultListModel<Product> product;
 	private JList<Product> invoice;
 	private static JTextField upcField;
@@ -33,9 +28,16 @@ public class InvoicePanel extends JPanel
 	public InvoicePanel(){
 
 		this.setLayout(new FlowLayout());
+		Font font = errorMessage.getFont();
+		errorMessage.setFont(new Font(font.getFontName(), Font.BOLD, font
+				                                                             .getSize()));
+		errorMessage.setForeground(Color.RED);
 
 		JTextField upcField = new JTextField();
 		upcField.setColumns(8);
+
+		this.add(new JPanel());
+		this.add(errorMessage);
 
 		JPanel upcPanel = new JPanel();
 		upcPanel.setLayout(new FlowLayout());
@@ -65,11 +67,13 @@ public class InvoicePanel extends JPanel
 
 		buttonPanel = new JPanel();
 		JButton removeButton = new JButton("Remove from Invoice");
-		removeButton.addActionListener(new SalesOrderPanelListener(add,remove, finish, management, exit, salesView));
+		removeButton.addActionListener(new InvoicePanelListener(invoice, upcField, qtyField, invoiceView));
 		removeButton.setName("Remove");
 		buttonPanel.setLayout(new FlowLayout());
 		buttonPanel.add(removeButton);
 		this.add(buttonPanel);
+
+
 	}
 
 	private JPanel buildListPanel() {
@@ -81,6 +85,15 @@ public class InvoicePanel extends JPanel
 		listPanel.add(invoice);
 
 		return listPanel;
+	}
+
+	public void displayError(String message) {
+		errorMessage.setText(message);
+	}
+
+	public JFrame getFrame()
+	{
+		return frame;
 	}
 
 
