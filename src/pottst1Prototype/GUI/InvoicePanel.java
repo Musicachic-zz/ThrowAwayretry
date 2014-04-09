@@ -24,10 +24,15 @@ public class InvoicePanel extends JPanel
 	private JTextField exit;
 	private DefaultListModel<Product> product;
 	private JList<Product> invoice;
+	private static JTextField upcField;
+	private static JTextField qtyField;
+	private InvoicePanel invoiceView = this;
+	private JLabel errorMessage = new JLabel("");
+	private JFrame frame;
 
 	public InvoicePanel(){
 
-		this.setLayout(new GridLayout(2, 2));
+		this.setLayout(new FlowLayout());
 
 		JTextField upcField = new JTextField();
 		upcField.setColumns(8);
@@ -52,7 +57,7 @@ public class InvoicePanel extends JPanel
 		//Add button section
 		JPanel buttonPanel = new JPanel();
 		JButton addButton = new JButton("Add to Invoice");
-		addButton.addActionListener(new SalesOrderPanelListener(add, remove, finish,management, exit));
+		addButton.addActionListener(new InvoicePanelListener(invoice, upcField, qtyField, invoiceView));
 		addButton.setName("Add");
 		buttonPanel.setLayout(new FlowLayout());
 		buttonPanel.add(addButton);
@@ -60,7 +65,7 @@ public class InvoicePanel extends JPanel
 
 		buttonPanel = new JPanel();
 		JButton removeButton = new JButton("Remove from Invoice");
-		removeButton.addActionListener(new SalesOrderPanelListener(add,remove, finish, management, exit));
+		removeButton.addActionListener(new SalesOrderPanelListener(add,remove, finish, management, exit, salesView));
 		removeButton.setName("Remove");
 		buttonPanel.setLayout(new FlowLayout());
 		buttonPanel.add(removeButton);
@@ -77,4 +82,6 @@ public class InvoicePanel extends JPanel
 
 		return listPanel;
 	}
+
+
 }

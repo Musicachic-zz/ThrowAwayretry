@@ -69,7 +69,7 @@ public class LoginButtonListener implements ActionListener
 				loginView.displayError("Successful");
 				JFrame frame = loginView.getFrame();
 				frame.getContentPane().removeAll();
-				frame.add(new SalesOrderPanel());
+				frame.add(new SalesOrderPanel(frame));
 				frame.repaint();
 			}
 			else

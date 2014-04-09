@@ -18,25 +18,35 @@ import java.awt.event.ActionListener;
 
 public class InvoicePanelListener implements ActionListener
 {
-	private JTextField upcField;
-	private JTextField qtyField;
+	private static JTextField upcField;
+	private static JTextField qtyField;
 	private JButton addButton;
 	private JButton removeButton;
-	private DefaultListModel<Product> product;
+	private static DefaultListModel<Product> product;
 	private JList<Product> invoice;
+	private InvoicePanel invoiceView;
 
-	public InvoicePanelListener(JList<Product> invoice, JTextField upcField, JTextField qtyField){
-		this.upcField=upcField;
-		this.qtyField=qtyField;
-		this.invoice=invoice;
+	public InvoicePanelListener(JList<Product> invoice, JTextField upcField, JTextField qtyField, InvoicePanel invoiceView){
+		this.upcField = upcField;
+		this.qtyField = qtyField;
+		this.invoice = invoice;
+		this.invoiceView = invoiceView;
 	}
 
-	private void addProduct(){
+	public static void addProduct(){
+	Product p = new Product();
+	p.setUpc(upcField.getText());
+	p.setQuantity(Integer.parseInt(qtyField.getText()));
+
+	product.addElement(p);
+}
+
+	public static void removeProduct(){
 		Product p = new Product();
 		p.setUpc(upcField.getText());
 		p.setQuantity(Integer.parseInt(qtyField.getText()));
 
-		product.addElement(p);
+		product.removeElement(p);
 	}
 
 	@Override
@@ -44,11 +54,16 @@ public class InvoicePanelListener implements ActionListener
 	{
 		System.out.println("Button clicked");
 
-		if(e.getSource() instanceof JButton){
-			JButton source = (JButton) e.getSource();
+		JButton source = (JButton) e.getSource();
 
-			source.setText("Please wait...");
-			source.setEnabled(false);
+		switch (source.getName())
+		{
+			case "Add":
+				addProduct();
+				break;
+			case "Remove":
+				removeProduct();
+				break;
 		}
 	}
 }

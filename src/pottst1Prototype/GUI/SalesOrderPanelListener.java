@@ -26,21 +26,19 @@ public class SalesOrderPanelListener implements ActionListener
 	private JTextField exit;
 	private DefaultListModel<Product> product;
 	private JList<Product> invoice;
+	private SalesOrderPanel salesView;
 
-	public SalesOrderPanel initialSalesDisplay;
+	//public SalesOrderPanel initialSalesDisplay;
 
 	public SalesOrderPanelListener(JTextField add, JTextField remove, JTextField finish, JTextField management,
-	                               JTextField exit)
+	                               JTextField exit, SalesOrderPanel salesView)
 	{
 		this.add = add;
 		this.remove = remove;
 		this.finish = finish;
 		this.management = management;
 		this.exit = exit;
-	}
-
-	public SalesOrderPanelListener(SalesOrderPanel salesOrderPanel)
-	{
+		this.salesView= salesView;
 	}
 
 	@Override
@@ -75,6 +73,10 @@ public class SalesOrderPanelListener implements ActionListener
 	{
 
 		System.out.println("Add button clicked.");
+		JFrame frame = salesView.getFrame();
+		frame.getContentPane().removeAll();
+		frame.add(new InvoicePanel());
+		frame.revalidate();
 
 	}
 
