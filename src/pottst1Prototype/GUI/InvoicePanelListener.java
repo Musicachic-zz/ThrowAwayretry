@@ -27,7 +27,7 @@ public class InvoicePanelListener implements ActionListener
 	private static DefaultListModel<Product> product;
 	private JList<Product> invoice;
 	private static InvoicePanel invoiceView;
-	private static JTextField lastUpc = null;
+	private static String lastUpc = null;
 
 	public InvoicePanelListener(JList<Product> invoice, JTextField upcField, JTextField qtyField,
 	                            InvoicePanel invoiceView)
@@ -36,6 +36,8 @@ public class InvoicePanelListener implements ActionListener
 		this.qtyField = qtyField;
 		this.invoice = invoice;
 		this.invoiceView = invoiceView;
+		this.product = (DefaultListModel<Product>) invoice.getModel();
+
 	}
 
 	public static void addProduct(ActionEvent e)
@@ -55,40 +57,51 @@ public class InvoicePanelListener implements ActionListener
 				}
 				else
 				{
-					upcField = lastUpc;
+					upcField.setText(lastUpc);
 					invoiceView.displayError("UPC Defaulted to last UPC.");
 				}
 			}
 			Product pr = new Product();
 
+			boolean isValid = false;
+
 			for (Product p : ExtractProductsandInventory.prod)
 			{
-				if (p.getUpc().equals(upcField))
+				//System.out.println(p);
+				if (p.getUpc().equals(upcField.getText()))
 				{
-					lastUpc = upcField;
+					isValid = true;
+					lastUpc = upcField.getText();
 
-					String s = String.valueOf(qtyField);
-					if (s == null && s.isEmpty())
+					String s = qtyField.getText();
+					if (s == null ||  s.isEmpty())
 					{
-						s = String.valueOf(1);
+						qtyField.setText(String.valueOf(1));
 					}
 					else
 					{
-						s = String.valueOf(qtyField);
+						qtyField.setText(qtyField.getText());
 					}
 
-					source.setText("Adding...");
-					source.setEnabled(false);
+					//source.setText("Adding...");
+					//source.setEnabled(false);
 					pr.setUpc(upcField.getText());
 					pr.setQuantity(Integer.parseInt(qtyField.getText()));
-
+					pr.setPrice(p.getPrice());
+					pr.setDescription(p.getDescription());
+					System.out.println(pr);
 					product.addElement(pr);
 
 				}
+
+			}
+			if (!isValid)
+			{
 				invoiceView.displayError("UPC was not found.");
 				source.setText("Add to Invoice");
 				source.setEnabled(true);
 			}
+
 		}
 
 	}
@@ -100,6 +113,15 @@ public class InvoicePanelListener implements ActionListener
 		p.setQuantity(Integer.parseInt(qtyField.getText()));
 
 		product.removeElement(p);
+	}
+
+	public static void backToMenu()
+	{
+
+		JFrame frame = invoiceView.getFrame();
+		frame.getContentPane().removeAll();
+		frame.add(new SalesOrderPanel(frame));
+		frame.revalidate();
 	}
 
 	@Override
@@ -116,6 +138,9 @@ public class InvoicePanelListener implements ActionListener
 				break;
 			case "Remove":
 				removeProduct();
+				break;
+			case "Back":
+				backToMenu();
 				break;
 		}
 	}

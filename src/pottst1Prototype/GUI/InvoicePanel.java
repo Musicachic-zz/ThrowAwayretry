@@ -13,20 +13,28 @@ package pottst1Prototype.GUI;
 import pottst1Prototype.data.Product;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 
 public class InvoicePanel extends JPanel
 {
 	private DefaultListModel<Product> product;
-	private JList<Product> invoice;
+	private JList<Product> invoiceList;
 	private static JTextField upcField;
 	private static JTextField qtyField;
 	private InvoicePanel invoiceView = this;
 	private JLabel errorMessage = new JLabel("");
 	private JFrame frame;
 
-	public InvoicePanel(){
+	public InvoicePanel(JFrame frame){
 
+		this.frame=frame;
+		this.product = new DefaultListModel<>();
+		invoiceList = new JList<>(product);
+		//invoiceList.addListSelectionListener(new InvoiceListListener(invoiceList));
+		invoiceList.setLayout(new FlowLayout());
+
+		this.add(invoiceList);
 		this.setLayout(new FlowLayout());
 		Font font = errorMessage.getFont();
 		errorMessage.setFont(new Font(font.getFontName(), Font.BOLD, font
@@ -59,7 +67,7 @@ public class InvoicePanel extends JPanel
 		//Add button section
 		JPanel buttonPanel = new JPanel();
 		JButton addButton = new JButton("Add to Invoice");
-		addButton.addActionListener(new InvoicePanelListener(invoice, upcField, qtyField, invoiceView));
+		addButton.addActionListener(new InvoicePanelListener(invoiceList, upcField, qtyField, invoiceView));
 		addButton.setName("Add");
 		buttonPanel.setLayout(new FlowLayout());
 		buttonPanel.add(addButton);
@@ -67,22 +75,34 @@ public class InvoicePanel extends JPanel
 
 		buttonPanel = new JPanel();
 		JButton removeButton = new JButton("Remove from Invoice");
-		removeButton.addActionListener(new InvoicePanelListener(invoice, upcField, qtyField, invoiceView));
+		removeButton.addActionListener(new InvoicePanelListener(invoiceList, upcField, qtyField, invoiceView));
 		removeButton.setName("Remove");
 		buttonPanel.setLayout(new FlowLayout());
 		buttonPanel.add(removeButton);
 		this.add(buttonPanel);
+
+		buttonPanel = new JPanel();
+		JButton backButton = new JButton("Back to Previous Menu");
+		backButton.addActionListener(new InvoicePanelListener(invoiceList, upcField, qtyField, invoiceView));
+		backButton.setName("Back");
+		buttonPanel.setLayout(new FlowLayout());
+		buttonPanel.add(backButton);
+		this.add(buttonPanel);
+
+
+
+
 
 
 	}
 
 	private JPanel buildListPanel() {
 
-		invoice.setPreferredSize(new Dimension(300, 380));
+		invoiceList.setPreferredSize(new Dimension(300, 380));
 
 		JPanel listPanel =
 				new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
-		listPanel.add(invoice);
+		listPanel.add(invoiceList);
 
 		return listPanel;
 	}

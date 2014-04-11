@@ -75,7 +75,7 @@ public class SalesOrderPanelListener implements ActionListener
 		System.out.println("Add button clicked.");
 		JFrame frame = salesView.getFrame();
 		frame.getContentPane().removeAll();
-		frame.add(new InvoicePanel());
+		frame.add(new InvoicePanel(frame));
 		frame.revalidate();
 
 	}

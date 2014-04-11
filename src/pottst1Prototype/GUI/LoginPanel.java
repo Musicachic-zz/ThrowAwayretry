@@ -42,6 +42,8 @@ public class LoginPanel extends JPanel {
 		errorMessage.setFont(new Font(font.getFontName(), Font.BOLD, font.getSize()));
 		errorMessage.setForeground(Color.RED);
 
+
+
 /*		JTextField uf = new JTextField();
 		uf.setColumns(10);
 
