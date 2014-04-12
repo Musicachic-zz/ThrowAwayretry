@@ -44,7 +44,7 @@ public class ManagersDisplay
 					ManagersDisplay.employeeMenu();
 					break;
 				case "INVENTORY":
-					System.out.println("You selected Remove Employee");
+					System.out.println("You selected Inventory");
 					ManagersDisplay.inventoryMenu();
 					break;
 				case "EXIT":

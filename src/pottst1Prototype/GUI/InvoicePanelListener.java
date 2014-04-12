@@ -17,9 +17,12 @@ import pottst1Prototype.GUI.InvoicePanel;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.Map;
 
 public class InvoicePanelListener implements ActionListener
 {
+	public static Map<Product, Integer> invoiceDisplay = new HashMap<>();
 	private static JTextField upcField;
 	private static JTextField qtyField;
 	private JButton addButton;
@@ -61,7 +64,7 @@ public class InvoicePanelListener implements ActionListener
 					invoiceView.displayError("UPC Defaulted to last UPC.");
 				}
 			}
-			Product pr = new Product();
+			//Product pr = new Product();
 
 			boolean isValid = false;
 
@@ -72,25 +75,33 @@ public class InvoicePanelListener implements ActionListener
 				{
 					isValid = true;
 					lastUpc = upcField.getText();
-
+					Integer quantity;
 					String s = qtyField.getText();
 					if (s == null ||  s.isEmpty())
 					{
-						qtyField.setText(String.valueOf(1));
+						//qtyField.setText(String.valueOf(1));
+						quantity = 1;
 					}
 					else
 					{
-						qtyField.setText(qtyField.getText());
+						quantity = Integer.valueOf(s);
+						//qtyField.setText(qtyField.getText());
 					}
 
+					Integer invoiceQuantity = invoiceDisplay.get(p);
+					if(invoiceQuantity != null){
+						quantity += invoiceDisplay.get(p);
+						invoiceDisplay.put(p, p.getQuantity());
+					}
 					//source.setText("Adding...");
 					//source.setEnabled(false);
-					pr.setUpc(upcField.getText());
-					pr.setQuantity(Integer.parseInt(qtyField.getText()));
-					pr.setPrice(p.getPrice());
-					pr.setDescription(p.getDescription());
-					System.out.println(pr);
-					product.addElement(pr);
+					p.setUpc(upcField.getText());
+					p.setQuantity(quantity);
+					p.setPrice(p.getPrice());
+					p.setDescription(p.getDescription());
+					System.out.println(p);
+					product.addElement(p);
+					invoiceDisplay.put(p, p.getQuantity());
 
 				}
 
