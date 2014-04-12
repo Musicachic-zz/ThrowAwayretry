@@ -20,14 +20,15 @@ public class ManagementPanelListener implements ActionListener
 
 	private static JButton employeeButton;
 	private static JButton inventoryButton;
+	private static JButton backButton;
 	private static ManagementPanel mgmtView;
 
-	public ManagementPanelListener(JButton employeeButton,JButton inventoryButton){
+	public ManagementPanelListener(JButton employeeButton,JButton inventoryButton, JButton backButton){
 
 		this.employeeButton = employeeButton;
 		this.inventoryButton = inventoryButton;
+		this.backButton = backButton;
 	}
-
 
 	private void employee(){
 

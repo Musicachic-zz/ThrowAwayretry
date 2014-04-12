@@ -60,16 +60,24 @@ public class EmployeePanel extends JPanel
 
 	JPanel buttonPanel = new JPanel();
 	JButton addEmployee = new JButton("Add Employee");
-	addEmployee.addActionListener(new AddEmployeeButtonListener());
+	addEmployee.addActionListener(new EmployeePanelListener(user, password, access, addButton,remove));
 	buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
 	buttonPanel.add(addEmployee);
 	this.add(buttonPanel);
 
 	buttonPanel = new JPanel();
 	JButton removeEmployee = new JButton("Remove Employee");
-	addEmployee.addActionListener(new RemoveEmployeeButtonListener());
+	addEmployee.addActionListener(new EmployeePanelListener(user, password, access, addButton,remove));
 	buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
 	buttonPanel.add(removeEmployee);
+	this.add(buttonPanel);
+
+	buttonPanel = new JPanel();
+	JButton backButton = new JButton("Back to Previous Menu");
+	backButton.addActionListener(new EmployeePanelListener(user, password, access, addButton,remove));
+	backButton.setName("Back");
+	buttonPanel.setLayout(new FlowLayout());
+	buttonPanel.add(backButton);
 	this.add(buttonPanel);
 
 	}
