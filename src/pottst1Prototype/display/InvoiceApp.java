@@ -244,7 +244,8 @@ public class InvoiceApp
 		try
 		{
 			Integer.parseInt(s);
-		} catch (NumberFormatException e)
+		}
+		catch (NumberFormatException e)
 		{
 			return false;
 		}

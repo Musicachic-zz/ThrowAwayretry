@@ -11,7 +11,6 @@
 package pottst1Prototype.GUI;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,8 +22,9 @@ public class ManagementPanelListener implements ActionListener
 	private static JButton backButton;
 	private static ManagementPanel mgmtView;
 
-	public ManagementPanelListener(ManagementPanel mgmtView,JButton employeeButton,JButton inventoryButton,
-	                               JButton backButton){
+	public ManagementPanelListener(ManagementPanel mgmtView, JButton employeeButton, JButton inventoryButton,
+	                               JButton backButton)
+	{
 
 		this.employeeButton = employeeButton;
 		this.inventoryButton = inventoryButton;
@@ -32,7 +32,8 @@ public class ManagementPanelListener implements ActionListener
 		this.mgmtView = mgmtView;
 	}
 
-	private void employee(){
+	private void employee()
+	{
 
 		System.out.println("Employee button clicked.");
 		JFrame frame = mgmtView.getFrame();
@@ -41,7 +42,8 @@ public class ManagementPanelListener implements ActionListener
 		frame.revalidate();
 	}
 
-	private void inventory(){
+	private void inventory()
+	{
 		System.out.println("Inventory button clicked");
 		JFrame frame = mgmtView.getFrame();
 		frame.getContentPane().removeAll();
@@ -57,7 +59,6 @@ public class ManagementPanelListener implements ActionListener
 		frame.add(new SalesOrderPanel(frame));
 		frame.revalidate();
 	}
-
 
 	@Override
 	public void actionPerformed(ActionEvent e)

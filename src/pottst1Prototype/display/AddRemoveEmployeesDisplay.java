@@ -42,7 +42,8 @@ public class AddRemoveEmployeesDisplay
 			try
 			{
 				f.createNewFile();
-			} catch (IOException e)
+			}
+			catch (IOException e)
 			{
 				System.out.println("Could not create file.");
 				System.exit(-1);
@@ -52,7 +53,8 @@ public class AddRemoveEmployeesDisplay
 		try
 		{
 			pw = new PrintWriter(new FileOutputStream(f, true));
-		} catch (FileNotFoundException e)
+		}
+		catch (FileNotFoundException e)
 		{
 			System.out.println("Could not locate file.");
 		}
@@ -118,7 +120,8 @@ public class AddRemoveEmployeesDisplay
 
 				pw.close();
 			}
-		} catch (FileNotFoundException e1)
+		}
+		catch (FileNotFoundException e1)
 		{
 			e1.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
 		}
@@ -187,7 +190,8 @@ public class AddRemoveEmployeesDisplay
 				}
 
 			}
-		} catch (FileNotFoundException e1)
+		}
+		catch (FileNotFoundException e1)
 		{
 
 			e1.printStackTrace();

@@ -35,7 +35,8 @@ public class InventoryPanelListener implements ActionListener
 	public static PrintWriter pw = null;
 
 	public InventoryPanelListener(InventoryPanel inventoryView, JTextField upc, JTextField description,
-	                              JTextField price, JTextField quantity){
+	                              JTextField price, JTextField quantity)
+	{
 		this.inventoryView = inventoryView;
 		this.upc = upc;
 		this.description = description;
@@ -43,17 +44,20 @@ public class InventoryPanelListener implements ActionListener
 		this.quantity = quantity;
 	}
 
-	private void add(ActionEvent e){
+	private void add(ActionEvent e)
+	{
 
 		System.out.println("Add inventory button clicked");
 
-		if (e.getSource() instanceof JButton){
+		if (e.getSource() instanceof JButton)
+		{
 
 			JButton source = (JButton) e.getSource();
 
 			File f = new File("ProductsAndInventory.txt");
 
-			try{
+			try
+			{
 				PrintWriter pw = new PrintWriter(new FileOutputStream(f, true));
 
 				upc.getText();
@@ -63,7 +67,8 @@ public class InventoryPanelListener implements ActionListener
 
 				//prod = new Product(upc, description, price, quantity);
 
-				for(Product p : ExtractProductsandInventory.prod){
+				for (Product p : ExtractProductsandInventory.prod)
+				{
 
 					pw.write(prod.getUpc() + "\t");
 					pw.write(prod.getDescription() + "\t");
@@ -72,15 +77,16 @@ public class InventoryPanelListener implements ActionListener
 				}
 
 			}
-			catch(FileNotFoundException a){
+			catch (FileNotFoundException a)
+			{
 				a.printStackTrace();
 			}
 		}
 
 	}
 
-	private void remove(ActionEvent e){
-
+	private void remove(ActionEvent e)
+	{
 
 	}
 
@@ -100,7 +106,8 @@ public class InventoryPanelListener implements ActionListener
 
 		JButton source = (JButton) e.getSource();
 
-		switch(source.getName()){
+		switch (source.getName())
+		{
 			case "Add Inventory":
 				add(e);
 				break;

@@ -10,20 +10,16 @@
 
 package pottst1Prototype.GUI;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.*;
-import pottst1Prototype.GUI.*;
-import pottst1Prototype.display.LoginDisplay;
+import java.awt.*;
 
 /**
  * This class was done as a group in class for our first experience with swing pottst1Prototype.GUI.
  *
- *@author HoffmanZ
- *
+ * @author HoffmanZ
  */
-public class LoginPanel extends JPanel {
+public class LoginPanel extends JPanel
+{
 
 	private static final long serialVersionUID = 4932513626147661013L;
 	private JLabel errorMessage = new JLabel("");
@@ -32,7 +28,8 @@ public class LoginPanel extends JPanel {
 	private JTextField uf = new JTextField(10);
 	private JPasswordField pf = new JPasswordField(10);
 
-	public LoginPanel(JFrame frame) {
+	public LoginPanel(JFrame frame)
+	{
 		// this.setLayout(new FlowLayout(FlowLayout.LEFT));
 		// this.setLayout(new BorderLayout());
 		super(new GridLayout(7, 3));
@@ -103,7 +100,8 @@ public class LoginPanel extends JPanel {
 		errorMessage.setText("Invalid username/password.");
 	}
 
-	public void displayError(String message) {
+	public void displayError(String message)
+	{
 		errorMessage.setText(message);
 	}
 

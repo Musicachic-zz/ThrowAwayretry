@@ -13,7 +13,6 @@ package pottst1Prototype.GUI;
 import pottst1Prototype.data.Product;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 
 public class InvoicePanel extends JPanel
@@ -26,9 +25,10 @@ public class InvoicePanel extends JPanel
 	private JLabel errorMessage = new JLabel("");
 	private JFrame frame;
 
-	public InvoicePanel(JFrame frame){
+	public InvoicePanel(JFrame frame)
+	{
 
-		this.frame=frame;
+		this.frame = frame;
 		this.product = new DefaultListModel<>();
 		invoiceList = new JList<>(product);
 		//invoiceList.addListSelectionListener(new InvoiceListListener(invoiceList));
@@ -89,14 +89,10 @@ public class InvoicePanel extends JPanel
 		buttonPanel.add(backButton);
 		this.add(buttonPanel);
 
-
-
-
-
-
 	}
 
-	private JPanel buildListPanel() {
+	private JPanel buildListPanel()
+	{
 
 		invoiceList.setPreferredSize(new Dimension(300, 380));
 
@@ -107,7 +103,8 @@ public class InvoicePanel extends JPanel
 		return listPanel;
 	}
 
-	public void displayError(String message) {
+	public void displayError(String message)
+	{
 		errorMessage.setText(message);
 	}
 
@@ -115,6 +112,5 @@ public class InvoicePanel extends JPanel
 	{
 		return frame;
 	}
-
 
 }

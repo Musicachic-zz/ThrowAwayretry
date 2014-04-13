@@ -49,7 +49,8 @@ public class ExtractProductsandInventory
 
 			}
 
-		} catch (FileNotFoundException e)
+		}
+		catch (FileNotFoundException e)
 		{
 			System.out.println("Could not open file.");
 		}

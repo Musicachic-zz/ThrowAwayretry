@@ -10,12 +10,11 @@
 
 package pottst1Prototype.GUI;
 
+import pottst1Prototype.data.Product;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import pottst1Prototype.data.Product;
-import pottst1Prototype.display.InvoiceApp;
 
 public class SalesOrderPanelListener implements ActionListener
 {
@@ -38,7 +37,7 @@ public class SalesOrderPanelListener implements ActionListener
 		this.finish = finish;
 		this.management = management;
 		this.exit = exit;
-		this.salesView= salesView;
+		this.salesView = salesView;
 	}
 
 	@Override
@@ -80,7 +79,8 @@ public class SalesOrderPanelListener implements ActionListener
 
 	}
 
-	private void remove(){
+	private void remove()
+	{
 		System.out.println("Remove button clicked.");
 		JFrame frame = salesView.getFrame();
 		frame.getContentPane().removeAll();
@@ -88,11 +88,13 @@ public class SalesOrderPanelListener implements ActionListener
 		frame.revalidate();
 	}
 
-	private void finish(){
+	private void finish()
+	{
 		System.out.println("Finish button clicked.");
 	}
 
-	private void management(){
+	private void management()
+	{
 		System.out.println("Management button clicked.");
 		JFrame frame = salesView.getFrame();
 		frame.getContentPane().removeAll();
@@ -100,7 +102,8 @@ public class SalesOrderPanelListener implements ActionListener
 		frame.revalidate();
 	}
 
-	private void exit(){
+	private void exit()
+	{
 		System.out.println("Exit button clicked.");
 	}
 

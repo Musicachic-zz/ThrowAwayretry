@@ -75,7 +75,8 @@ public class SalesOrderPanel extends JPanel
 		this.add(buttonPanel);
 	}
 
-	public void displayError(String message) {
+	public void displayError(String message)
+	{
 		errorMessage.setText(message);
 	}
 

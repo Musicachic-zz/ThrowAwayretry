@@ -41,7 +41,8 @@ public class ProductAndInventoryDisplay
 			try
 			{
 				f.createNewFile();
-			} catch (IOException e)
+			}
+			catch (IOException e)
 			{
 				System.out.println("Could not create file.");
 				System.exit(-1);
@@ -51,7 +52,8 @@ public class ProductAndInventoryDisplay
 		try
 		{
 			pw = new PrintWriter(new FileOutputStream(f, true));
-		} catch (FileNotFoundException e)
+		}
+		catch (FileNotFoundException e)
 		{
 			System.out.println("Could not locate file.");
 		}
@@ -98,7 +100,8 @@ public class ProductAndInventoryDisplay
 			}
 			pw.close();
 
-		} catch (FileNotFoundException e)
+		}
+		catch (FileNotFoundException e)
 		{
 			System.out.println("Could not locate file.");
 		}
@@ -157,7 +160,8 @@ public class ProductAndInventoryDisplay
 
 			}
 
-		} catch (FileNotFoundException e)
+		}
+		catch (FileNotFoundException e)
 		{
 			System.out.println("Could not locate file.");
 		}

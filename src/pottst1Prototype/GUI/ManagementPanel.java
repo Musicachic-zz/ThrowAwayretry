@@ -20,9 +20,10 @@ public class ManagementPanel extends JPanel
 	private JButton employeeButton;
 	private JButton inventoryButton;
 	private JButton backButton;
-	private static ManagementPanel mgmtView;
+	private ManagementPanel mgmtView = this;
 
-	public ManagementPanel(JFrame frame){
+	public ManagementPanel(JFrame frame)
+	{
 		super(new GridLayout(7, 3));
 		this.frame = frame;
 		this.add(new JPanel());
@@ -34,7 +35,7 @@ public class ManagementPanel extends JPanel
 		//Employee Button Stuff
 		JPanel buttonPanel = new JPanel();
 		JButton employeeButton = new JButton("Employee Management");
-		employeeButton.addActionListener(new ManagementPanelListener(mgmtView, employeeButton,inventoryButton,
+		employeeButton.addActionListener(new ManagementPanelListener(mgmtView, employeeButton, inventoryButton,
 		                                                             backButton));
 		employeeButton.setName("Employee Management");
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -44,7 +45,7 @@ public class ManagementPanel extends JPanel
 		//Inventory Button Stuff
 		buttonPanel = new JPanel();
 		JButton inventoryButton = new JButton("Inventory Management");
-		inventoryButton.addActionListener(new ManagementPanelListener(mgmtView, employeeButton,inventoryButton,
+		inventoryButton.addActionListener(new ManagementPanelListener(mgmtView, employeeButton, inventoryButton,
 		                                                              backButton));
 		inventoryButton.setName("Inventory Management");
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -53,7 +54,7 @@ public class ManagementPanel extends JPanel
 
 		buttonPanel = new JPanel();
 		JButton backButton = new JButton("Back to Previous Menu");
-		backButton.addActionListener(new ManagementPanelListener(mgmtView, employeeButton,inventoryButton,
+		backButton.addActionListener(new ManagementPanelListener(mgmtView, employeeButton, inventoryButton,
 		                                                         backButton));
 		backButton.setName("Back");
 		buttonPanel.setLayout(new FlowLayout());
@@ -62,7 +63,8 @@ public class ManagementPanel extends JPanel
 
 	}
 
-	public void displayError(String message) {
+	public void displayError(String message)
+	{
 		errorMessage.setText(message);
 	}
 

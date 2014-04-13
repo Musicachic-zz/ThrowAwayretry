@@ -14,11 +14,10 @@ import pottst1Prototype.data.Employee;
 import pottst1Prototype.data.ExtractEmployees;
 import pottst1Prototype.display.LoginDisplay;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-
-import javax.swing.*;
 
 public class LoginButtonListener implements ActionListener
 {

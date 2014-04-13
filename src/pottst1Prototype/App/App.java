@@ -9,9 +9,9 @@
 */
 package pottst1Prototype.App;
 
+import pottst1Prototype.GUI.LoginPanel;
 import pottst1Prototype.data.ExtractEmployees;
 import pottst1Prototype.data.ExtractProductsandInventory;
-import pottst1Prototype.GUI.*;
 import pottst1Prototype.display.AddRemoveEmployeesDisplay;
 import pottst1Prototype.display.InitialSalesDisplay;
 import pottst1Prototype.display.LoginDisplay;
@@ -64,7 +64,7 @@ public class App
 		f.add(new InvoicePanel());
 		f.setVisible(true);*/
 
-	// Back to getting the command line involved.
+		// Back to getting the command line involved.
 		LoginDisplay.username();
 		InitialSalesDisplay.initialDisplay();
 	}

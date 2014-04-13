@@ -233,7 +233,8 @@ public class FinishDisplay
 		{
 			routingNum = Long.parseLong(t);
 			System.out.println("Routing Number: " + routingNum);
-		} catch (NumberFormatException nfe)
+		}
+		catch (NumberFormatException nfe)
 		{
 			System.out.println("Error: Please enter a valid routing number.");
 			checkSelected();
@@ -247,7 +248,8 @@ public class FinishDisplay
 		{
 			accountNum = Long.parseLong(u);
 			System.out.println("Account Number: " + accountNum);
-		} catch (NumberFormatException nfe)
+		}
+		catch (NumberFormatException nfe)
 		{
 			System.out.println("Error: Please enter a valid routing number.");
 			checkSelected();
@@ -261,7 +263,8 @@ public class FinishDisplay
 		{
 			checkNum = Integer.parseInt(v);
 			System.out.println("Check Number: " + checkNum);
-		} catch (NumberFormatException nfe)
+		}
+		catch (NumberFormatException nfe)
 		{
 			System.out.print("Error: Please enter a valid check number.");
 			checkSelected();
@@ -334,7 +337,8 @@ public class FinishDisplay
 		{
 			creditCardNum = Long.parseLong(t);
 			System.out.println("Credit Card Number: " + creditCardNum);
-		} catch (NumberFormatException nfe)
+		}
+		catch (NumberFormatException nfe)
 		{
 			System.out.println("Error: Please enter a valid credit card number.");
 			creditSelected();
@@ -348,7 +352,8 @@ public class FinishDisplay
 		{
 			expirationDate = Integer.parseInt(u);
 			System.out.println("Expiration Date: " + expirationDate);
-		} catch (NumberFormatException nfe)
+		}
+		catch (NumberFormatException nfe)
 		{
 			System.out.println("Error: Please enter a valid expiration date.");
 			creditSelected();

@@ -149,7 +149,8 @@ public class LoginDisplay
 		return loggedInEmployee;
 	}
 
-	public static boolean usernameAndPasswordLogin(List<Employee> employee, String username, String password){
+	public static boolean usernameAndPasswordLogin(List<Employee> employee, String username, String password)
+	{
 		for (Employee e : employee)
 		{
 

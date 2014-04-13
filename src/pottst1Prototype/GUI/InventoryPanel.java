@@ -24,15 +24,16 @@ public class InventoryPanel extends JPanel
 	private JTextField quantity = new JTextField();
 	private JButton addInventory;
 	private JButton removeInventory;
-	private static InventoryPanel inventoryView;
+	private InventoryPanel inventoryView = this;
 	private JFrame frame;
 	private JLabel errorMessage = new JLabel("");
 	private JLabel displayOk = new JLabel("");
 
-
-	public InventoryPanel(JFrame frame){
+	public InventoryPanel(JFrame frame)
+	{
 
 		this.frame = frame;
+		this.prod = new Product();
 
 		Font font = errorMessage.getFont();
 		errorMessage.setFont(new Font(font.getFontName(), Font.BOLD, font
@@ -49,7 +50,6 @@ public class InventoryPanel extends JPanel
 		upcPanel.add(new JLabel("UPC"));
 		upcPanel.add(upc);
 		this.add(upc);
-
 
 		JPanel descPanel = new JPanel();
 		descPanel.setLayout(new FlowLayout());
@@ -72,7 +72,7 @@ public class InventoryPanel extends JPanel
 		JPanel buttonPanel = new JPanel();
 		JButton addInventory = new JButton("Add Inventory   ");
 		addInventory.addActionListener(new InventoryPanelListener(inventoryView, upc, description,
-		                                                           price, quantity));
+		                                                          price, quantity));
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
 		buttonPanel.add(addInventory);
 		this.add(buttonPanel);
@@ -87,11 +87,13 @@ public class InventoryPanel extends JPanel
 
 	}
 
-	public void displayError(String message) {
+	public void displayError(String message)
+	{
 		errorMessage.setText(message);
 	}
 
-	public void displayOk(String message) {
+	public void displayOk(String message)
+	{
 		displayOk.setText(message);
 	}
 

@@ -12,7 +12,6 @@ package pottst1Prototype.GUI;
 
 import pottst1Prototype.data.ExtractProductsandInventory;
 import pottst1Prototype.data.Product;
-import pottst1Prototype.GUI.InvoicePanel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -77,7 +76,7 @@ public class InvoicePanelListener implements ActionListener
 					lastUpc = upcField.getText();
 					Integer quantity;
 					String s = qtyField.getText();
-					if (s == null ||  s.isEmpty())
+					if (s == null || s.isEmpty())
 					{
 						//qtyField.setText(String.valueOf(1));
 						quantity = 1;
@@ -89,7 +88,8 @@ public class InvoicePanelListener implements ActionListener
 					}
 
 					Integer invoiceQuantity = invoiceDisplay.get(p);
-					if(invoiceQuantity != null){
+					if (invoiceQuantity != null)
+					{
 						quantity += invoiceDisplay.get(p);
 						invoiceDisplay.put(p, p.getQuantity());
 					}

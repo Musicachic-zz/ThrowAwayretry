@@ -34,7 +34,8 @@ public class EmployeePanelListener implements ActionListener
 	static PrintWriter pw = null;
 
 	public EmployeePanelListener(JTextField user, JTextField password, JTextField access, JButton addButton,
-	                             JButton remove, EmployeePanel employeeView){
+	                             JButton remove, EmployeePanel employeeView)
+	{
 
 		this.user = user;
 		this.password = password;
@@ -45,7 +46,8 @@ public class EmployeePanelListener implements ActionListener
 
 	}
 
-	private void add(ActionEvent e){
+	private void add(ActionEvent e)
+	{
 
 		System.out.println("Add employee button clicked.");
 
@@ -55,20 +57,24 @@ public class EmployeePanelListener implements ActionListener
 
 			File f = new File("Employee.txt");
 
-			try{
+			try
+			{
 
 				PrintWriter pw = new PrintWriter(new FileOutputStream(f, true));
 				user.getText().toUpperCase();
 				password.getText().toCharArray();
 				access.getText();
 				//em = new Employee(user, password, access);
-				for(Employee em : ExtractEmployees.employee){
+				for (Employee em : ExtractEmployees.employee)
+				{
 
-					if(em.getUsername().equals(user.getText())){
+					if (em.getUsername().equals(user.getText()))
+					{
 
 						employeeView.displayError("User already exists.");
 					}
-					else{
+					else
+					{
 						pw.write(em.getAccessLevel() + "\t");
 						pw.write(em.getUsername() + "\t");
 						pw.write(String.valueOf(em.getPassword()) + "\n");
@@ -79,18 +85,18 @@ public class EmployeePanelListener implements ActionListener
 					pw.close();
 				}
 
-
 			}
-			catch(FileNotFoundException a){
+			catch (FileNotFoundException a)
+			{
 
 				a.printStackTrace();
-		}
+			}
 
 		}
 	}
 
-	private void remove(){
-
+	private void remove()
+	{
 
 	}
 
@@ -122,10 +128,7 @@ public class EmployeePanelListener implements ActionListener
 				backToMenu();
 				break;
 
-
 		}
 	}
-
-
 
 }
