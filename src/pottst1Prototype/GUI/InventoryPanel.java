@@ -24,8 +24,10 @@ public class InventoryPanel extends JPanel
 	private JTextField quantity = new JTextField();
 	private JButton addInventory;
 	private JButton removeInventory;
+	private static InventoryPanel inventoryView;
 	private JFrame frame;
 	private JLabel errorMessage = new JLabel("");
+	private JLabel displayOk = new JLabel("");
 
 
 	public InventoryPanel(JFrame frame){
@@ -36,6 +38,11 @@ public class InventoryPanel extends JPanel
 		errorMessage.setFont(new Font(font.getFontName(), Font.BOLD, font
 				                                                             .getSize()));
 		errorMessage.setForeground(Color.RED);
+
+		font = displayOk.getFont();
+		displayOk.setFont(new Font(font.getFontName(), Font.BOLD, font
+				                                                          .getSize()));
+		displayOk.setForeground(Color.BLUE);
 
 		JPanel upcPanel = new JPanel();
 		upcPanel.setLayout(new FlowLayout());
@@ -63,15 +70,17 @@ public class InventoryPanel extends JPanel
 		this.add(quantity);
 
 		JPanel buttonPanel = new JPanel();
-		JButton addInventory = new JButton("Add Inventory");
-		addInventory.addActionListener(new AddEmployeeButtonListener());
+		JButton addInventory = new JButton("Add Inventory   ");
+		addInventory.addActionListener(new InventoryPanelListener(inventoryView, upc, description,
+		                                                           price, quantity));
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
 		buttonPanel.add(addInventory);
 		this.add(buttonPanel);
 
 		buttonPanel = new JPanel();
 		JButton removeInventory = new JButton("Remove Employee");
-		removeInventory.addActionListener(new RemoveEmployeeButtonListener());
+		removeInventory.addActionListener(new InventoryPanelListener(inventoryView, upc, description,
+		                                                             price, quantity));
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
 		buttonPanel.add(removeInventory);
 		this.add(buttonPanel);
@@ -80,6 +89,10 @@ public class InventoryPanel extends JPanel
 
 	public void displayError(String message) {
 		errorMessage.setText(message);
+	}
+
+	public void displayOk(String message) {
+		displayOk.setText(message);
 	}
 
 	public JFrame getFrame()

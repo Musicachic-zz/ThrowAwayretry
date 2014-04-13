@@ -21,11 +21,12 @@ public class EmployeePanel extends JPanel
 	private static Employee em;
 	private JTextField user = new JTextField(12);
 	private JTextField password = new JTextField(20);
-	private JComboBox access = new JComboBox();
+	private JTextField access = new JTextField();
 	private JButton addButton;
 	private JButton remove;
 	private JFrame frame;
 	private JLabel errorMessage = new JLabel("");
+	private JLabel displayOk = new JLabel("");
 
 
 	public EmployeePanel(JFrame frame){
@@ -38,6 +39,11 @@ public class EmployeePanel extends JPanel
 	errorMessage.setFont(new Font(font.getFontName(), Font.BOLD, font
 			                                                             .getSize()));
 	errorMessage.setForeground(Color.RED);
+
+	font = displayOk.getFont();
+	displayOk.setFont(new Font(font.getFontName(), Font.BOLD, font
+			                                                             .getSize()));
+	displayOk.setForeground(Color.BLUE);
 
 	JPanel userPanel = new JPanel();
 	userPanel.setLayout(new FlowLayout());
@@ -83,7 +89,11 @@ public class EmployeePanel extends JPanel
 	}
 
 	public void displayError(String message) {
-		errorMessage.setText(message);
+	errorMessage.setText(message);
+}
+
+	public void displayOk(String message) {
+		displayOk.setText(message);
 	}
 
 	public JFrame getFrame()
