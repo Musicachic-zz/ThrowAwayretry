@@ -20,6 +20,7 @@ public class ManagementPanel extends JPanel
 	private JButton employeeButton;
 	private JButton inventoryButton;
 	private JButton backButton;
+	private static ManagementPanel mgmtView;
 
 	public ManagementPanel(JFrame frame){
 		super(new GridLayout(7, 3));
@@ -33,7 +34,8 @@ public class ManagementPanel extends JPanel
 		//Employee Button Stuff
 		JPanel buttonPanel = new JPanel();
 		JButton employeeButton = new JButton("Employee Management");
-		employeeButton.addActionListener(new ManagementPanelListener(employeeButton,inventoryButton, backButton));
+		employeeButton.addActionListener(new ManagementPanelListener(mgmtView, employeeButton,inventoryButton,
+		                                                             backButton));
 		employeeButton.setName("Employee Management");
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		buttonPanel.add(employeeButton);
@@ -42,7 +44,8 @@ public class ManagementPanel extends JPanel
 		//Inventory Button Stuff
 		buttonPanel = new JPanel();
 		JButton inventoryButton = new JButton("Inventory Management");
-		inventoryButton.addActionListener(new ManagementPanelListener(employeeButton,inventoryButton, backButton));
+		inventoryButton.addActionListener(new ManagementPanelListener(mgmtView, employeeButton,inventoryButton,
+		                                                              backButton));
 		inventoryButton.setName("Inventory Management");
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		buttonPanel.add(inventoryButton);
@@ -50,7 +53,8 @@ public class ManagementPanel extends JPanel
 
 		buttonPanel = new JPanel();
 		JButton backButton = new JButton("Back to Previous Menu");
-		backButton.addActionListener(new ManagementPanelListener(employeeButton,inventoryButton, backButton));
+		backButton.addActionListener(new ManagementPanelListener(mgmtView, employeeButton,inventoryButton,
+		                                                         backButton));
 		backButton.setName("Back");
 		buttonPanel.setLayout(new FlowLayout());
 		buttonPanel.add(backButton);

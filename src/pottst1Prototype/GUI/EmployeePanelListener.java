@@ -34,13 +34,14 @@ public class EmployeePanelListener implements ActionListener
 	static PrintWriter pw = null;
 
 	public EmployeePanelListener(JTextField user, JTextField password, JTextField access, JButton addButton,
-	                             JButton remove){
+	                             JButton remove, EmployeePanel employeeView){
 
 		this.user = user;
 		this.password = password;
 		this.access = access;
 		this.addButton = addButton;
 		this.remove = remove;
+		this.employeeView = employeeView;
 
 	}
 
@@ -64,7 +65,7 @@ public class EmployeePanelListener implements ActionListener
 				for(Employee em : ExtractEmployees.employee){
 
 					if(em.getUsername().equals(user.getText())){
-						
+
 						employeeView.displayError("User already exists.");
 					}
 					else{
@@ -93,6 +94,15 @@ public class EmployeePanelListener implements ActionListener
 
 	}
 
+	public static void backToMenu()
+	{
+
+		JFrame frame = employeeView.getFrame();
+		frame.getContentPane().removeAll();
+		frame.add(new ManagementPanel(frame));
+		frame.revalidate();
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
@@ -117,12 +127,5 @@ public class EmployeePanelListener implements ActionListener
 	}
 
 
-	public static void backToMenu()
-	{
 
-		JFrame frame = employeeView.getFrame();
-		frame.getContentPane().removeAll();
-		frame.add(new ManagementPanel(frame));
-		frame.revalidate();
-	}
 }

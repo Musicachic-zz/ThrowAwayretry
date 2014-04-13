@@ -82,6 +82,10 @@ public class SalesOrderPanelListener implements ActionListener
 
 	private void remove(){
 		System.out.println("Remove button clicked.");
+		JFrame frame = salesView.getFrame();
+		frame.getContentPane().removeAll();
+		frame.add(new InvoicePanel(frame));
+		frame.revalidate();
 	}
 
 	private void finish(){
@@ -90,6 +94,10 @@ public class SalesOrderPanelListener implements ActionListener
 
 	private void management(){
 		System.out.println("Management button clicked.");
+		JFrame frame = salesView.getFrame();
+		frame.getContentPane().removeAll();
+		frame.add(new ManagementPanel(frame));
+		frame.revalidate();
 	}
 
 	private void exit(){
