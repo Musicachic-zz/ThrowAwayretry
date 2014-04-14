@@ -90,7 +90,8 @@ public class FinishPanel extends JPanel
 
 		JPanel buttonPanel = new JPanel();
 		JButton addButton = new JButton("Add Payment");
-		addButton.addActionListener(new FinishPanelListener());
+		addButton.addActionListener(new FinishPanelListener(paymentList, amt, routing, accountNumber,
+		                                                    checkNumber,ccNumber, expDate));
 		addButton.setName("Add Payment");
 		buttonPanel.setLayout(new FlowLayout());
 		buttonPanel.add(addButton);
@@ -98,7 +99,8 @@ public class FinishPanel extends JPanel
 
 		buttonPanel = new JPanel();
 		JButton removeButton = new JButton("Remove Payment");
-		removeButton.addActionListener(new FinishPanelListener());
+		removeButton.addActionListener(new FinishPanelListener(paymentList, amt, routing, accountNumber,
+		                                                       checkNumber,ccNumber, expDate));
 		removeButton.setName("Remove Payment");
 		buttonPanel.setLayout(new FlowLayout());
 		buttonPanel.add(removeButton);
@@ -106,7 +108,8 @@ public class FinishPanel extends JPanel
 
 		buttonPanel = new JPanel();
 		JButton backButton = new JButton("Back to Previous Menu");
-		backButton.addActionListener(new FinishPanelListener());
+		backButton.addActionListener(new FinishPanelListener(paymentList, amt, routing, accountNumber,
+		                                                     checkNumber,ccNumber, expDate));
 		backButton.setName("Back");
 		buttonPanel.setLayout(new FlowLayout());
 		buttonPanel.add(backButton);
