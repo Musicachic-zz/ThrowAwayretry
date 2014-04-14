@@ -17,6 +17,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/**
+ * This class contains the listener for the finish panel.
+ */
 public class FinishPanelListener implements ActionListener
 {
 	private JTextField amt;
@@ -30,9 +33,22 @@ public class FinishPanelListener implements ActionListener
 	private static DefaultListModel<Payment> payment;
 	private JList<Payment> paymentList;
 
+	/**
+	 * This method is the constructor for the FinishPanelListener.
+	 *
+	 * @param paymentList
+	 * @param amt
+	 * @param routing
+	 * @param accountNumber
+	 * @param checkNumber
+	 * @param ccNumber
+	 * @param expDate
+	 * @param finishView
+	 */
 	public FinishPanelListener(JList<Payment> paymentList, JTextField amt, JTextField routing,
 	                           JTextField accountNumber,
-	                           JTextField checkNumber,JTextField ccNumber,JTextField expDate, FinishPanel finishView){
+	                           JTextField checkNumber, JTextField ccNumber, JTextField expDate, FinishPanel finishView)
+	{
 
 		this.paymentList = paymentList;
 		this.amt = amt;
@@ -45,16 +61,29 @@ public class FinishPanelListener implements ActionListener
 
 	}
 
-	public static void addPayment(ActionEvent e){
-
+	/**
+	 * This method is supposed to contain the code to add a payment.
+	 *
+	 * @param e
+	 */
+	public static void addPayment(ActionEvent e)
+	{
 
 	}
 
-	public static void removePayment(ActionEvent e){
-
+	/**
+	 * This method is supposed to contain the code to remove a payment.
+	 *
+	 * @param e
+	 */
+	public static void removePayment(ActionEvent e)
+	{
 
 	}
 
+	/**
+	 * This is the method that does the work to go back to the sales menu.
+	 */
 	public static void backToMenu()
 	{
 
@@ -64,13 +93,20 @@ public class FinishPanelListener implements ActionListener
 		frame.revalidate();
 	}
 
+	/**
+	 * This is the required actionPerformed method for implementing the ActionListener for this class. It contains
+	 * the routing to the various methods when you click the Add Payment, Remove Payment, and Back buttons.
+	 *
+	 * @param e
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		System.out.println("Button clicked");
 		JButton source = (JButton) e.getSource();
 
-		switch (source.getName()){
+		switch (source.getName())
+		{
 
 			case "Add":
 				addPayment(e);

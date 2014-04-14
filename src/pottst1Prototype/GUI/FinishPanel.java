@@ -15,6 +15,9 @@ import pottst1Prototype.data.Payment;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * This class contains the display for the finish panel, which is the panel for making payments.
+ */
 public class FinishPanel extends JPanel
 {
 	private DefaultListModel<Payment> payment;
@@ -30,7 +33,13 @@ public class FinishPanel extends JPanel
 	private JLabel displayOk = new JLabel("");
 	private JFrame frame;
 
-	public FinishPanel(JFrame frame){
+	/**
+	 * This method creates the buttons and fields for the finish panel.
+	 *
+	 * @param frame
+	 */
+	public FinishPanel(JFrame frame)
+	{
 
 		super(new GridLayout(7, 3));
 		this.frame = frame;
@@ -94,7 +103,7 @@ public class FinishPanel extends JPanel
 		JPanel buttonPanel = new JPanel();
 		JButton addButton = new JButton("Add Payment");
 		addButton.addActionListener(new FinishPanelListener(paymentList, amt, routing, accountNumber,
-		                                                    checkNumber,ccNumber, expDate, finishView));
+		                                                    checkNumber, ccNumber, expDate, finishView));
 		addButton.setName("Add Payment");
 		buttonPanel.setLayout(new FlowLayout());
 		buttonPanel.add(addButton);
@@ -103,7 +112,7 @@ public class FinishPanel extends JPanel
 		buttonPanel = new JPanel();
 		JButton removeButton = new JButton("Remove Payment");
 		removeButton.addActionListener(new FinishPanelListener(paymentList, amt, routing, accountNumber,
-		                                                       checkNumber,ccNumber, expDate, finishView));
+		                                                       checkNumber, ccNumber, expDate, finishView));
 		removeButton.setName("Remove Payment");
 		buttonPanel.setLayout(new FlowLayout());
 		buttonPanel.add(removeButton);
@@ -112,7 +121,7 @@ public class FinishPanel extends JPanel
 		buttonPanel = new JPanel();
 		JButton backButton = new JButton("Back to Previous Menu");
 		backButton.addActionListener(new FinishPanelListener(paymentList, amt, routing, accountNumber,
-		                                                     checkNumber,ccNumber, expDate, finishView));
+		                                                     checkNumber, ccNumber, expDate, finishView));
 		backButton.setName("Back");
 		buttonPanel.setLayout(new FlowLayout());
 		buttonPanel.add(backButton);
@@ -120,16 +129,32 @@ public class FinishPanel extends JPanel
 
 	}
 
+	/**
+	 * This is a generic error message method that is used to display errors on each page.
+	 *
+	 * @param message
+	 */
+
 	public void displayError(String message)
 	{
 		errorMessage.setText(message);
 	}
 
+	/**
+	 * This is a generic message method that is used to display when something is processed on some pages.
+	 *
+	 * @param message
+	 */
 	public void displayOk(String message)
 	{
 		displayOk.setText(message);
 	}
 
+	/**
+	 * This is a generic method to help transition between frames.
+	 *
+	 * @return JFrame
+	 */
 	public JFrame getFrame()
 	{
 		return frame;

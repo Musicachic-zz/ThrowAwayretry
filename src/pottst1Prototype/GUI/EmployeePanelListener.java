@@ -21,6 +21,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 
+/**
+ * This class contains the actions when the employee panel buttons are pressed.
+ */
+
 public class EmployeePanelListener implements ActionListener
 {
 	private static Employee em;
@@ -33,6 +37,16 @@ public class EmployeePanelListener implements ActionListener
 	private static EmployeePanel employeeView;
 	static PrintWriter pw = null;
 
+	/**
+	 * This is the constructor for the EmployeePanelListener.
+	 *
+	 * @param user
+	 * @param password
+	 * @param access
+	 * @param addButton
+	 * @param remove
+	 * @param employeeView
+	 */
 	public EmployeePanelListener(JTextField user, JTextField password, JTextField access, JButton addButton,
 	                             JButton remove, EmployeePanel employeeView)
 	{
@@ -46,6 +60,11 @@ public class EmployeePanelListener implements ActionListener
 
 	}
 
+	/**
+	 * This is the method that does the work to add an employee.
+	 *
+	 * @param e
+	 */
 	private void add(ActionEvent e)
 	{
 
@@ -95,11 +114,19 @@ public class EmployeePanelListener implements ActionListener
 		}
 	}
 
-	private void remove()
+	/**
+	 * This is the method that does the work to remove an employee.
+	 *
+	 * @param e
+	 */
+	private void remove(ActionEvent e)
 	{
 
 	}
 
+	/**
+	 * This is the method that does the work to go back to the sales menu.
+	 */
 	public static void backToMenu()
 	{
 
@@ -109,6 +136,12 @@ public class EmployeePanelListener implements ActionListener
 		frame.revalidate();
 	}
 
+	/**
+	 * This is the required actionPerformed method for implementing the ActionListener for this class. It contains
+	 * the routing to the various methods when you click the Add Employee, Remove Employee, and Back buttons.
+	 *
+	 * @param e
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
@@ -122,7 +155,7 @@ public class EmployeePanelListener implements ActionListener
 				add(e);
 				break;
 			case "Remove Employee":
-				remove();
+				remove(e);
 				break;
 			case "Back":
 				backToMenu();

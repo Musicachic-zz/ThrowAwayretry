@@ -17,6 +17,9 @@ import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This class contains the display for the invoice panel, which is the panel for adding and removing to invoice.
+ */
 public class InvoicePanel extends JPanel
 {
 	public static Map<Product, Integer> invoiceDisplay = new HashMap<>();
@@ -24,10 +27,16 @@ public class InvoicePanel extends JPanel
 	private JList<Product> invoiceList;
 	private static JTextField upcField;
 	private static JTextField qtyField;
+	private static JTextField invAmtField;
 	private InvoicePanel invoiceView = this;
 	private JLabel errorMessage = new JLabel("");
 	private JFrame frame;
 
+	/**
+	 * This method creates the buttons and fields for the invoice panel.
+	 *
+	 * @param frame
+	 */
 	public InvoicePanel(JFrame frame)
 	{
 
@@ -48,6 +57,13 @@ public class InvoicePanel extends JPanel
 
 		this.add(new JPanel());
 		this.add(errorMessage);
+
+/*		JPanel invAmtPanel = new JPanel();
+		invAmtPanel.setLayout(new FlowLayout());
+		invAmtPanel.add(new JLabel("Invoice Amount"));
+		invAmtPanel.setName("Invoice Amount");
+		invAmtPanel.add(invAmtField);
+		this.add(invAmtPanel);*/
 
 		JPanel upcPanel = new JPanel();
 		upcPanel.setLayout(new FlowLayout());
@@ -78,7 +94,8 @@ public class InvoicePanel extends JPanel
 
 		buttonPanel = new JPanel();
 		JButton removeButton = new JButton("Remove from Invoice");
-		removeButton.addActionListener(new InvoicePanelListener(invoiceList, upcField, qtyField, invoiceView, invoiceDisplay));
+		removeButton.addActionListener(new InvoicePanelListener(invoiceList, upcField, qtyField, invoiceView,
+		                                                        invoiceDisplay));
 		removeButton.setName("Remove");
 		buttonPanel.setLayout(new FlowLayout());
 		buttonPanel.add(removeButton);
@@ -86,7 +103,8 @@ public class InvoicePanel extends JPanel
 
 		buttonPanel = new JPanel();
 		JButton backButton = new JButton("Back to Previous Menu");
-		backButton.addActionListener(new InvoicePanelListener(invoiceList, upcField, qtyField, invoiceView, invoiceDisplay));
+		backButton.addActionListener(new InvoicePanelListener(invoiceList, upcField, qtyField, invoiceView,
+		                                                      invoiceDisplay));
 		backButton.setName("Back");
 		buttonPanel.setLayout(new FlowLayout());
 		buttonPanel.add(backButton);
@@ -106,11 +124,21 @@ public class InvoicePanel extends JPanel
 		return listPanel;
 	}
 
+	/**
+	 * This is a generic error message method that is used to display errors on each page.
+	 *
+	 * @param message
+	 */
 	public void displayError(String message)
 	{
 		errorMessage.setText(message);
 	}
 
+	/**
+	 * This is a generic method to help transition between frames.
+	 *
+	 * @return JFrame
+	 */
 	public JFrame getFrame()
 	{
 		return frame;

@@ -15,6 +15,9 @@ import pottst1Prototype.data.Product;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * This class contains the code to display the Inventory panel.
+ */
 public class InventoryPanel extends JPanel
 {
 	private static Product prod;
@@ -29,6 +32,11 @@ public class InventoryPanel extends JPanel
 	private JLabel errorMessage = new JLabel("");
 	private JLabel displayOk = new JLabel("");
 
+	/**
+	 * This method contains the objects to create the inventory panel.
+	 *
+	 * @param frame
+	 */
 	public InventoryPanel(JFrame frame)
 	{
 
@@ -96,16 +104,31 @@ public class InventoryPanel extends JPanel
 
 	}
 
+	/**
+	 * This is a generic error message method that is used to display errors on each page.
+	 *
+	 * @param message
+	 */
 	public void displayError(String message)
 	{
 		errorMessage.setText(message);
 	}
 
+	/**
+	 * This is a generic message method that is used to display when something is processed on some pages.
+	 *
+	 * @param message
+	 */
 	public void displayOk(String message)
 	{
 		displayOk.setText(message);
 	}
 
+	/**
+	 * This is a generic method to help transition between frames.
+	 *
+	 * @return JFrame
+	 */
 	public JFrame getFrame()
 	{
 		return frame;

@@ -15,9 +15,17 @@ import pottst1Prototype.data.Payment;
 import java.math.BigDecimal;
 import java.util.List;
 
+/**
+ * This class sets up the display for the payments.
+ */
 public class PaymentArrayDisplay
 {
 
+	/**
+	 * This method displays and arranges the payments.
+	 *
+	 * @param payments
+	 */
 	public static void printPayments(List<Payment> payments)
 	{
 

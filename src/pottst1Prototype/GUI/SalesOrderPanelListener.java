@@ -18,6 +18,9 @@ import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This class contains the listener for the sales order panel.
+ */
 public class SalesOrderPanelListener implements ActionListener
 {
 	public static Map<Product, Integer> invoiceDisplay = new HashMap<>();
@@ -32,6 +35,17 @@ public class SalesOrderPanelListener implements ActionListener
 
 	//public SalesOrderPanel initialSalesDisplay;
 
+	/**
+	 * This method is the constructor for the SalesOrderPanelListener.
+	 *
+	 * @param add
+	 * @param remove
+	 * @param finish
+	 * @param management
+	 * @param exit
+	 * @param salesView
+	 * @param invoiceDisplay
+	 */
 	public SalesOrderPanelListener(JTextField add, JTextField remove, JTextField finish, JTextField management,
 	                               JTextField exit, SalesOrderPanel salesView, Map invoiceDisplay)
 	{
@@ -44,6 +58,76 @@ public class SalesOrderPanelListener implements ActionListener
 		this.invoiceDisplay = invoiceDisplay;
 	}
 
+	/**
+	 * This method routes you to go add items to the invoice.
+	 */
+	private void add()
+	{
+
+		System.out.println("Add button clicked.");
+		JFrame frame = salesView.getFrame();
+		frame.getContentPane().removeAll();
+		frame.add(new InvoicePanel(frame));
+		frame.revalidate();
+
+	}
+
+	/**
+	 * This method routes you to go remove items from the invoice.
+	 */
+	private void remove()
+	{
+		System.out.println("Remove button clicked.");
+		JFrame frame = salesView.getFrame();
+		frame.getContentPane().removeAll();
+		frame.add(new InvoicePanel(frame));
+		frame.revalidate();
+	}
+
+	/**
+	 * This method routes you to go to make payments.
+	 */
+	private void finish()
+	{
+		System.out.println("Finish button clicked.");
+		System.out.println("Finish button clicked.");
+		JFrame frame = salesView.getFrame();
+		frame.getContentPane().removeAll();
+		frame.add(new FinishPanel(frame));
+		frame.revalidate();
+	}
+
+	/**
+	 * This method routes you to the management menu.
+	 */
+	private void management()
+	{
+		System.out.println("Management button clicked.");
+		JFrame frame = salesView.getFrame();
+		frame.getContentPane().removeAll();
+		frame.add(new ManagementPanel(frame));
+		frame.revalidate();
+	}
+
+	/**
+	 * This method routes you back to the original login screen.
+	 */
+	private void exit()
+	{
+		System.out.println("Exit button clicked.");
+		JFrame frame = salesView.getFrame();
+		frame.getContentPane().removeAll();
+		frame.add(new LoginPanel(frame));
+		frame.revalidate();
+	}
+
+	/**
+	 * This is the required actionPerformed method for implementing the ActionListener for this class. It contains
+	 * the routing to the various methods when you click the Add, Remove, Finish, Management,
+	 * and Exit buttons.
+	 *
+	 * @param e
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
@@ -70,54 +154,6 @@ public class SalesOrderPanelListener implements ActionListener
 				break;
 
 		}
-	}
-
-	private void add()
-	{
-
-		System.out.println("Add button clicked.");
-		JFrame frame = salesView.getFrame();
-		frame.getContentPane().removeAll();
-		frame.add(new InvoicePanel(frame));
-		frame.revalidate();
-
-	}
-
-	private void remove()
-	{
-		System.out.println("Remove button clicked.");
-		JFrame frame = salesView.getFrame();
-		frame.getContentPane().removeAll();
-		frame.add(new InvoicePanel(frame));
-		frame.revalidate();
-	}
-
-	private void finish()
-	{
-		System.out.println("Finish button clicked.");
-		System.out.println("Finish button clicked.");
-		JFrame frame = salesView.getFrame();
-		frame.getContentPane().removeAll();
-		frame.add(new FinishPanel(frame));
-		frame.revalidate();
-	}
-
-	private void management()
-	{
-		System.out.println("Management button clicked.");
-		JFrame frame = salesView.getFrame();
-		frame.getContentPane().removeAll();
-		frame.add(new ManagementPanel(frame));
-		frame.revalidate();
-	}
-
-	private void exit()
-	{
-		System.out.println("Exit button clicked.");
-		JFrame frame = salesView.getFrame();
-		frame.getContentPane().removeAll();
-		frame.add(new LoginPanel(frame));
-		frame.revalidate();
 	}
 
 /*		if(add.getText().equals(this)){

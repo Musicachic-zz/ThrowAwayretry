@@ -19,6 +19,9 @@ import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This class contains the listener for the invoice panel.
+ */
 public class InvoicePanelListener implements ActionListener
 {
 	public static Map<Product, Integer> invoiceDisplay = new HashMap<>();
@@ -31,6 +34,15 @@ public class InvoicePanelListener implements ActionListener
 	private static InvoicePanel invoiceView;
 	private static String lastUpc = null;
 
+	/**
+	 * This method is the constructor for the InvoicePanelListener.
+	 *
+	 * @param invoice
+	 * @param upcField
+	 * @param qtyField
+	 * @param invoiceView
+	 * @param invoiceDisplay
+	 */
 	public InvoicePanelListener(JList<Product> invoice, JTextField upcField, JTextField qtyField,
 	                            InvoicePanel invoiceView, Map invoiceDisplay)
 	{
@@ -42,6 +54,11 @@ public class InvoicePanelListener implements ActionListener
 
 	}
 
+	/**
+	 * This method is supposed to contain the code to add a item from the invoice.
+	 *
+	 * @param e
+	 */
 	public static void addProduct(ActionEvent e)
 	{
 		System.out.println("Add to invoice button clicked.");
@@ -117,15 +134,81 @@ public class InvoicePanelListener implements ActionListener
 
 	}
 
-	public static void removeProduct()
+	/**
+	 * This method is supposed to contain the code to remove a item from the invoice.
+	 *
+	 * @param e
+	 */
+	public static void removeProduct(ActionEvent e)
 	{
-		Product p = new Product();
-		p.setUpc(upcField.getText());
-		p.setQuantity(Integer.parseInt(qtyField.getText()));
+		System.out.println("Remove from the invoice button clicked.");
 
-		product.removeElement(p);
+		if (e.getSource() instanceof JButton)
+		{
+			JButton source = (JButton) e.getSource();
+
+			if (upcField == null || upcField.getText().isEmpty())
+			{
+
+				invoiceView.displayError("No UPC Provided.");
+
+			}
+			else
+			{
+				upcField.setText(lastUpc);
+				invoiceView.displayError("UPC Defaulted to last UPC.");
+			}
+
+			boolean isValid = false;
+
+			for (Product p : ExtractProductsandInventory.prod)
+			{
+
+				if (p.getUpc().equals(upcField.getText()))
+				{
+
+					isValid = true;
+					lastUpc = upcField.getText();
+					Integer quantity;
+					String s = qtyField.getText();
+					if (s == null || s.isEmpty())
+					{
+						quantity = 1;
+					}
+					else
+					{
+						quantity = Integer.valueOf(s);
+					}
+					Integer invoiceQuantity = invoiceDisplay.get(p);
+					if (invoiceQuantity != null)
+					{
+						quantity = invoiceDisplay.get(p) - quantity;
+						invoiceDisplay.put(p, p.getQuantity());
+					}
+
+					p.setUpc(upcField.getText());
+					p.setQuantity(quantity);
+					p.setPrice(p.getPrice());
+					p.setDescription(p.getDescription());
+					System.out.println(p);
+					product.removeElement(p);
+					invoiceDisplay.put(p, p.getQuantity());
+
+				}
+			}
+			if (!isValid)
+			{
+				invoiceView.displayError("UPC was not found.");
+				source.setText("Remove from Invoice");
+				source.setEnabled(true);
+			}
+
+		}
 	}
 
+	/**
+	 * This is the method that does the work to go back to the sales menu.
+	 */
 	public static void backToMenu()
 	{
 
@@ -135,6 +218,13 @@ public class InvoicePanelListener implements ActionListener
 		frame.revalidate();
 	}
 
+	/**
+	 * This is the required actionPerformed method for implementing the ActionListener for this class. It contains
+	 * the routing to the various methods when you click the Add to the Invoice, Remove from the Invoice,
+	 * and Back buttons.
+	 *
+	 * @param e
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
@@ -148,7 +238,7 @@ public class InvoicePanelListener implements ActionListener
 				addProduct(e);
 				break;
 			case "Remove":
-				removeProduct();
+				removeProduct(e);
 				break;
 			case "Back":
 				backToMenu();

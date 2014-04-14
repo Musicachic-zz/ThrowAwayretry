@@ -17,6 +17,9 @@ import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This class contains the display for the sales order panel, which is the default panel after logging in.
+ */
 public class SalesOrderPanel extends JPanel
 {
 	public static Map<Product, Integer> invoiceDisplay = new HashMap<>();
@@ -29,6 +32,11 @@ public class SalesOrderPanel extends JPanel
 	private JLabel errorMessage = new JLabel("");
 	private JFrame frame;
 
+	/**
+	 * This method creates the buttons and fields for the sales order panel.
+	 *
+	 * @param frame
+	 */
 	public SalesOrderPanel(JFrame frame)
 
 	{
@@ -40,7 +48,8 @@ public class SalesOrderPanel extends JPanel
 		//Add button section
 		JPanel buttonPanel = new JPanel();
 		JButton addButton = new JButton("Add");
-		addButton.addActionListener(new SalesOrderPanelListener(add, remove, finish, management, exit, salesView, invoiceDisplay));
+		addButton.addActionListener(new SalesOrderPanelListener(add, remove, finish, management, exit, salesView,
+		                                                        invoiceDisplay));
 		addButton.setName("Add");
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		buttonPanel.add(addButton);
@@ -48,8 +57,9 @@ public class SalesOrderPanel extends JPanel
 
 		buttonPanel = new JPanel();
 		JButton removeButton = new JButton("Remove");
-		removeButton.addActionListener(new SalesOrderPanelListener(add, remove, finish, management, exit, salesView, invoiceDisplay
-		                                                           ));
+		removeButton.addActionListener(new SalesOrderPanelListener(add, remove, finish, management, exit, salesView,
+		                                                           invoiceDisplay
+		));
 		removeButton.setName("Remove");
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		buttonPanel.add(removeButton);
@@ -57,8 +67,9 @@ public class SalesOrderPanel extends JPanel
 
 		buttonPanel = new JPanel();
 		JButton finishButton = new JButton("Finish");
-		finishButton.addActionListener(new SalesOrderPanelListener(add, remove, finish, management, exit, salesView, invoiceDisplay
-		                                                           ));
+		finishButton.addActionListener(new SalesOrderPanelListener(add, remove, finish, management, exit, salesView,
+		                                                           invoiceDisplay
+		));
 		finishButton.setName("Finish");
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		buttonPanel.add(finishButton);
@@ -75,18 +86,29 @@ public class SalesOrderPanel extends JPanel
 
 		buttonPanel = new JPanel();
 		JButton exitButton = new JButton("Exit");
-		exitButton.addActionListener(new SalesOrderPanelListener(add, remove, finish, management, exit, salesView, invoiceDisplay));
+		exitButton.addActionListener(new SalesOrderPanelListener(add, remove, finish, management, exit, salesView,
+		                                                         invoiceDisplay));
 		exitButton.setName("Exit");
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		buttonPanel.add(exitButton);
 		this.add(buttonPanel);
 	}
 
+	/**
+	 * This is a generic error message method that is used to display errors on each page.
+	 *
+	 * @param message
+	 */
 	public void displayError(String message)
 	{
 		errorMessage.setText(message);
 	}
 
+	/**
+	 * This is a generic method to help transition between frames.
+	 *
+	 * @return JFrame
+	 */
 	public JFrame getFrame()
 	{
 		return frame;

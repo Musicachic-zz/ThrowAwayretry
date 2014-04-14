@@ -19,6 +19,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+/**
+ * This class contains the listener for the login panel.
+ *
+ * @author Hoffmanz
+ */
 public class LoginButtonListener implements ActionListener
 {
 
@@ -28,6 +33,13 @@ public class LoginButtonListener implements ActionListener
 	private LoginPanel loginView;
 	private Employee loggedInEmployee = null;
 
+	/**
+	 * This method is the constructor for LoginButtonListener.
+	 *
+	 * @param username
+	 * @param password
+	 * @param loginView
+	 */
 	public LoginButtonListener(JTextField username, JPasswordField password, LoginPanel loginView)
 	{
 		this.username = username;
@@ -35,11 +47,22 @@ public class LoginButtonListener implements ActionListener
 		this.loginView = loginView;
 	}
 
+	/**
+	 * This generic constructor is used for setting this.
+	 *
+	 * @param loginPanel
+	 */
 	public LoginButtonListener(LoginPanel loginPanel)
 	{
 		//To change body of created methods use File | Settings | File Templates.
 	}
 
+	/**
+	 * This is the required actionPerformed method for implementing the ActionListener for this class. It contains
+	 * the routing to the next method when you click to login.
+	 *
+	 * @param arg0
+	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0)
 	{

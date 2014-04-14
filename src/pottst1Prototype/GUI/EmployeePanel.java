@@ -15,6 +15,9 @@ import pottst1Prototype.data.Employee;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * This class sets up the fields for being used on the employee screen.
+ */
 public class EmployeePanel extends JPanel
 {
 
@@ -29,6 +32,11 @@ public class EmployeePanel extends JPanel
 	private JLabel errorMessage = new JLabel("");
 	private JLabel displayOk = new JLabel("");
 
+	/**
+	 * This method sets up the fields for being used on the employee screen.
+	 *
+	 * @param frame
+	 */
 	public EmployeePanel(JFrame frame)
 	{
 
@@ -90,16 +98,31 @@ public class EmployeePanel extends JPanel
 
 	}
 
+	/**
+	 * This is a generic error message method that is used to display errors on each page.
+	 *
+	 * @param message
+	 */
 	public void displayError(String message)
 	{
 		errorMessage.setText(message);
 	}
 
+	/**
+	 * This is a generic message method that is used to display when something is processed on some pages.
+	 *
+	 * @param message
+	 */
 	public void displayOk(String message)
 	{
 		displayOk.setText(message);
 	}
 
+	/**
+	 * This is a generic method to help transition between frames.
+	 *
+	 * @return JFrame
+	 */
 	public JFrame getFrame()
 	{
 		return frame;

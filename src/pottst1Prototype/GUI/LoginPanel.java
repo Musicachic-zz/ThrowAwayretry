@@ -28,6 +28,11 @@ public class LoginPanel extends JPanel
 	private JTextField uf = new JTextField(10);
 	private JPasswordField pf = new JPasswordField(10);
 
+	/**
+	 * This method creates all the fields and buttons for the login screen.
+	 *
+	 * @param frame
+	 */
 	public LoginPanel(JFrame frame)
 	{
 		// this.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -95,16 +100,29 @@ public class LoginPanel extends JPanel
 		this.add(new JPanel());
 	}
 
+	/**
+	 * This method is used to create a error message for the login screen only.
+	 */
 	public void printLoginError()
 	{
 		errorMessage.setText("Invalid username/password.");
 	}
 
+	/**
+	 * This is a generic error message method that is used to display errors on each page.
+	 *
+	 * @param message
+	 */
 	public void displayError(String message)
 	{
 		errorMessage.setText(message);
 	}
 
+	/**
+	 * This is a generic method to help transition between frames.
+	 *
+	 * @return JFrame
+	 */
 	public JFrame getFrame()
 	{
 		return frame;

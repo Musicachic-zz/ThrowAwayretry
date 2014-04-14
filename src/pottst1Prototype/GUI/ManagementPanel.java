@@ -13,6 +13,9 @@ package pottst1Prototype.GUI;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * This class contains the display for the management panel, which is the panel for managing inventory and employees.
+ */
 public class ManagementPanel extends JPanel
 {
 	private JFrame frame;
@@ -22,6 +25,11 @@ public class ManagementPanel extends JPanel
 	private JButton backButton;
 	private ManagementPanel mgmtView = this;
 
+	/**
+	 * This method creates the buttons and fields for the management panel.
+	 *
+	 * @param frame
+	 */
 	public ManagementPanel(JFrame frame)
 	{
 		super(new GridLayout(7, 3));
@@ -63,11 +71,21 @@ public class ManagementPanel extends JPanel
 
 	}
 
+	/**
+	 * This is a generic error message method that is used to display errors on each page.
+	 *
+	 * @param message
+	 */
 	public void displayError(String message)
 	{
 		errorMessage.setText(message);
 	}
 
+	/**
+	 * This is a generic method to help transition between frames.
+	 *
+	 * @return JFrame
+	 */
 	public JFrame getFrame()
 	{
 		return frame;

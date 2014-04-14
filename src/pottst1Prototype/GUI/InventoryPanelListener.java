@@ -21,6 +21,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 
+/**
+ * This class contains the listener for the finish panel.
+ */
 public class InventoryPanelListener implements ActionListener
 {
 	private static Product prod;
@@ -34,6 +37,16 @@ public class InventoryPanelListener implements ActionListener
 	private static InventoryPanel inventoryView;
 	public static PrintWriter pw = null;
 
+	/**
+	 * This method is the constructor for the InventoryPanelListener.
+	 *
+	 * @param inventoryView
+	 * @param upc
+	 * @param description
+	 * @param price
+	 * @param quantity
+	 */
+
 	public InventoryPanelListener(InventoryPanel inventoryView, JTextField upc, JTextField description,
 	                              JTextField price, JTextField quantity)
 	{
@@ -44,6 +57,11 @@ public class InventoryPanelListener implements ActionListener
 		this.quantity = quantity;
 	}
 
+	/**
+	 * This method is supposed to contain the code to add to the inventory.
+	 *
+	 * @param e
+	 */
 	private void add(ActionEvent e)
 	{
 
@@ -85,11 +103,19 @@ public class InventoryPanelListener implements ActionListener
 
 	}
 
+	/**
+	 * This method is supposed to contain the code to remove a item from the inventory.
+	 *
+	 * @param e
+	 */
 	private void remove(ActionEvent e)
 	{
 
 	}
 
+	/**
+	 * This is the method that does the work to go back to the sales menu.
+	 */
 	public static void backToMenu()
 	{
 
@@ -99,6 +125,12 @@ public class InventoryPanelListener implements ActionListener
 		frame.revalidate();
 	}
 
+	/**
+	 * This is the required actionPerformed method for implementing the ActionListener for this class. It contains
+	 * the routing to the various methods when you click the Add Inventory, Remove Inventory, and Back buttons.
+	 *
+	 * @param e
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
