@@ -14,9 +14,12 @@ import pottst1Prototype.data.Product;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class InvoicePanel extends JPanel
 {
+	public static Map<Product, Integer> invoiceDisplay = new HashMap<>();
 	private DefaultListModel<Product> product;
 	private JList<Product> invoiceList;
 	private static JTextField upcField;
@@ -66,7 +69,8 @@ public class InvoicePanel extends JPanel
 		//Add button section
 		JPanel buttonPanel = new JPanel();
 		JButton addButton = new JButton("Add to Invoice");
-		addButton.addActionListener(new InvoicePanelListener(invoiceList, upcField, qtyField, invoiceView));
+		addButton.addActionListener(new InvoicePanelListener(invoiceList, upcField, qtyField, invoiceView,
+		                                                     invoiceDisplay));
 		addButton.setName("Add");
 		buttonPanel.setLayout(new FlowLayout());
 		buttonPanel.add(addButton);
@@ -74,7 +78,7 @@ public class InvoicePanel extends JPanel
 
 		buttonPanel = new JPanel();
 		JButton removeButton = new JButton("Remove from Invoice");
-		removeButton.addActionListener(new InvoicePanelListener(invoiceList, upcField, qtyField, invoiceView));
+		removeButton.addActionListener(new InvoicePanelListener(invoiceList, upcField, qtyField, invoiceView, invoiceDisplay));
 		removeButton.setName("Remove");
 		buttonPanel.setLayout(new FlowLayout());
 		buttonPanel.add(removeButton);
@@ -82,7 +86,7 @@ public class InvoicePanel extends JPanel
 
 		buttonPanel = new JPanel();
 		JButton backButton = new JButton("Back to Previous Menu");
-		backButton.addActionListener(new InvoicePanelListener(invoiceList, upcField, qtyField, invoiceView));
+		backButton.addActionListener(new InvoicePanelListener(invoiceList, upcField, qtyField, invoiceView, invoiceDisplay));
 		backButton.setName("Back");
 		buttonPanel.setLayout(new FlowLayout());
 		buttonPanel.add(backButton);

@@ -15,9 +15,12 @@ import pottst1Prototype.data.Product;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SalesOrderPanelListener implements ActionListener
 {
+	public static Map<Product, Integer> invoiceDisplay = new HashMap<>();
 	private JTextField add;
 	private JTextField remove;
 	private JTextField finish;
@@ -30,7 +33,7 @@ public class SalesOrderPanelListener implements ActionListener
 	//public SalesOrderPanel initialSalesDisplay;
 
 	public SalesOrderPanelListener(JTextField add, JTextField remove, JTextField finish, JTextField management,
-	                               JTextField exit, SalesOrderPanel salesView)
+	                               JTextField exit, SalesOrderPanel salesView, Map invoiceDisplay)
 	{
 		this.add = add;
 		this.remove = remove;
@@ -38,6 +41,7 @@ public class SalesOrderPanelListener implements ActionListener
 		this.management = management;
 		this.exit = exit;
 		this.salesView = salesView;
+		this.invoiceDisplay = invoiceDisplay;
 	}
 
 	@Override

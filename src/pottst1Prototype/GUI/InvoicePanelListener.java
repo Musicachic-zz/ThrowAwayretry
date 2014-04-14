@@ -32,7 +32,7 @@ public class InvoicePanelListener implements ActionListener
 	private static String lastUpc = null;
 
 	public InvoicePanelListener(JList<Product> invoice, JTextField upcField, JTextField qtyField,
-	                            InvoicePanel invoiceView)
+	                            InvoicePanel invoiceView, Map invoiceDisplay)
 	{
 		this.upcField = upcField;
 		this.qtyField = qtyField;

@@ -10,11 +10,16 @@
 
 package pottst1Prototype.GUI;
 
+import pottst1Prototype.data.Product;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SalesOrderPanel extends JPanel
 {
+	public static Map<Product, Integer> invoiceDisplay = new HashMap<>();
 	private JTextField add;
 	private JTextField remove;
 	private JTextField finish;
@@ -35,7 +40,7 @@ public class SalesOrderPanel extends JPanel
 		//Add button section
 		JPanel buttonPanel = new JPanel();
 		JButton addButton = new JButton("Add");
-		addButton.addActionListener(new SalesOrderPanelListener(add, remove, finish, management, exit, salesView));
+		addButton.addActionListener(new SalesOrderPanelListener(add, remove, finish, management, exit, salesView, invoiceDisplay));
 		addButton.setName("Add");
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		buttonPanel.add(addButton);
@@ -43,7 +48,8 @@ public class SalesOrderPanel extends JPanel
 
 		buttonPanel = new JPanel();
 		JButton removeButton = new JButton("Remove");
-		removeButton.addActionListener(new SalesOrderPanelListener(add, remove, finish, management, exit, salesView));
+		removeButton.addActionListener(new SalesOrderPanelListener(add, remove, finish, management, exit, salesView, invoiceDisplay
+		                                                           ));
 		removeButton.setName("Remove");
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		buttonPanel.add(removeButton);
@@ -51,7 +57,8 @@ public class SalesOrderPanel extends JPanel
 
 		buttonPanel = new JPanel();
 		JButton finishButton = new JButton("Finish");
-		finishButton.addActionListener(new SalesOrderPanelListener(add, remove, finish, management, exit, salesView));
+		finishButton.addActionListener(new SalesOrderPanelListener(add, remove, finish, management, exit, salesView, invoiceDisplay
+		                                                           ));
 		finishButton.setName("Finish");
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		buttonPanel.add(finishButton);
@@ -60,7 +67,7 @@ public class SalesOrderPanel extends JPanel
 		buttonPanel = new JPanel();
 		JButton managementButton = new JButton("Management");
 		managementButton.addActionListener(new SalesOrderPanelListener(add, remove, finish, management, exit,
-		                                                               salesView));
+		                                                               salesView, invoiceDisplay));
 		managementButton.setName("Management");
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		buttonPanel.add(managementButton);
@@ -68,7 +75,7 @@ public class SalesOrderPanel extends JPanel
 
 		buttonPanel = new JPanel();
 		JButton exitButton = new JButton("Exit");
-		exitButton.addActionListener(new SalesOrderPanelListener(add, remove, finish, management, exit, salesView));
+		exitButton.addActionListener(new SalesOrderPanelListener(add, remove, finish, management, exit, salesView, invoiceDisplay));
 		exitButton.setName("Exit");
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		buttonPanel.add(exitButton);
