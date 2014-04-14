@@ -20,7 +20,7 @@ public class InventoryPanel extends JPanel
 	private static Product prod;
 	private JTextField upc = new JTextField(8);
 	private JTextField description = new JTextField(30);
-	private JTextField price = new JTextField();
+	private JTextField price = new JTextField(10);
 	private JTextField quantity = new JTextField(3);
 	private JButton addInventory;
 	private JButton removeInventory;
@@ -49,25 +49,25 @@ public class InventoryPanel extends JPanel
 		upcPanel.setLayout(new FlowLayout());
 		upcPanel.add(new JLabel("UPC"));
 		upcPanel.add(upc);
-		this.add(upc);
+		this.add(upcPanel);
 
 		JPanel descPanel = new JPanel();
 		descPanel.setLayout(new FlowLayout());
 		descPanel.add(new JLabel("Description"));
 		descPanel.add(description);
-		this.add(description);
+		this.add(descPanel);
 
 		JPanel pricePanel = new JPanel();
 		pricePanel.setLayout(new FlowLayout());
 		pricePanel.add(new JLabel("Price"));
 		pricePanel.add(price);
-		this.add(price);
+		this.add(pricePanel);
 
 		JPanel qtyPanel = new JPanel();
 		qtyPanel.setLayout(new FlowLayout());
 		qtyPanel.add(new JLabel("Quantity"));
 		qtyPanel.add(quantity);
-		this.add(quantity);
+		this.add(qtyPanel);
 
 		JPanel buttonPanel = new JPanel();
 		JButton addInventory = new JButton("Add Inventory");

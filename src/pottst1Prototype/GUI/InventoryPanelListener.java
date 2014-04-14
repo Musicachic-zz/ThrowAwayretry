@@ -25,10 +25,10 @@ public class InventoryPanelListener implements ActionListener
 {
 	private static Product prod;
 	private static DefaultListModel<Product> product;
-	private JTextField upc = new JTextField(8);
-	private JTextField description = new JTextField(30);
-	private JTextField price = new JTextField();
-	private JTextField quantity = new JTextField();
+	private JTextField upc;
+	private JTextField description;
+	private JTextField price;
+	private JTextField quantity;
 	private JButton addInventory;
 	private JButton removeInventory;
 	private static InventoryPanel inventoryView;

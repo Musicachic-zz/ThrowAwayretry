@@ -32,7 +32,7 @@ public class FinishPanelListener implements ActionListener
 
 	public FinishPanelListener(JList<Payment> paymentList, JTextField amt, JTextField routing,
 	                           JTextField accountNumber,
-	                           JTextField checkNumber,JTextField ccNumber,JTextField expDate){
+	                           JTextField checkNumber,JTextField ccNumber,JTextField expDate, FinishPanel finishView){
 
 		this.paymentList = paymentList;
 		this.amt = amt;
@@ -41,6 +41,7 @@ public class FinishPanelListener implements ActionListener
 		this.checkNumber = checkNumber;
 		this.ccNumber = ccNumber;
 		this.expDate = expDate;
+		this.finishView = finishView;
 
 	}
 

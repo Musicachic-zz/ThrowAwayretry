@@ -91,6 +91,11 @@ public class SalesOrderPanelListener implements ActionListener
 	private void finish()
 	{
 		System.out.println("Finish button clicked.");
+		System.out.println("Finish button clicked.");
+		JFrame frame = salesView.getFrame();
+		frame.getContentPane().removeAll();
+		frame.add(new FinishPanel(frame));
+		frame.revalidate();
 	}
 
 	private void management()
@@ -105,6 +110,10 @@ public class SalesOrderPanelListener implements ActionListener
 	private void exit()
 	{
 		System.out.println("Exit button clicked.");
+		JFrame frame = salesView.getFrame();
+		frame.getContentPane().removeAll();
+		frame.add(new LoginPanel(frame));
+		frame.revalidate();
 	}
 
 /*		if(add.getText().equals(this)){

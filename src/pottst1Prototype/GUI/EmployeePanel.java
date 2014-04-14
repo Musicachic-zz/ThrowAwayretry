@@ -21,7 +21,7 @@ public class EmployeePanel extends JPanel
 	private static Employee em;
 	private JTextField user = new JTextField(12);
 	private JTextField password = new JTextField(20);
-	private JTextField access = new JTextField();
+	private JTextField access = new JTextField(8);
 	private EmployeePanel employeeView = this;
 	private JButton addButton;
 	private JButton remove;
@@ -49,19 +49,19 @@ public class EmployeePanel extends JPanel
 		userPanel.setLayout(new FlowLayout());
 		userPanel.add(new JLabel("Username"));
 		userPanel.add(user);
-		this.add(user);
+		this.add(userPanel);
 
 		JPanel passwordPanel = new JPanel();
 		passwordPanel.setLayout(new FlowLayout());
 		passwordPanel.add(new JLabel("Password"));
 		passwordPanel.add(password);
-		this.add(password);
+		this.add(passwordPanel);
 
 		JPanel accessPanel = new JPanel();
 		accessPanel.setLayout(new FlowLayout());
 		accessPanel.add(new JLabel("Access Level"));
 		accessPanel.add(access);
-		this.add(access);
+		this.add(accessPanel);
 
 		JPanel buttonPanel = new JPanel();
 		JButton addEmployee = new JButton("Add Employee");
