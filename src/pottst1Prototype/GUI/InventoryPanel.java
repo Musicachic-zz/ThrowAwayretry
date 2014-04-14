@@ -21,7 +21,7 @@ public class InventoryPanel extends JPanel
 	private JTextField upc = new JTextField(8);
 	private JTextField description = new JTextField(30);
 	private JTextField price = new JTextField();
-	private JTextField quantity = new JTextField();
+	private JTextField quantity = new JTextField(3);
 	private JButton addInventory;
 	private JButton removeInventory;
 	private InventoryPanel inventoryView = this;
@@ -70,7 +70,7 @@ public class InventoryPanel extends JPanel
 		this.add(quantity);
 
 		JPanel buttonPanel = new JPanel();
-		JButton addInventory = new JButton("Add Inventory   ");
+		JButton addInventory = new JButton("Add Inventory");
 		addInventory.addActionListener(new InventoryPanelListener(inventoryView, upc, description,
 		                                                          price, quantity));
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -78,11 +78,20 @@ public class InventoryPanel extends JPanel
 		this.add(buttonPanel);
 
 		buttonPanel = new JPanel();
-		JButton removeInventory = new JButton("Remove Employee");
+		JButton removeInventory = new JButton("Remove Inventory");
 		removeInventory.addActionListener(new InventoryPanelListener(inventoryView, upc, description,
 		                                                             price, quantity));
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
 		buttonPanel.add(removeInventory);
+		this.add(buttonPanel);
+
+		buttonPanel = new JPanel();
+		JButton backButton = new JButton("Back to Previous Menu");
+		backButton.addActionListener(new InventoryPanelListener(inventoryView, upc, description,
+		                                                        price, quantity));
+		backButton.setName("Back");
+		buttonPanel.setLayout(new FlowLayout());
+		buttonPanel.add(backButton);
 		this.add(buttonPanel);
 
 	}

@@ -37,8 +37,7 @@ public class InvoicePanel extends JPanel
 		this.add(invoiceList);
 		this.setLayout(new FlowLayout());
 		Font font = errorMessage.getFont();
-		errorMessage.setFont(new Font(font.getFontName(), Font.BOLD, font
-				                                                             .getSize()));
+		errorMessage.setFont(new Font(font.getFontName(), Font.BOLD, font.getSize()));
 		errorMessage.setForeground(Color.RED);
 
 		JTextField upcField = new JTextField();
